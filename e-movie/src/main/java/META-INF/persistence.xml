@@ -6,8 +6,10 @@
 		<!-- provedor/implementacao do JPA -->
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-		<class>br.ufrn.imd.emovie.model.Session</class>
 		<class>br.ufrn.imd.emovie.model.Movie</class>
+		<class>br.ufrn.imd.emovie.model.Room</class>
+		<class>br.ufrn.imd.emovie.model.Session</class>
+		<class>br.ufrn.imd.emovie.model.Exhibition</class>
 		<class>br.ufrn.imd.emovie.model.Ticket</class>
 		<class>br.ufrn.imd.emovie.model.User</class>
 

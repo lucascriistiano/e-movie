@@ -1,12 +1,13 @@
 package br.ufrn.imd.emovie.model;
 
 import java.io.Serializable;
-import java.lang.Integer;
-import java.lang.String;
 import java.util.Date;
-import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Entity implementation class for Entity: Movie
@@ -23,14 +24,23 @@ public class Movie implements Serializable {
 	@Column(name = "id_movie")
 	private Integer id;
 	private String name;
-	private Date startExibition;
-	private Date endExibition;
-	@ManyToMany
-	@JoinTable(name = "session_movie", joinColumns = @JoinColumn(name = "id_movie") , inverseJoinColumns = @JoinColumn(name = "id_session") )
-	private List<Session> sessions;
+	
+	@Column(name = "start_exhibition")
+	private Date startExhibition;
+	
+	@Column(name = "end_exhibition")
+	private Date endExhibition;
 
 	public Movie() {
 		super();
+	}
+	
+	public Movie(String name, Date startExhibition, Date endExhibition) {
+		this();
+		
+		this.name = name;
+		this.startExhibition = startExhibition;
+		this.endExhibition = endExhibition;
 	}
 
 	public Integer getId() {
@@ -49,28 +59,20 @@ public class Movie implements Serializable {
 		this.name = name;
 	}
 
-	public Date getEndExibition() {
-		return endExibition;
+	public Date getEndExhibition() {
+		return endExhibition;
 	}
 
-	public void setEndExibition(Date endExibition) {
-		this.endExibition = endExibition;
+	public void setEndExhibition(Date endExhibition) {
+		this.endExhibition = endExhibition;
 	}
 
-	public Date getStartExibition() {
-		return startExibition;
+	public Date getStartExhibition() {
+		return startExhibition;
 	}
 
-	public void setStartExibition(Date startExibition) {
-		this.startExibition = startExibition;
-	}
-
-	public List<Session> getSessions() {
-		return sessions;
-	}
-
-	public void setSessions(List<Session> sessions) {
-		this.sessions = sessions;
+	public void setStartExhibition(Date startExhibition) {
+		this.startExhibition = startExhibition;
 	}
 
 }

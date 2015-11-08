@@ -1,10 +1,12 @@
 package br.ufrn.imd.emovie.model;
 
 import java.io.Serializable;
-import java.lang.Integer;
-import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Entity implementation class for Entity: Session
@@ -20,13 +22,19 @@ public class Session implements Serializable {
 	@GeneratedValue
 	@Column(name = "id_session")
 	private Integer id;
+	
+	@Column(name = "day_week")
 	private Integer dayWeek;
 	private Integer hour;
-	@ManyToMany(mappedBy = "sessions", fetch = FetchType.LAZY)
-	private List<Movie> movies;
 
 	public Session() {
 		super();
+	}
+	
+	public Session(Integer dayWeek, Integer hour) {
+		this();
+		this.dayWeek = dayWeek;
+		this.hour = hour;
 	}
 
 	public Integer getId() {
@@ -51,14 +59,6 @@ public class Session implements Serializable {
 
 	public void setHour(Integer hour) {
 		this.hour = hour;
-	}
-
-	public List<Movie> getMovies() {
-		return movies;
-	}
-
-	public void setMovies(List<Movie> movies) {
-		this.movies = movies;
 	}
 
 }

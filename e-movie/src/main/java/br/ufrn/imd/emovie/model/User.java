@@ -22,6 +22,8 @@ public class User implements Serializable {
 	private Integer id;
 	private String name;
 	private String password;
+	
+	@Column(name = "created_at")
 	private Date createdAt;
 	private String level;
 

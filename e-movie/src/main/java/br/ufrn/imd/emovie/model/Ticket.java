@@ -1,11 +1,16 @@
 package br.ufrn.imd.emovie.model;
 
-import br.ufrn.imd.emovie.model.Movie;
-import br.ufrn.imd.emovie.model.User;
 import java.io.Serializable;
-import java.lang.Integer;
 import java.util.Date;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  * Entity implementation class for Entity: Ticket
@@ -21,12 +26,16 @@ public class Ticket implements Serializable {
 	@GeneratedValue
 	@Column(name = "id_ticket")
 	private Integer id;
-	private Integer quantity;
 	private Date date;
+	private Float price;
+	
+	@Column(name = "created_at")
 	private Date createdAt;
-	@ManyToOne
-	@JoinColumn(name = "id_movie")
-	private Movie movie;
+	
+	@OneToOne
+	@JoinColumn(name = "id_exhibition")
+	private Exhibition exhibition;
+	
 	@ManyToOne
 	@JoinColumn(name = "id_user")
 	private User user;
@@ -43,20 +52,20 @@ public class Ticket implements Serializable {
 		this.id = id;
 	}
 
-	public Integer getQuantity() {
-		return this.quantity;
-	}
-
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
-	}
-
 	public Date getDate() {
 		return this.date;
 	}
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	public Float getPrice() {
+		return price;
+	}
+
+	public void setPrice(Float price) {
+		this.price = price;
 	}
 
 	public Date getCreatedAt() {
@@ -67,12 +76,12 @@ public class Ticket implements Serializable {
 		this.createdAt = createdAt;
 	}
 
-	public Movie getMovie() {
-		return this.movie;
+	public Exhibition getExhibition() {
+		return exhibition;
 	}
 
-	public void setMovie(Movie movie) {
-		this.movie = movie;
+	public void setExhibition(Exhibition exhibition) {
+		this.exhibition = exhibition;
 	}
 
 	public User getUser() {
