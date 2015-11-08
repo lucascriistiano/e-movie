@@ -3,60 +3,81 @@ package br.ufrn.imd.emovie.server;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-import org.json.JSONObject;
-
-import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
+import br.ufrn.imd.emovie.server.executor.MovieServiceExecutor;
+import br.ufrn.imd.emovie.server.executor.RoomServiceExecutor;
+import br.ufrn.imd.emovie.server.executor.IServiceExecutor;
+import br.ufrn.imd.emovie.server.executor.SessionServiceExecutor;
+import br.ufrn.imd.emovie.server.executor.TicketServiceExecutor;
+import br.ufrn.imd.emovie.server.executor.UserServiceExecutor;
+
 @SuppressWarnings("restriction")
 public class RequestHandler implements HttpHandler {
-	
-	private static int NUM_REQ = 1;
+
+	private static int REQUEST_NUMBER = 1;
+	private Map<String, IServiceExecutor> serviceExecutors;
+
+	public RequestHandler() {
+		this.serviceExecutors = new HashMap<>();
+		this.serviceExecutors.put("rooms", new RoomServiceExecutor());
+		this.serviceExecutors.put("movies", new MovieServiceExecutor());
+		this.serviceExecutors.put("sessions", new SessionServiceExecutor());
+		this.serviceExecutors.put("users", new UserServiceExecutor());
+		this.serviceExecutors.put("tickets", new TicketServiceExecutor());
+	}
 
 	@Override
-	public void handle(HttpExchange httpExchange) throws IOException {
+	public void handle(HttpExchange httpExchange) throws IOException {		
 		URI requestURI = httpExchange.getRequestURI();
-		System.out.println("Processing request #" + NUM_REQ + ": " + requestURI.getPath());
-		NUM_REQ++;
-
-		@SuppressWarnings("unchecked")
-		Map<String, Object> params = (Map<String, Object>)httpExchange.getAttribute("parameters");
+		String contextPath = httpExchange.getHttpContext().getPath();
 		
-		System.out.println((String) params.get("id"));
-		System.out.println((String) params.get("name"));
-		System.out.println((String) params.get("price"));
+		String path = requestURI.getPath();
+		path = path.replaceFirst(contextPath, "");
+
+		System.out.println("Processing request #" + REQUEST_NUMBER + ": " + httpExchange.getRequestMethod() + " " + path);
+		REQUEST_NUMBER++;
 		
-		int id = Integer.parseInt((String) params.get("id"));
-		String name = (String) params.get("name");
-		double price = Double.parseDouble((String) params.get("price"));
+		String[] splittedPath = path.split("/");
+		List<String> filteredSplittedPath = new ArrayList<>();
+		for (int i = 0; i < splittedPath.length; i++) {
+			String item = splittedPath[i];
+			if(!item.equals("")) {
+				filteredSplittedPath.add(item);
+			}
+		}
 		
-		// Generic object test
-		JSONObject json = new JSONObject();
-		json.put("id", id);
-		json.put("movie", name);
-		json.put("price", price); 
-		String jsonString = json.toString();
+		boolean validOperation = false;
+		if (filteredSplittedPath.size() > 0) {
+			String rootCommand = filteredSplittedPath.get(0);
+			IServiceExecutor serviceExecutor = this.serviceExecutors.get(rootCommand);
 
-		Headers responseHeaders = httpExchange.getResponseHeaders();
-		responseHeaders.set("Content-Type", "application/json");
-		httpExchange.sendResponseHeaders(200, jsonString.length());
+			if (serviceExecutor != null) {
+				validOperation = true;		
+				Thread thread = new Thread(new Runnable() {
+					
+					@Override
+					public void run() {
+						serviceExecutor.execute(httpExchange);
+					}
+				});
+				thread.start();
+			}
+		}
 
-		System.out.println(httpExchange.getRequestMethod());	
-		
-		System.out.println(responseHeaders.toString());
+		if (!validOperation) {
+			String response = "404 (Not Found)\n";
+			httpExchange.sendResponseHeaders(404, response.length());
 
-		OutputStream os = httpExchange.getResponseBody();
-		os.write(jsonString.getBytes());
-		os.close();
-
-		try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			OutputStream os = httpExchange.getResponseBody();
+			os.write(response.getBytes());
+			os.close();
 		}
 	}
 }

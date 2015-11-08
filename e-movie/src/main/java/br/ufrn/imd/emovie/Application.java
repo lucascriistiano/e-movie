@@ -11,17 +11,17 @@ import br.ufrn.imd.emovie.server.RequestHandler;
 @SuppressWarnings("restriction")
 public class Application {
 
+	private static final int PORT = 8000;
+	
     public static void main(String[] args) throws Exception {
-        int port = 8000;
+        HttpServer server = HttpServer.create(new InetSocketAddress(PORT), 0);
         
-        HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
-        
-        HttpContext context = server.createContext("/e-movie", new RequestHandler());
+        HttpContext context = server.createContext("/emovie", new RequestHandler());
         context.getFilters().add(new ParameterFilter());
         server.setExecutor(null); // creates a default executor
         server.start();
     	
-        System.out.println("Started server on port " + port);
+        System.out.println("[LOG] Started server on port " + PORT);
     }
 
 }
