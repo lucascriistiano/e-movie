@@ -3,6 +3,7 @@ package br.ufrn.imd.emovie.server;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URI;
+import java.util.Map;
 
 import org.json.JSONObject;
 
@@ -21,17 +22,30 @@ public class RequestHandler implements HttpHandler {
 		System.out.println("Processing request #" + NUM_REQ + ": " + requestURI.getPath());
 		NUM_REQ++;
 
+		@SuppressWarnings("unchecked")
+		Map<String, Object> params = (Map<String, Object>)httpExchange.getAttribute("parameters");
+		
+		System.out.println((String) params.get("id"));
+		System.out.println((String) params.get("name"));
+		System.out.println((String) params.get("price"));
+		
+		int id = Integer.parseInt((String) params.get("id"));
+		String name = (String) params.get("name");
+		double price = Double.parseDouble((String) params.get("price"));
+		
 		// Generic object test
 		JSONObject json = new JSONObject();
-		json.put("id", 1);
-		json.put("movie", "Goosebumper");
-		json.put("price", 20.0);
+		json.put("id", id);
+		json.put("movie", name);
+		json.put("price", price); 
 		String jsonString = json.toString();
 
 		Headers responseHeaders = httpExchange.getResponseHeaders();
 		responseHeaders.set("Content-Type", "application/json");
 		httpExchange.sendResponseHeaders(200, jsonString.length());
 
+		System.out.println(httpExchange.getRequestMethod());	
+		
 		System.out.println(responseHeaders.toString());
 
 		OutputStream os = httpExchange.getResponseBody();
