@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8"/>
-		<title>Horarios Cinema</title>
+		<title>Troca de Sessão - E-Movie</title>
 
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -81,79 +81,48 @@
 
 	</head>
 
-
 	<body class="page">
-
 		<!-- HEADER -->
 		<header>
 			<div class="wrapper cf">
-
 				<div id="logo">
 					<a href="index.html"><img  src="img/logoF.png" alt="Simpler"></a>
 				</div>
 
 				<!-- nav -->
 				<ul id="nav" class="sf-menu">
-					<li class="current-menu-item"><a href="index.html">Home</a></li>
-					<li><a href="page.html">Horarios</a></li>
-					<li><a href="#">Compras</a>
+					<li><a href="index.html">INÍCIO</a></li>
+					<li><a href="horarios.html">HORÁRIOS</a></li>
+					<li class="current-menu-item"><a href="#">COMPRAS</a>
 						<ul>
-							<li><a href="trocasessao.html">Troca de Sessão</a></li>
-							<li><a href="cancelarcompa.html">Cancelar Compra</a></li>
-							<li><a href="page-typography.html">Typography</a></li>
+							<li><a href="trocasessao.html">TROCA DE SESSÃO</a></li>
+							<li><a href="cancelarcompra.html">CANCELAR COMPRA</a></li>
 						</ul>
 					</li>
-					<li><a href="cadastro.html">Cadastro</a></li>
-					<li><a href="contact.html">Contato</a></li>
+					<li><a href="cadastro.html">CADASTRO</a></li>
+					<li><a href="login.html">LOGIN</a></li>
 				</ul>
 				<div id="combo-holder"></div>
 				<!-- ends nav -->
-
 			</div>
 		</header>
 		<!-- ENDS HEADER -->
 
 		<!-- MAIN -->
-		<div id="main" style="width: 70%">
-			<center>
-				<form id="cadastro" onsu>
-		  		Nome:<br/>
-		  		<input type="text" name="name" required>
-		  		<br/>
-		  		Email:<br/>
-		  		<input type="email" name="email" required>
-					<br/>
-					Senha:<br/>
-		  		<input type="password" name="password" required>
-					<br/>
-					<input type="hidden" name="is_admin" value="false" required>
-					<input type="submit" value="Enviar">
-				</form>
-			</center>
+		<div id="main">
+			<div class="wrapper cf">
+				<!-- page content-->
+	        	<div id="page-content" class="cf">
+					<!-- entry-content -->
+		        	<div class="entry-content cf">
+						<h2 class="heading">Troca de Sessão</h2>
+
+
+					</div>
+				</div>
+			</div>
 		</div>
 		<!-- ENDS MAIN -->
-
-		<script type="text/javascript">
-			$("#cadastro").submit(function(evento) {
-				var datastring = $("#cadastro").serialize();
-				console.log(datastring);
-
-				event.preventDefault(); //prevenir o form de fazer submit
-
-				$.ajax({
-							type: "POST",
-							url: "http://localhost:8000/emovie/users",
-							data: datastring,
-							dataType: "json",
-							success: function(data) {
-									console.log(data);
-							},
-							error: function(){
-									console.log("Erro");
-							}
-					});
-			});
-		</script>
 
 		<!-- FOOTER -->
 		<footer>
