@@ -24,6 +24,7 @@ public class Movie implements Serializable {
 	@Column(name = "id_movie")
 	private Integer id;
 	private String name;
+	private String synopsis;
 	
 	@Column(name = "start_exhibition")
 	private Date startExhibition;
@@ -35,12 +36,17 @@ public class Movie implements Serializable {
 		super();
 	}
 	
-	public Movie(String name, Date startExhibition, Date endExhibition) {
+	public Movie(String name, String synopsis, Date startExhibition, Date endExhibition) {
 		this();
-		
 		this.name = name;
+		this.synopsis = synopsis;
 		this.startExhibition = startExhibition;
 		this.endExhibition = endExhibition;
+	}
+	
+	public Movie(Integer id, String name, String synopsis, Date startExhibition, Date endExhibition) {
+		this(name, synopsis, startExhibition, endExhibition);
+		this.id = id;
 	}
 
 	public Integer getId() {
@@ -57,6 +63,14 @@ public class Movie implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public String getSynopsis() {
+		return synopsis;
+	}
+	
+	public void setSynopsis(String synopsis) {
+		this.synopsis = synopsis;
 	}
 
 	public Date getEndExhibition() {

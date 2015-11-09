@@ -14,6 +14,11 @@ import java.util.Map;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.Filter;
 
+/**
+ * 
+ * @author lucas cristiano
+ *
+ */
 @SuppressWarnings("restriction")
 public class ParameterFilter extends Filter {
 

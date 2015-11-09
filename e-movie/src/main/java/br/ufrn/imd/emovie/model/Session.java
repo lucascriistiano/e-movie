@@ -1,6 +1,7 @@
 package br.ufrn.imd.emovie.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,17 +25,22 @@ public class Session implements Serializable {
 	private Integer id;
 	
 	@Column(name = "day_week")
-	private Integer dayWeek;
-	private Integer hour;
+	private String dayWeek;
+	private Date hour;
 
 	public Session() {
 		super();
 	}
 	
-	public Session(Integer dayWeek, Integer hour) {
+	public Session(String dayWeek, Date hour) {
 		this();
 		this.dayWeek = dayWeek;
 		this.hour = hour;
+	}
+	
+	public Session(Integer id, String dayWeek, Date hour) {
+		this(dayWeek, hour);
+		this.id = id;
 	}
 
 	public Integer getId() {
@@ -45,19 +51,19 @@ public class Session implements Serializable {
 		this.id = id;
 	}
 
-	public Integer getDayWeek() {
+	public String getDayWeek() {
 		return this.dayWeek;
 	}
 
-	public void setDayWeek(Integer dayWeek) {
+	public void setDayWeek(String dayWeek) {
 		this.dayWeek = dayWeek;
 	}
 
-	public Integer getHour() {
+	public Date getHour() {
 		return this.hour;
 	}
 
-	public void setHour(Integer hour) {
+	public void setHour(Date hour) {
 		this.hour = hour;
 	}
 

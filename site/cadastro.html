@@ -123,18 +123,15 @@
 
 						<center>
 							<form id="cadastro">
-						  		Nome:<br/>
+						  		Nome Completo:<br/>
 						  		<input type="text" name="name" required>
 						  		<br/>
 						  		Email:<br/>
 						  		<input type="email" name="email" required>
 								<br/>
-								Senha:<br/>
-						  		<input type="password" name="password" required>
 								<br/>
-								<input type="hidden" name="is_admin" value="false" required>
 								<input type="hidden" name="operation" value="create" required>
-								<input type="submit" value="Enviar">
+								<input class="link-button blue" type="submit" value="Cadastrar">
 							</form>
 						</center>
 					</div>
@@ -157,9 +154,14 @@
 					dataType: "json",
 					success: function(data) {
 						console.log(data);
+						if(data['success'] == true) {
+							window.location.href = "cadastrofinalizado.html";
+						} else {
+							window.location.href = "erro.html";
+						}
 					},
 					error: function(){
-						console.log("Erro");
+						window.location.href = "erro.html";
 					}
 				});
 			});

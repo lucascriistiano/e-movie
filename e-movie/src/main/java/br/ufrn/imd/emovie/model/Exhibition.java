@@ -43,7 +43,7 @@ public class Exhibition implements Serializable {
 	public Exhibition() {
 		super();
 	}
-
+	
 	public Integer getId() {
 		return this.id;
 	}

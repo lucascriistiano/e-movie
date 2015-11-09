@@ -42,9 +42,24 @@
 			<version>20150729</version>
 		</dependency>
 		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>1.7.1</version>
+  		</dependency>
+		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+    		<groupId>com.mandrillapp.wrapper.lutung</groupId>
+    		<artifactId>lutung</artifactId>
+    		<version>0.0.6</version>
 		</dependency>
 	</dependencies>
 </project>

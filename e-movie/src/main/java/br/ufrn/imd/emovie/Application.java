@@ -8,6 +8,11 @@ import com.sun.net.httpserver.HttpContext;
 import br.ufrn.imd.emovie.server.ParameterFilter;
 import br.ufrn.imd.emovie.server.RequestHandler;
 
+/**
+ * 
+ * @author lucas cristiano
+ *
+ */
 @SuppressWarnings("restriction")
 public class Application {
 

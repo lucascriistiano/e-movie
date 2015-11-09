@@ -1,46 +1,120 @@
 package br.ufrn.imd.emovie.server.executor;
 
-import java.io.IOException;
-import java.io.OutputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
-import org.json.JSONObject;
-
-import com.sun.net.httpserver.Headers;
+import com.google.gson.Gson;
 import com.sun.net.httpserver.HttpExchange;
 
+import br.ufrn.imd.emovie.dao.exception.DaoException;
+import br.ufrn.imd.emovie.model.Movie;
+import br.ufrn.imd.emovie.service.MovieService;
+import br.ufrn.imd.emovie.service.exception.ServiceException;
+
+/**
+ * 
+ * @author lucas cristiano
+ *
+ */
 @SuppressWarnings("restriction")
-public class MovieServiceExecutor implements IServiceExecutor {
+public class MovieServiceExecutor extends ServiceExecutorTemplate {
+	
+	private MovieService movieService;
+	
+	public MovieServiceExecutor() {
+		movieService = MovieService.getInstance();
+	}
 
 	@Override
-	public void execute(HttpExchange httpExchange) {
-		@SuppressWarnings("unchecked")
-		Map<String, Object> params = (Map<String, Object>) httpExchange.getAttribute("parameters");
+	public String processGetFindOne(Integer id) throws DaoException {
+		Movie movie = movieService.find(id);
+		Gson gson = new Gson();
+		String jsonMovie = gson.toJson(movie); // returns empty string if movie == null
+		return jsonMovie;
+	}
 
-		int id = Integer.parseInt((String) params.get("id"));
-		String name = (String) params.get("name");
-		double price = Double.parseDouble((String) params.get("price"));
+	@Override
+	public String processGetFindAll() throws DaoException {
+		List<Movie> movies = movieService.listAll();
+		Gson gson = new Gson();
+		String jsonMovie = gson.toJson(movies); // returns empty string if movie == null
+		return jsonMovie;
+	}
 
-		// Generic object test
-		JSONObject json = new JSONObject();
-		json.put("id", id);
-		json.put("movie", name);
-		json.put("price", price);
-		String jsonString = json.toString();
+	@Override
+	public String processGetOther(HttpExchange httpExchange, List<String> urlParams, Map<String, Object> requestParams)
+			throws ServiceException, DaoException {
+		// TODO Auto-generated method stub
+		return "";
+	}
 
-		Headers responseHeaders = httpExchange.getResponseHeaders();
-		responseHeaders.set("Content-Type", "application/json");
+	@Override
+	public boolean processPostCreate(Map<String, Object> requestParams) {
+		String name = (String) requestParams.get("name");
+		String synopsis = (String) requestParams.get("synopsis");
+		String strStartExhibition = (String) requestParams.get("start_exhibition");
+		String strEndExhibition = (String) requestParams.get("end_exhibition");
 		
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		Date startExhibition, endExhibition;
 		try {
-			httpExchange.sendResponseHeaders(200, jsonString.length());
+			startExhibition = formatter.parse(strStartExhibition);
+			endExhibition = formatter.parse(strEndExhibition);
 			
-			OutputStream os = httpExchange.getResponseBody();
-			os.write(jsonString.getBytes());
-			os.close();
-		} catch (IOException e) {
+			Movie movie = new Movie(name, synopsis, startExhibition, endExhibition);
+			movieService.create(movie);
+			return true;
+		} catch (ParseException | ServiceException | DaoException e ) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return false;
 		}
 	}
 
+	@Override
+	public boolean processPostUpdate(Map<String, Object> requestParams) {
+		int id = Integer.parseInt((String) requestParams.get("id"));
+		String name = (String) requestParams.get("name");
+		String synopsis = (String) requestParams.get("synopsis");
+		String strStartExhibition = (String) requestParams.get("start_exhibition");
+		String strEndExhibition = (String) requestParams.get("end_exhibition");
+		
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		Date startExhibition, endExhibition;
+		try {
+			startExhibition = formatter.parse(strStartExhibition);
+			endExhibition = formatter.parse(strEndExhibition);
+			
+			Movie movie = new Movie(id, name, synopsis, startExhibition, endExhibition);
+			movieService.update(movie);
+			return true;
+		} catch (ParseException | ServiceException | DaoException e ) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public boolean processPostDelete(Map<String, Object> requestParams) {
+		int id = Integer.parseInt((String) requestParams.get("id"));
+		try {
+			movieService.delete(id);
+			return true;
+		} catch (DaoException e ) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public boolean processPostOther(HttpExchange httpExchange, List<String> urlParams,
+			Map<String, Object> requestParams) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

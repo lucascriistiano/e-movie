@@ -32,6 +32,12 @@ public class Room implements Serializable {
 		this();
 		this.capacity = capacity;
 	}
+	
+	public Room(Integer id, Integer capacity) {
+		this();
+		this.id = id;
+		this.capacity = capacity;
+	}
 
 	public Integer getId() {
 		return this.id;

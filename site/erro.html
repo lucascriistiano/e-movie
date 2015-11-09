@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8"/>
-		<title>Login - E-Movie</title>
+		<title>Erro - E-Movie</title>
 
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -87,6 +87,7 @@
 		<!-- HEADER -->
 		<header>
 			<div class="wrapper cf">
+
 				<div id="logo">
 					<a href="index.html"><img  src="img/logoF.png" alt="Simpler"></a>
 				</div>
@@ -101,11 +102,12 @@
 							<li><a href="cancelarcompra.html">CANCELAR COMPRA</a></li>
 						</ul>
 					</li>
-					<li><a href="cadastro.html">CADASTRO</a></li>
-					<li class="current-menu-item"><a href="login.html">LOGIN</a></li>
+					<li class="current-menu-item"><a href="cadastro.html">CADASTRO</a></li>
+					<li><a href="login.html">LOGIN</a></li>
 				</ul>
 				<div id="combo-holder"></div>
 				<!-- ends nav -->
+
 			</div>
 		</header>
 		<!-- ENDS HEADER -->
@@ -115,27 +117,38 @@
 			<div class="wrapper cf">
 				<!-- page content-->
 	        	<div id="page-content" class="cf">
-
 					<!-- entry-content -->
 		        	<div class="entry-content cf">
-						<h2 class="heading">Login</h2>
+						<h2 class="heading">Oops...</h2>
 
-						<center>
-							<form id="cadastro">
-						  		Email:<br/>
-						  		<input type="email" name="email" required>
-								<br/>
-								Senha:<br/>
-						  		<input type="password" name="password" required>
-								<br/>
-								<input class="link-button blue" type="submit" value="Entrar">
-							</form>
-						</center>
+						<p>Ocorreu um erro em nosso sistema durante a operação. Por favor, tente realizá-la novamente em outro momento.</p>
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- ENDS MAIN -->
+
+		<script type="text/javascript">
+			$("#cadastro").submit(function(evento) {
+				var datastring = $("#cadastro").serialize();
+				console.log(datastring);
+
+				event.preventDefault(); //prevenir o form de fazer submit
+
+				$.ajax({
+					type: "POST",
+					url: "http://localhost:8000/emovie/users",
+					data: datastring,
+					dataType: "json",
+					success: function(data) {
+						console.log(data);
+					},
+					error: function(){
+						console.log("Erro");
+					}
+				});
+			});
+		</script>
 
 		<!-- FOOTER -->
 		<footer>

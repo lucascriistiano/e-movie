@@ -29,9 +29,6 @@ public class Ticket implements Serializable {
 	private Date date;
 	private Float price;
 	
-	@Column(name = "created_at")
-	private Date createdAt;
-	
 	@OneToOne
 	@JoinColumn(name = "id_exhibition")
 	private Exhibition exhibition;
@@ -39,9 +36,26 @@ public class Ticket implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "id_user")
 	private User user;
+	
+	@Column(name = "created_at")
+	private Date createdAt;
 
 	public Ticket() {
 		super();
+	}
+	
+	public Ticket(Date date, Float price, Exhibition exhibition, User user, Date createdAt) {
+		this();
+		this.date = date;
+		this.price = price;
+		this.exhibition = exhibition;
+		this.user = user;
+		this.createdAt = createdAt;
+	}
+	
+	public Ticket(Integer id, Date date, Float price, Exhibition exhibition, User user, Date createdAt) {
+		this(date, price, exhibition, user, createdAt);
+		this.id = id;
 	}
 
 	public Integer getId() {
@@ -68,14 +82,6 @@ public class Ticket implements Serializable {
 		this.price = price;
 	}
 
-	public Date getCreatedAt() {
-		return this.createdAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
 	public Exhibition getExhibition() {
 		return exhibition;
 	}
@@ -90,6 +96,14 @@ public class Ticket implements Serializable {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+	public Date getCreatedAt() {
+		return this.createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
 	}
 
 }

@@ -22,15 +22,32 @@ public class User implements Serializable {
 	private Integer id;
 	private String name;
 	private String password;
+	private String email;
+	
+	@Column(name = "admin")
+	private boolean admin;
 	
 	@Column(name = "created_at")
 	private Date createdAt;
-	private String level;
 
 	public User() {
 		super();
 	}
+	
+	public User(String name, String password, String email, boolean admin, Date createdAt) {
+		this();
+		this.name = name;
+		this.password = password;
+		this.email = email;
+		this.admin = admin;
+		this.createdAt = createdAt;
+	}
 
+	public User(Integer id, String name, String password, String email, boolean admin, Date createdAt) {
+		this(name, password, email, admin, createdAt);
+		this.id = id;
+	}
+	
 	public Integer getId() {
 		return this.id;
 	}
@@ -55,6 +72,14 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public Date getCreatedAt() {
 		return this.createdAt;
 	}
@@ -63,12 +88,16 @@ public class User implements Serializable {
 		this.createdAt = createdAt;
 	}
 
-	public String getLevel() {
-		return level;
+	public boolean isAdmin() {
+		return admin;
 	}
 
-	public void setLevel(String level) {
-		this.level = level;
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
+	}
+
+	public String getFirstName() {
+		return this.name.trim().split(" ")[0];
 	}
 
 }

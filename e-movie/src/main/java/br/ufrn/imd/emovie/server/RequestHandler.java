@@ -13,16 +13,21 @@ import com.sun.net.httpserver.HttpHandler;
 
 import br.ufrn.imd.emovie.server.executor.MovieServiceExecutor;
 import br.ufrn.imd.emovie.server.executor.RoomServiceExecutor;
-import br.ufrn.imd.emovie.server.executor.IServiceExecutor;
+import br.ufrn.imd.emovie.server.executor.IServiceExecutorTemplate;
 import br.ufrn.imd.emovie.server.executor.SessionServiceExecutor;
 import br.ufrn.imd.emovie.server.executor.TicketServiceExecutor;
 import br.ufrn.imd.emovie.server.executor.UserServiceExecutor;
 
+/**
+ * 
+ * @author lucas cristiano
+ *
+ */
 @SuppressWarnings("restriction")
 public class RequestHandler implements HttpHandler {
 
 	private static int REQUEST_NUMBER = 1;
-	private Map<String, IServiceExecutor> serviceExecutors;
+	private Map<String, IServiceExecutorTemplate> serviceExecutors;
 
 	public RequestHandler() {
 		this.serviceExecutors = new HashMap<>();
@@ -56,15 +61,18 @@ public class RequestHandler implements HttpHandler {
 		boolean validOperation = false;
 		if (filteredSplittedPath.size() > 0) {
 			String rootCommand = filteredSplittedPath.get(0);
-			IServiceExecutor serviceExecutor = this.serviceExecutors.get(rootCommand);
+			IServiceExecutorTemplate serviceExecutor = this.serviceExecutors.get(rootCommand);
 
+			//Removes first url part from list			
+			filteredSplittedPath.remove(0);
+			
 			if (serviceExecutor != null) {
 				validOperation = true;		
 				Thread thread = new Thread(new Runnable() {
 					
 					@Override
 					public void run() {
-						serviceExecutor.execute(httpExchange);
+						serviceExecutor.execute(httpExchange, filteredSplittedPath);
 					}
 				});
 				thread.start();
