@@ -34,28 +34,7 @@
 
 		<script type="text/javascript">
 			$("#cadastro").submit(function(evento) {
-				var datastring = $("#cadastro").serialize();
-				console.log(datastring);
-
-				event.preventDefault(); //prevenir o form de fazer submit
-
-				$.ajax({
-					type: "POST",
-					url: "http://localhost:8000/emovie/users",
-					data: datastring,
-					dataType: "json",
-					success: function(data) {
-						console.log(data);
-						if(data['success'] == true) {
-							window.location.href = "cadastrofinalizado.php";
-						} else {
-							window.location.href = "erro.php";
-						}
-					},
-					error: function(){
-						window.location.href = "erro.php";
-					}
-				});
+				enviarInformacoes("cadastro", "users", "cadastrofinalizado.php", "erro.php");
 			});
 		</script>
 

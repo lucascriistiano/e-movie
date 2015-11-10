@@ -16,6 +16,7 @@
 		<script src="../js/jquery-1.7.1.min.js"></script>
 		<!-- <script src="js/custom.js"></script> -->
 		<script src="../js/tabs.js"></script>
+		<script src="../jsemovie/crud.js"></script>
 		<script src="../js/css3-mediaqueries.js"></script>
 		<script src="../js/jquery.columnizer.min.js"></script>
 		<script src="../js/index-movie-list.js"></script> <!-- Movie list querying -->
