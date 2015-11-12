@@ -28,6 +28,7 @@ public class Ticket implements Serializable {
 	private Integer id;
 	private Date date;
 	private Float price;
+	private String token;
 	
 	@OneToOne
 	@JoinColumn(name = "id_exhibition")
@@ -104,6 +105,14 @@ public class Ticket implements Serializable {
 
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
 	}
 
 }
