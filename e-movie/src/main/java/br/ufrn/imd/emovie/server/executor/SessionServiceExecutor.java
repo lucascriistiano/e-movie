@@ -56,7 +56,7 @@ public class SessionServiceExecutor extends ServiceExecutorTemplate {
 		String dayWeek = (String) requestParams.get("day_week");
 		String strHour = (String) requestParams.get("hour");
 		
-		SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
+		SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
 		Date hour;
 		try {
 			hour = formatter.parse(strHour);
