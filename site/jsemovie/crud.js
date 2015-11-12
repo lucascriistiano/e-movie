@@ -1,5 +1,8 @@
 function enviarInformacoes($id, $operacao, $paginaok, $paginafail) {
   var datastring = $("#" + $id).serialize();
+
+  var retorno;
+
   console.log(datastring);
 
   event.preventDefault(); //prevenir o form de fazer submit
@@ -11,6 +14,7 @@ function enviarInformacoes($id, $operacao, $paginaok, $paginafail) {
     dataType: "json",
     success: function(data) {
       console.log(data);
+      retorno = data;
       if(data['success'] == true) {
         window.location.href = $paginaok;
       } else {
@@ -21,4 +25,6 @@ function enviarInformacoes($id, $operacao, $paginaok, $paginafail) {
       window.location.href = $paginaok;
     }
   });
+
+  return retorno;
 }
