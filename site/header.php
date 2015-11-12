@@ -73,6 +73,9 @@
 		<!-- flexslider -->
 		<link rel="stylesheet" href="css/flexslider.css" >
 		<script src="js/jquery.flexslider.js"></script>
+
+		<!-- Custom CSS -->
+		<link rel="stylesheet" type="text/css" href="css/custom.css">
 	</head>
 
 	<body class= <?php echo ($home ? "home" : "page");?>>
