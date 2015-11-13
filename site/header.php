@@ -19,7 +19,6 @@
 		<script src="jsemovie/crud.js"></script>
 		<script src="js/css3-mediaqueries.js"></script>
 		<script src="js/jquery.columnizer.min.js"></script>
-		<script src="js/index-movie-list.js"></script> <!-- Movie list querying -->
 
 		<!-- Isotope -->
 		<script src="js/jquery.isotope.min.js"></script>

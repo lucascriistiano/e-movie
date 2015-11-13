@@ -10,15 +10,13 @@ import com.microtripit.mandrillapp.lutung.view.MandrillMessage.Recipient;
 
 import br.ufrn.imd.emovie.model.User;
 
-import com.microtripit.mandrillapp.lutung.view.MandrillMessageStatus;
-
 public class MailSender {
 
 	private MandrillApi mandrillApi;
 	private static String LOGIN_PAGE_URL = "http://localhost:8888/login.html";
 	private static String SENDER_EMAIL = "lucacristiano27@gmail.com";
 	private static String SENDER_NAME = "E-Movie";
-	private static String LOGO_LINK = "http://s29.postimg.org/9py2rg9xv/emovie.png";
+	private static String LOGO_LINK = "http://postimg.org/image/jkxj9kp1f/";
 	
 	public MailSender() {
 		mandrillApi = new MandrillApi("y4Vy2Sx3dGl7I8nzR_CRBg");
@@ -62,6 +60,6 @@ public class MailSender {
 		tags.add("cadastro");
 		message.setTags(tags);
 		
-		MandrillMessageStatus[] messageStatusReports = mandrillApi.messages().send(message, false);
+		mandrillApi.messages().send(message, false);		
 	}
 }

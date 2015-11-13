@@ -3,6 +3,7 @@
 	$home = true;
 	include_once 'header.php';
  ?>
+ 	<script src="js/index-movie-list.js"></script> <!-- Movie list querying -->
 
 		<!-- MAIN -->
 		<div id="main">

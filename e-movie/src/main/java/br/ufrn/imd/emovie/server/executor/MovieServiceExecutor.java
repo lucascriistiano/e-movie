@@ -55,6 +55,8 @@ public class MovieServiceExecutor extends ServiceExecutorTemplate {
 	public boolean processPostCreate(Map<String, Object> requestParams) {
 		String name = (String) requestParams.get("name");
 		String synopsis = (String) requestParams.get("synopsis");
+		String advertisement = (String) requestParams.get("advertisement");
+		String image = (String) requestParams.get("image");
 		String strStartExhibition = (String) requestParams.get("start_exhibition");
 		String strEndExhibition = (String) requestParams.get("end_exhibition");
 		
@@ -64,7 +66,7 @@ public class MovieServiceExecutor extends ServiceExecutorTemplate {
 			startExhibition = formatter.parse(strStartExhibition);
 			endExhibition = formatter.parse(strEndExhibition);
 			
-			Movie movie = new Movie(name, synopsis, startExhibition, endExhibition);
+			Movie movie = new Movie(name, synopsis, advertisement, image, startExhibition, endExhibition);
 			movieService.create(movie);
 			return true;
 		} catch (ParseException | ServiceException | DaoException e ) {
@@ -79,6 +81,8 @@ public class MovieServiceExecutor extends ServiceExecutorTemplate {
 		int id = Integer.parseInt((String) requestParams.get("id"));
 		String name = (String) requestParams.get("name");
 		String synopsis = (String) requestParams.get("synopsis");
+		String advertisement = (String) requestParams.get("advertisement");
+		String image = (String) requestParams.get("image");
 		String strStartExhibition = (String) requestParams.get("start_exhibition");
 		String strEndExhibition = (String) requestParams.get("end_exhibition");
 		
@@ -88,7 +92,7 @@ public class MovieServiceExecutor extends ServiceExecutorTemplate {
 			startExhibition = formatter.parse(strStartExhibition);
 			endExhibition = formatter.parse(strEndExhibition);
 			
-			Movie movie = new Movie(id, name, synopsis, startExhibition, endExhibition);
+			Movie movie = new Movie(id, name, synopsis, advertisement, image, startExhibition, endExhibition);
 			movieService.update(movie);
 			return true;
 		} catch (ParseException | ServiceException | DaoException e ) {

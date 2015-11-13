@@ -7,7 +7,7 @@
       <li class="first-col">
 
         <div class="widget-block">
-          <h4>Novas Postagens</h4>
+          <h4>NOVIDADES</h4>
           <div class="recent-post cf">
             <a href="#" class="thumb"><img src="img/dummies/54x54.gif" alt="Post" /></a>
             <div class="post-head">
@@ -32,7 +32,7 @@
       <li class="second-col">
 
         <div class="widget-block">
-          <h4>Sobre</h4>
+          <h4>SOBRE</h4>
           <p>Somos o melhor e mais antigo cinema da cidade. </p>
         </div>
 
