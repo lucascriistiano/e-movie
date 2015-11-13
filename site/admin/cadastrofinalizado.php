@@ -1,5 +1,5 @@
 <?php
-$title = 'Erro - E-Movie';
+$title = 'Cadastro Finalizado - E-Movie';
 $home = false;
 include_once 'header.php';
 ?>
@@ -11,9 +11,9 @@ include_once 'header.php';
 		<div id="page-content" class="cf">
 			<!-- entry-content -->
 			<div class="entry-content cf">
-				<h2 class="heading">Oops...</h2>
+				<h2 class="heading">Cadastro Finalizado</h2>
 
-				<p>Ocorreu um erro em nosso sistema durante a operação. Por favor, tente realizá-la novamente em outro momento.</p>
+				<p>Cadastro realizado com sucesso.</p>
 			</div>
 		</div>
 	</div>

@@ -1,15 +1,15 @@
 <?php
-	$title = 'Cadastro Finalizado - E-Movie';
-	$home = false;
-	include_once 'header.php';
- ?>
+$title = 'Cadastro Finalizado - E-Movie';
+$home = false;
+include_once 'header.php';
+?>
 
 <script>
 	var chairs = { 'A01': 1, 'A02': 0, 'A03': 0, 'A04': 0, 'A05': 0, 'A06': 0, 'A07': 0, 'A08': 0, 'A09': 0, 'A10': 0,
 				   'B01': 1, 'B02': 1, 'B03': 0, 'B04': 0, 'B05': 1, 'B06': 0, 'B07': 0, 'B08': 0, 'B09': 0, 'B10': 0,
 				   'C01': 0, 'C02': 0, 'C03': 0, 'C04': 0, 'C05': 0, 'C06': 0, 'C07': 0, 'C08': 0, 'C09': 0, 'C10': 0,
 				   'D01': 0, 'D02': 0, 'D03': 0, 'D04': 0, 'D05': 0, 'D06': 0, 'D07': 0, 'D08': 0, 'D09': 0, 'D10': 0,
-			       'E01': 0, 'E02': 0, 'E03': 0, 'E04': 0, 'E05': 0, 'E06': 1, 'E07': 0, 'E08': 0, 'E09': 0, 'E10': 0,
+				   'E01': 0, 'E02': 0, 'E03': 0, 'E04': 0, 'E05': 0, 'E06': 1, 'E07': 0, 'E08': 0, 'E09': 0, 'E10': 0,
 				   'F01': 1, 'F02': 1, 'F03': 0, 'F04': 0, 'F05': 0, 'F06': 0, 'F07': 0, 'F08': 0, 'F09': 0, 'F10': 0,
 				   'G01': 0, 'G02': 0, 'G03': 0, 'G04': 0, 'G05': 0, 'G06': 0, 'G07': 0, 'G08': 0, 'G09': 0, 'G10': 0,
 				   'H01': 0, 'H02': 0, 'H03': 0, 'H04': 0, 'H05': 0, 'H06': 0, 'H07': 0, 'H08': 0, 'H09': 0, 'H10': 0,
@@ -39,11 +39,11 @@
 
 		// Atualiza exibição da tabela
 		for (var chairCode in chairs) {
-    		if(chairs[chairCode] == 0) {
-    			setFree(chairCode);
-    		} else {
-    			setOccupied(chairCode);
-    		}
+			if(chairs[chairCode] == 0) {
+				setFree(chairCode);
+			} else {
+				setOccupied(chairCode);
+			}
 		}
 
 		// Verifica se a poltrona do usuário foi tomada
@@ -128,9 +128,9 @@
 <div id="main">
 	<div class="wrapper cf">
 		<!-- page content-->
-    	<div id="page-content" class="cf">
+		<div id="page-content" class="cf">
 			<!-- entry-content -->
-        	<div class="entry-content cf">
+			<div class="entry-content cf">
 				<h2 class="heading">Seleção de Poltrona</h2>
 
 				<p>Selecione abaixo a poltrona para a sessão de filme escolhida.</p>
@@ -152,5 +152,5 @@
 <!-- ENDS MAIN -->
 
 <?php
-	include_once 'footer.php';
+include_once 'footer.php';
 ?>

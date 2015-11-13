@@ -7,7 +7,7 @@
 			<li class="first-col">
 
 				<div class="widget-block">
-					<h4>NOVIDADES</h4>
+					<h4> </h4>
 					<div class="recent-post cf">
 						<a href="#" class="thumb"><img src="img/dummies/54x54.gif" alt="Post" /></a>
 						<div class="post-head">
@@ -32,7 +32,7 @@
 			<li class="second-col">
 
 				<div class="widget-block">
-					<h4>SOBRE</h4>
+					<h4> </h4>
 					<p>Somos o melhor e mais antigo cinema da cidade. </p>
 				</div>
 
@@ -48,7 +48,7 @@
 
 			<li class="fourth-col">
 				<div class="widget-block">
-					<h4>CATEGORIAS</h4>
+					<h4> </h4>
 					<ul>
 						<li class="cat-item"><a href="#" >Filmes</a></li>
 						<li class="cat-item"><a href="#" >Horários</a></li>
@@ -58,6 +58,7 @@
 			</li>
 		</ul>
 		<!-- ENDS widgets -->
+
 
 		<!-- bottom -->
 		<div class="footer-bottom">
