@@ -17,13 +17,13 @@ include_once 'header.php';
 					<form id="cadastro">
 						Dia da semana:<br/>
 						<select name="day_week">
-							<option value="1" selected>Domingo</option>
-							<option value="2">Segunda</option>
-							<option value="3">Terça</option>
-							<option value="4">Quarta</option>
-							<option value="5">Quinta</option>
-							<option value="6">Sexta</option>
-							<option value="7">Sábado</option>
+							<option value="0" selected>Domingo</option>
+							<option value="1">Segunda</option>
+							<option value="2">Terça</option>
+							<option value="3">Quarta</option>
+							<option value="4">Quinta</option>
+							<option value="5">Sexta</option>
+							<option value="6">Sábado</option>
 						</select>
 						<br/>
 						Hora:<br/>

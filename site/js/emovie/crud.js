@@ -1,12 +1,10 @@
 function enviarInformacoes($id, $operacao, $paginaok, $paginafail) {
 	var datastring = $("#" + $id).serialize();
-
-	var retorno;
-
 	console.log(datastring);
 
   event.preventDefault(); //prevenir o form de fazer submit
 
+  var retorno;
   $.ajax({
   	type: "POST",
   	url: "http://localhost:8000/emovie/" + $operacao,
@@ -22,7 +20,7 @@ function enviarInformacoes($id, $operacao, $paginaok, $paginafail) {
   		}
   	},
   	error: function(){
-  		window.location.href = $paginaok;
+  		window.location.href = $paginafail;
   	}
   });
 

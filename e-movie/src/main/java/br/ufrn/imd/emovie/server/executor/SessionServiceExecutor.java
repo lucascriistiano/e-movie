@@ -53,7 +53,7 @@ public class SessionServiceExecutor extends ServiceExecutorTemplate {
 
 	@Override
 	public boolean processPostCreate(Map<String, Object> requestParams) {
-		String dayWeek = (String) requestParams.get("day_week");
+		Integer dayWeek = Integer.parseInt((String) requestParams.get("day_week"));
 		String strHour = (String) requestParams.get("hour");
 		
 		SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
@@ -74,7 +74,7 @@ public class SessionServiceExecutor extends ServiceExecutorTemplate {
 	@Override
 	public boolean processPostUpdate(Map<String, Object> requestParams) {
 		int id = Integer.parseInt((String) requestParams.get("id"));
-		String dayWeek = (String) requestParams.get("day_week");
+		Integer dayWeek = Integer.parseInt((String) requestParams.get("day_week"));
 		String strHour = (String) requestParams.get("hour");
 		
 		SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");

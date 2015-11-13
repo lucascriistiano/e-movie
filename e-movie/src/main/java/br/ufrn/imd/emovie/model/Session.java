@@ -25,20 +25,20 @@ public class Session implements Serializable {
 	private Integer id;
 	
 	@Column(name = "day_week")
-	private String dayWeek;
+	private Integer dayWeek;
 	private Date hour;
 
 	public Session() {
 		super();
 	}
 	
-	public Session(String dayWeek, Date hour) {
+	public Session(Integer dayWeek, Date hour) {
 		this();
 		this.dayWeek = dayWeek;
 		this.hour = hour;
 	}
 	
-	public Session(Integer id, String dayWeek, Date hour) {
+	public Session(Integer id, Integer dayWeek, Date hour) {
 		this(dayWeek, hour);
 		this.id = id;
 	}
@@ -51,11 +51,11 @@ public class Session implements Serializable {
 		this.id = id;
 	}
 
-	public String getDayWeek() {
+	public Integer getDayWeek() {
 		return this.dayWeek;
 	}
 
-	public void setDayWeek(String dayWeek) {
+	public void setDayWeek(Integer dayWeek) {
 		this.dayWeek = dayWeek;
 	}
 

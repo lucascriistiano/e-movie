@@ -16,7 +16,7 @@
 	<script src="../js/jquery-1.7.1.min.js"></script>
 
 	<?php
-		if($home) {
+		if($home == true) {
 			echo '<script src="../js/emovie/index-movie-list.js"></script> <!-- Movie list querying -->';
 		} else {
 			echo '<script src="../js/custom.js"></script>';

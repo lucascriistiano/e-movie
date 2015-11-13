@@ -19,6 +19,9 @@ include_once 'header.php';
 						Nome do Filme:<br/>
 						<input type="text" name="name" required>
 						<br/>
+						Anúncio do Filme:<br/>
+						<input type="text" name="advertisement" required>
+						<br/>
 						Sinopse:<br/>
 						<textarea rows="4" cols="50" name="synopsis" maxlength="255"></textarea>
 						<br/>
@@ -28,12 +31,14 @@ include_once 'header.php';
 						Fim da Exibição:<br/>
 						<input type="date" name="end_exhibition" required>
 						<br/>
+						Prefixo da Imagem:<br/>
+						<input type="text" name="image" required>
+						<br/>
 						<br/>
 						<input type="hidden" name="operation" value="create" required>
 						<input class="link-button blue" type="submit" value="Cadastrar">
 					</form>
 				</center>
-
 			</div>
 		</div>
 	</div>
