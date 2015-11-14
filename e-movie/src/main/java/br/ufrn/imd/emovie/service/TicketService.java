@@ -56,6 +56,10 @@ public class TicketService {
 	        daoTicket.delete(id);
 	}
 	
+	public Ticket getByToken(String token) {
+		return daoTicket.getByToken(token);
+	}
+	
 	/**
 	 * Generates random token based on current date/time and user id
 	 * @param userId Id of user that is buying the ticket

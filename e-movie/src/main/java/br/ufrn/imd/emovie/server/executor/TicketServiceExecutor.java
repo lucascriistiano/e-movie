@@ -9,7 +9,6 @@ import com.sun.net.httpserver.HttpExchange;
 import br.ufrn.imd.emovie.dao.exception.DaoException;
 import br.ufrn.imd.emovie.model.Ticket;
 import br.ufrn.imd.emovie.service.TicketService;
-import br.ufrn.imd.emovie.service.exception.ServiceException;
 
 /**
 *
@@ -20,6 +19,7 @@ import br.ufrn.imd.emovie.service.exception.ServiceException;
 public class TicketServiceExecutor extends ServiceExecutorTemplate {
 
 	private TicketService ticketService;
+	private static final String RETRIEVE_TOKEN = "retrieveToken"; 
 	
 	public TicketServiceExecutor() {
 	        ticketService = TicketService.getInstance();
@@ -42,9 +42,18 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 	}
 
 	@Override
-	public String processGetOther(HttpExchange httpExchange, List<String> urlParams, Map<String, Object> requestParams)
-			throws ServiceException, DaoException {
-		// TODO Auto-generated method stub
+	public String processGetOther(HttpExchange httpExchange, List<String> urlParams, Map<String, Object> requestParams) {
+		String operation = (String) requestParams.get("operation");
+		if(operation.equals(RETRIEVE_TOKEN)) {
+			String token = (String) requestParams.get("token");
+			Ticket ticket = ticketService.getByToken(token);
+			
+			Gson gson = new Gson();
+			String jsonTicket = gson.toJson(ticket);
+			System.out.println(jsonTicket);
+			return jsonTicket;
+		}
+		
 		return "";
 	}
 
@@ -120,9 +129,7 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 	}
 
 	@Override
-	public boolean processPostOther(HttpExchange httpExchange, List<String> urlParams,
-			Map<String, Object> requestParams) {
-		// TODO Auto-generated method stub
+	public boolean processPostOther(HttpExchange httpExchange, List<String> urlParams,Map<String, Object> requestParams) {
 		return false;
 	}
 

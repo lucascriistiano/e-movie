@@ -19,12 +19,12 @@ include_once 'header.php';
 						<input type="text" name="token">
 						<br/>
 						<br/>
-						<input type="hidden" name="operation" value="other" required>
-						<input class="link-button blue" type="submit" value="Cadastrar">
+						<input type="hidden" name="operation" value="retrieveToken" required>
+						<input class="link-button blue" type="submit" value="Consultar">
 					</form>
 				</center>
 
-				<div id="comprovante">
+				<div id="comprovante" style="display: none;">
 					<br/>
 					<br/>
 					<center>
@@ -39,6 +39,13 @@ include_once 'header.php';
 						<h4 id="horario">20/10/2015 10:35</h4>
 						<br/>
 						<h4 id="sala">1</h4>
+						<h4 id="cadeira">1</h4>
+					</center>
+				</div>
+
+				<div id="erro" style="display: none;">
+					<center>
+						<h1>Nada encontrado!</h1>
 					</center>
 				</div>
 
@@ -50,8 +57,76 @@ include_once 'header.php';
 
 <script type="text/javascript">
 	$("#cadastro").submit(function(evento) {
-		enviarInformacoes("cadastro", "sessions", "cadastrofinalizado.php", "../erro.php");
+		var datastring = $("#cadastro").serialize();
+		console.log(datastring);
+
+	  event.preventDefault(); //prevenir o form de fazer submit
+
+	  var retorno;
+	  $.ajax({
+	  	type: "GET",
+	  	url: "http://localhost:8000/emovie/tickets",
+	  	data: datastring,
+	  	dataType: "json",
+	  	success: function(data) {
+	  		if(data != null) {
+					preencherTicket(data);
+				} else {
+					$("#comprovante").hide();
+					$("#erro").show();
+				}
+	  	},
+	  	error: function(){
+				$("#comprovante").hide();
+				$("#erro").show();
+	  	}
+	  });
+
+	  return retorno;
 	});
+
+	function preencherTicket($data) {
+		$("#comprovante").show();
+		$("#erro").hide();
+
+		document.getElementById("ticket").innerHTML = $data["token"];
+		document.getElementById("email").innerHTML = $data["user"]["email"];
+		document.getElementById("filme").innerHTML = $data["exhibition"]["movie"]["name"];
+		document.getElementById("horario").innerHTML = mountHorario($data["exhibition"]["session"]);
+		document.getElementById("sala").innerHTML = "Sala: " + $data["exhibition"]["room"]["id"];
+		document.getElementById("cadeira").innerHTML = "Cadeira: " + $data["chairNumber"];
+	}
+
+	function mountHorario($horario) {
+		var retorno = "";
+		switch($horario["dayWeek"]) {
+			case 0:
+				retorno = "Domingo";
+				break;
+			case 1:
+				retorno = "Segunda";
+				break;
+			case 2:
+				retorno = "Terça";
+				break;
+			case 3:
+				retorno = "Quarta";
+				break;
+			case 4:
+				retorno = "Quinta";
+				break;
+			case 5:
+				retorno = "Sexta";
+				break;
+			case 6:
+				retorno = "Sábado";
+				break;
+		}
+
+		retorno += ", " + $horario["hour"].substring(12, $horario["hour"].length);
+
+		return retorno;
+	}
 </script>
 
 <?php

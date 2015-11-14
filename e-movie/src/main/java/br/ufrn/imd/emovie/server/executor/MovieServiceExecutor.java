@@ -45,8 +45,7 @@ public class MovieServiceExecutor extends ServiceExecutorTemplate {
 	}
 
 	@Override
-	public String processGetOther(HttpExchange httpExchange, List<String> urlParams, Map<String, Object> requestParams)
-			throws ServiceException, DaoException {
+	public String processGetOther(HttpExchange httpExchange, List<String> urlParams, Map<String, Object> requestParams) {
 		// TODO Auto-generated method stub
 		return "";
 	}

@@ -8,4 +8,6 @@ public interface IDaoTicket extends IDaoGeneric<Ticket> {
 	
 	public List<Ticket> getAllTokens();
 
+	public Ticket getByToken(String token);
+
 }

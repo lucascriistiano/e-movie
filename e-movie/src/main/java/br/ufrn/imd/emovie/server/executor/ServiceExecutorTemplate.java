@@ -11,7 +11,6 @@ import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 
 import br.ufrn.imd.emovie.dao.exception.DaoException;
-import br.ufrn.imd.emovie.service.exception.ServiceException;
 
 /**
  * 
@@ -27,7 +26,7 @@ public abstract class ServiceExecutorTemplate implements IServiceExecutorTemplat
 	
 	public abstract String processGetFindOne(Integer id) throws DaoException;
 	public abstract String processGetFindAll() throws DaoException;
-	public abstract String processGetOther(HttpExchange httpExchange, List<String> urlParams, Map<String, Object> requestParams) throws ServiceException, DaoException;
+	public abstract String processGetOther(HttpExchange httpExchange, List<String> urlParams, Map<String, Object> requestParams);
 	
 	public abstract boolean processPostCreate(Map<String, Object> requestParams);
 	public abstract boolean processPostUpdate(Map<String, Object> requestParams);
@@ -61,6 +60,9 @@ public abstract class ServiceExecutorTemplate implements IServiceExecutorTemplat
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+			} else if(requestParams.size() > 0) {
+				String resultJSON = processGetOther(httpExchange, urlParams, requestParams);
+				sendResponseJSON(httpExchange, resultJSON);
 			} else {  // get all results					
 				try {
 					String resultJSON = processGetFindAll();
