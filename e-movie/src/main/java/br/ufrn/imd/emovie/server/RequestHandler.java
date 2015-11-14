@@ -13,6 +13,7 @@ import com.sun.net.httpserver.HttpHandler;
 
 import br.ufrn.imd.emovie.server.executor.MovieServiceExecutor;
 import br.ufrn.imd.emovie.server.executor.RoomServiceExecutor;
+import br.ufrn.imd.emovie.server.executor.ExhibitionServiceExecutor;
 import br.ufrn.imd.emovie.server.executor.IServiceExecutorTemplate;
 import br.ufrn.imd.emovie.server.executor.SessionServiceExecutor;
 import br.ufrn.imd.emovie.server.executor.TicketServiceExecutor;
@@ -34,6 +35,7 @@ public class RequestHandler implements HttpHandler {
 		this.serviceExecutors.put("rooms", new RoomServiceExecutor());
 		this.serviceExecutors.put("movies", new MovieServiceExecutor());
 		this.serviceExecutors.put("sessions", new SessionServiceExecutor());
+		this.serviceExecutors.put("exhibitions", new ExhibitionServiceExecutor());
 		this.serviceExecutors.put("users", new UserServiceExecutor());
 		this.serviceExecutors.put("tickets", new TicketServiceExecutor());
 	}
