@@ -5,22 +5,6 @@ include_once 'header.php';
 ?>
 
 <script>
-	var chairs = { 'A01': 1, 'A02': 0, 'A03': 0, 'A04': 0, 'A05': 0, 'A06': 0, 'A07': 0, 'A08': 0, 'A09': 0, 'A10': 0,
-				   'B01': 1, 'B02': 1, 'B03': 0, 'B04': 0, 'B05': 1, 'B06': 0, 'B07': 0, 'B08': 0, 'B09': 0, 'B10': 0,
-				   'C01': 0, 'C02': 0, 'C03': 0, 'C04': 0, 'C05': 0, 'C06': 0, 'C07': 0, 'C08': 0, 'C09': 0, 'C10': 0,
-				   'D01': 0, 'D02': 0, 'D03': 0, 'D04': 0, 'D05': 0, 'D06': 0, 'D07': 0, 'D08': 0, 'D09': 0, 'D10': 0,
-				   'E01': 0, 'E02': 0, 'E03': 0, 'E04': 0, 'E05': 0, 'E06': 1, 'E07': 0, 'E08': 0, 'E09': 0, 'E10': 0,
-				   'F01': 1, 'F02': 1, 'F03': 0, 'F04': 0, 'F05': 0, 'F06': 0, 'F07': 0, 'F08': 0, 'F09': 0, 'F10': 0,
-				   'G01': 0, 'G02': 0, 'G03': 0, 'G04': 0, 'G05': 0, 'G06': 0, 'G07': 0, 'G08': 0, 'G09': 0, 'G10': 0,
-				   'H01': 0, 'H02': 0, 'H03': 0, 'H04': 0, 'H05': 0, 'H06': 0, 'H07': 0, 'H08': 0, 'H09': 0, 'H10': 0,
-				   'I01': 0, 'I02': 0, 'I03': 0, 'I04': 0, 'I05': 0, 'I06': 0, 'I07': 0, 'I08': 0, 'I09': 0, 'I10': 1 }
-
-	var imgFolder = "img/chair/";
-	var freeImg = imgFolder + "free.png";
-	var occupiedImg = imgFolder + "occupied.png";
-	var selectedImg = imgFolder + "selected.png";
-	var selectedChair = '';
-
 	function setOccupied(chairCode) {
 		$("#" + chairCode).attr("src", occupiedImg);
 	}
@@ -33,11 +17,65 @@ include_once 'header.php';
 		$("#" + chairCode).attr("src", selectedImg);
 	}
 
+	function getQueryVariable(variable) {
+		var query = window.location.search.substring(1);
+		var vars = query.split("&");
+		for (var i=0;i<vars.length;i++) {
+			var pair = vars[i].split("=");
+			if (pair[0] == variable) {
+				return pair[1];
+			}
+		}
+		return '';
+	}
+
+	var imgFolder = "img/chair/";
+	var freeImg = imgFolder + "free.png";
+	var occupiedImg = imgFolder + "occupied.png";
+	var selectedImg = imgFolder + "selected.png";
+	var selectedChair = '';
+
+	var exhibitionId;
+	var chairs;
+	var roomRows;
+
+	function loadExhibitionRoomRows() {
+		// Get number of rows of room from server
+		$.ajax({
+			type: "GET",
+			url: "http://localhost:8000/emovie/exhibitions/" + exhibitionId,
+			dataType: "json",
+			async: false,
+			success: function(data) {
+				var exhibition = data;
+				var room = exhibition['room']
+				roomRows = parseInt(room['rows'])
+			},
+			error: function(){
+				window.location.href = "erro.php";
+			}
+		});
+	}
+
 	function updateState() {
-		// Consulta dados de estado do servidor
+		// Get chair state from server
+		$.ajax({
+			type: "GET",
+			url: "http://localhost:8000/emovie/chairs",
+			data: 'id_exhibition=' + exhibitionId,
+			dataType: "json",
+			success: function(data) {
+				chairs = data;
+				updateView();
+			},
+			error: function(){
+				window.location.href = "erro.php";
+			}
+		});
+	}
 
-
-		// Atualiza exibição da tabela
+	function updateView() {
+		// Updates table exhibition
 		for (var chairCode in chairs) {
 			if(chairs[chairCode] == 0) {
 				setFree(chairCode);
@@ -46,12 +84,12 @@ include_once 'header.php';
 			}
 		}
 
-		// Verifica se a poltrona do usuário foi tomada
+		// Check if the chair was taken
 		if(chairs[selectedChair] == 1) {
 			releaseCurrentChair();
 			alert('A poltrona que você havia selecionado foi tomada');
 		} else {
-			// Mantém a imagem da poltrona selecionada pelo usuário
+			// Maintains the image on chair selected by user
 			setCurrent(selectedChair);
 		}
 	}
@@ -84,40 +122,65 @@ include_once 'header.php';
 	}
 
 	function createTable() {
-		var fileiras = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
-		var numLinhas = fileiras.length;
-		var numColunas = 10;
+		loadExhibitionRoomRows();
+
+		var rowCodes = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+				 		 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' ];
+		var rowChairs = 10;
 
 		var tableContent = '';
-
 		//Gera linhas com cadeiras
-		for (var linha = 0; linha < numLinhas; linha++){
-			var fileira = fileiras[linha];
-
+		for (var row = 0; row < roomRows; row++){
+			var rowCode = rowCodes[row];
 			tableContent += '<tr>';
-			tableContent += '<td class="chair-number">' + fileira +'</td>';
-			for (var j = 1; j <= numColunas; j++) {
-				var coluna = ("0" + j).slice(-2);
-				var chairCode = fileira + coluna;
-
+			tableContent += '<td class="chair-number">' + rowCode +'</td>';
+			for (var j = 1; j <= rowChairs; j++) {
+				var chairNumber = ("0" + j).slice(-2);
+				var chairCode = rowCode + chairNumber;
 				tableContent += '<td><a href="#" target="_self">' + '<img id="' + chairCode + '" class="chair-img" src="" onclick="selectChair(\'' + chairCode + '\')"/>' +'</a></td>';
 			}
 			tableContent += '</tr>';
 		}
 
-		//Gera última linha
+		// Generates last row
 		tableContent += '<tr>';
 		tableContent += '<td></td>';
-		for (var k = 1; k <= numColunas; k++){
-			tableContent += '<td class="chair-number">' + (k) + '</td>';
+		for (var chairNumber = 1; chairNumber <= rowChairs; chairNumber++){
+			tableContent += '<td class="chair-number">' + (chairNumber) + '</td>';
 		}
 		tableContent += '<td></td>';
 		tableContent += '</tr>';
-
 		$('#table-chairs').append(tableContent);
 	}
 
+	function checkValidId () {
+		if(exhibitionId == '') {
+			alert("É necessário selecionar o filme e exibição antes da escolha da poltrona");
+			window.location.href = "/index.php";
+		} else {
+			// Check if id is invalid
+			$.ajax({
+				type: "GET",
+				url: "http://localhost:8000/emovie/chairs",
+				data: 'id_exhibition=' + exhibitionId,
+				dataType: "json",
+				success: function(data) {
+					if(data == null) {
+						alert("O id não corresponde a nenhuma exibição cadastrada");
+						window.location.href = "index.php";
+					}
+				},
+				error: function(){
+					window.location.href = "erro.php";
+				}
+			});
+		}
+	}
+
 	$(document).ready(function () {
+		exhibitionId = getQueryVariable('id_exhibition');
+		checkValidId();
+
 		createTable();
 		updateState();
 		setInterval(function(){updateState()},2000);
