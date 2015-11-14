@@ -1,5 +1,5 @@
 <?php
-$title = 'Cadastro Finalizado - E-Movie';
+$title = 'Seleção de Poltrona - E-Movie';
 $home = false;
 include_once 'header.php';
 ?>

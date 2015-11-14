@@ -37,6 +37,10 @@ public class TicketService {
 	        return daoTicket.getAll();
 	}
 	
+	public List<Ticket> listByExhibitionId(Integer idExhibition) {
+		return daoTicket.listByExhibitionId(idExhibition);
+	}
+	
 	public void create(Ticket ticket) throws DaoException {
 		String token = generateToken(ticket.getUser().getId());
 		ticket.setToken(token);

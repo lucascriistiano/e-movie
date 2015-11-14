@@ -11,7 +11,6 @@ import br.ufrn.imd.emovie.model.Exhibition;
 import br.ufrn.imd.emovie.model.Movie;
 import br.ufrn.imd.emovie.model.Room;
 import br.ufrn.imd.emovie.model.Session;
-import br.ufrn.imd.emovie.model.Ticket;
 import br.ufrn.imd.emovie.service.ExhibitionService;
 import br.ufrn.imd.emovie.service.MovieService;
 import br.ufrn.imd.emovie.service.RoomService;
