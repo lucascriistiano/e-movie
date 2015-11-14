@@ -22,21 +22,21 @@ public class Room implements Serializable {
 	@GeneratedValue
 	@Column(name = "id_room")
 	private Integer id;
-	private Integer capacity;
+	private Integer rows;
 
 	public Room() {
 		super();
 	}
 	
-	public Room(Integer capacity) {
+	public Room(Integer rows) {
 		this();
-		this.capacity = capacity;
+		this.rows = rows;
 	}
 	
-	public Room(Integer id, Integer capacity) {
+	public Room(Integer id, Integer rows) {
 		this();
 		this.id = id;
-		this.capacity = capacity;
+		this.rows = rows;
 	}
 
 	public Integer getId() {
@@ -47,12 +47,12 @@ public class Room implements Serializable {
 		this.id = id;
 	}
 
-	public Integer getCapacity() {
-		return capacity;
+	public Integer getRows() {
+		return rows;
 	}
 
-	public void setCapacity(Integer capacity) {
-		this.capacity = capacity;
+	public void setCapacity(Integer rows) {
+		this.rows = rows;
 	}
 
 }

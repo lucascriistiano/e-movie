@@ -50,10 +50,10 @@ public class RoomServiceExecutor extends ServiceExecutorTemplate {
 
 	@Override
 	public boolean processPostCreate(Map<String, Object> requestParams) {
-		Integer capacity = Integer.parseInt((String) requestParams.get("capacity"));
+		Integer rows = Integer.parseInt((String) requestParams.get("rows"));
 		
 		try {
-			Room room = new Room(capacity);
+			Room room = new Room(rows);
 			roomService.create(room);
 			return true;
 		} catch (ServiceException | DaoException e ) {
@@ -66,10 +66,10 @@ public class RoomServiceExecutor extends ServiceExecutorTemplate {
 	@Override
 	public boolean processPostUpdate(Map<String, Object> requestParams) {
 		int id = Integer.parseInt((String) requestParams.get("id"));
-		Integer capacity = Integer.parseInt((String) requestParams.get("capacity"));
+		Integer rows = Integer.parseInt((String) requestParams.get("rows"));
 		
 		try {
-			Room room = new Room(id, capacity);
+			Room room = new Room(id, rows);
 			roomService.update(room);
 			return true;
 		} catch (ServiceException | DaoException e ) {

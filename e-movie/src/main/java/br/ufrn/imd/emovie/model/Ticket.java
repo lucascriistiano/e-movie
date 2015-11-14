@@ -27,12 +27,15 @@ public class Ticket implements Serializable {
 	@Column(name = "id_ticket")
 	private Integer id;
 	private Date date;
-	private Float price;
+	private float price;
 	private String token;
 	
 	@OneToOne
 	@JoinColumn(name = "id_exhibition")
 	private Exhibition exhibition;
+	
+	@Column(name = "chair_num")
+	private String chairNumber;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_user")
@@ -45,17 +48,18 @@ public class Ticket implements Serializable {
 		super();
 	}
 	
-	public Ticket(Date date, Float price, Exhibition exhibition, User user, Date createdAt) {
+	public Ticket(Date date, float price, Exhibition exhibition, String chairNumber, User user, Date createdAt) {
 		this();
 		this.date = date;
 		this.price = price;
 		this.exhibition = exhibition;
+		this.chairNumber = chairNumber;
 		this.user = user;
 		this.createdAt = createdAt;
 	}
 	
-	public Ticket(Integer id, Date date, Float price, Exhibition exhibition, User user, Date createdAt) {
-		this(date, price, exhibition, user, createdAt);
+	public Ticket(Integer id, Date date, float price, Exhibition exhibition, String chairNumber, User user, Date createdAt) {
+		this(date, price, exhibition, chairNumber, user, createdAt);
 		this.id = id;
 	}
 
@@ -75,20 +79,36 @@ public class Ticket implements Serializable {
 		this.date = date;
 	}
 
-	public Float getPrice() {
+	public float getPrice() {
 		return price;
 	}
 
-	public void setPrice(Float price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
+	
+	public String getToken() {
+		return token;
+	}
 
+	public void setToken(String token) {
+		this.token = token;
+	}
+	
 	public Exhibition getExhibition() {
 		return exhibition;
 	}
 
 	public void setExhibition(Exhibition exhibition) {
 		this.exhibition = exhibition;
+	}
+	
+	public String getChairNumber() {
+		return chairNumber;
+	}
+
+	public void setChairNumber(String chairNumber) {
+		this.chairNumber = chairNumber;
 	}
 
 	public User getUser() {
@@ -105,14 +125,6 @@ public class Ticket implements Serializable {
 
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
-	}
-
-	public String getToken() {
-		return token;
-	}
-
-	public void setToken(String token) {
-		this.token = token;
 	}
 
 }
