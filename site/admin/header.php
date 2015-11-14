@@ -101,7 +101,7 @@
 						<li><a href="cadastroexibicao.php">NOVA EXIBIÇÃO</a></li>
 					</ul>
 				</li>
-				<li><a href="#logout">SAIR</a></li>
+				<li><a href="/index.php">SAIR</a></li>
 			</ul>
 			<div id="combo-holder"></div>
 			<!-- ends nav -->
