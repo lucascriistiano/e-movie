@@ -1,11 +1,8 @@
 package br.ufrn.imd.emovie;
 
-import java.net.ConnectException;
 import java.net.InetSocketAddress;
 
 import javax.persistence.PersistenceException;
-
-import org.hibernate.exception.JDBCConnectionException;
 
 import com.sun.net.httpserver.HttpContext;
 import com.sun.net.httpserver.HttpServer;
