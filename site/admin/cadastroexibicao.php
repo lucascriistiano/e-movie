@@ -4,6 +4,105 @@ $home = false;
 include_once 'header.php';
 ?>
 
+<script type="text/javascript">
+	$(document).ready(function (){
+		// Listagem dos filmes
+		$.ajax({
+			type: "GET",
+			url: "http://localhost:8000/emovie/movies",
+			dataType: "json",
+			success: function(data) {
+				console.log(data);
+
+				var resultHTML = '';
+				$.each(data, function(index, movie) {
+					var optionHTML = '';
+					optionHTML += '<option value="' + movie['id'] + '">';
+					optionHTML += movie['name'];
+					optionHTML += '</option>';
+
+					resultHTML += optionHTML;
+				});
+
+				$('#movie-list').append(resultHTML);
+			},
+			error: function(){
+				window.location.href = "../erro.php";
+			}
+		});
+
+		// Listagem das sessões
+		var daysWeek = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
+
+		function getFormmatedTime(dateString) {
+			var date = new Date(dateString);
+			var hours = date.getHours();
+			if(hours < 10) {
+				hours = '0' + hours;
+			}
+
+			var minutes = date.getMinutes();
+			if(minutes < 10) {
+				minutes = '0' + minutes;
+			}
+
+			return hours + ':' + minutes;
+		}
+
+		$.ajax({
+			type: "GET",
+			url: "http://localhost:8000/emovie/sessions",
+			dataType: "json",
+			success: function(data) {
+				console.log(data);
+
+				var resultHTML = '';
+				$.each(data, function(index, session) {
+                    var sessionDays = daysWeek[parseInt(session['dayWeek'])] + 's';
+                    var sessionTime = getFormmatedTime(session['hour']);
+
+					var optionHTML = '';
+					optionHTML += '<option value="' + session['id'] + '">';
+					optionHTML += sessionDays + ' - ' + sessionTime;
+					optionHTML += '</option>';
+
+					resultHTML += optionHTML;
+				});
+
+				$('#session-list').append(resultHTML);
+			},
+			error: function(){
+				window.location.href = "../erro.php";
+			}
+		});
+
+		$.ajax({
+			type: "GET",
+			url: "http://localhost:8000/emovie/rooms",
+			dataType: "json",
+			success: function(data) {
+				console.log(data);
+
+				var resultHTML = '';
+				$.each(data, function(index, room) {
+					var optionHTML = '';
+					optionHTML += '<option value="' + room['id'] + '">';
+					optionHTML += 'Sala ' + room['id'] + ' - ' + room['rows'] + ' fileiras';
+					optionHTML += '</option>';
+
+					resultHTML += optionHTML;
+				});
+
+				$('#room-list').append(resultHTML);
+			},
+			error: function(){
+				window.location.href = "../erro.php";
+			}
+		});
+
+	});
+</script>
+
 <!-- MAIN -->
 <div id="main">
 	<div class="wrapper cf">
@@ -16,27 +115,20 @@ include_once 'header.php';
 				<center>
 					<form id="cadastro">
 						Filme:<br/>
-						<select name="id_movie" required>
-							<option value="0" selected>Os Vingadores 2</option>
-							<option value="1">Crepúsculo</option>
-							<option value="2">Ant-Man</option>
-							<option value="3">Os Smurfs 2</option>
+						<select id="movie-list" name="id_movie" required>
+							<!-- Movie options -->
 						</select>
 						<br/>
 
 						Horário:<br/>
-						<select name="id_session" required>
-							<option value="0" selected>Domingos - 14:00</option>
-							<option value="1">Quintas - 13:00</option>
-							<option value="2">Sábados - 12:00</option>
+						<select id="session-list" name="id_session" required>
+							<!-- Session options -->
 						</select>
 						<br/>
 
 						Sala:<br/>
-						<select name="id_room" required>
-							<option value="1" selected>Sala 1</option>
-							<option value="10">Sala 10</option>
-							<option value="15">Sala 15</option>
+						<select id="room-list" name="id_room" required>
+							<!-- Room options -->
 						</select>
 						<br/>
 						<br/>
