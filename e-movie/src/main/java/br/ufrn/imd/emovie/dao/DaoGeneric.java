@@ -28,64 +28,64 @@ public class DaoGeneric<T> implements IDaoGeneric<T> {
 
 	@Override
 	public void create(T entity) throws DaoException {
-		EntityManager em = factory.createEntityManager();
-		em.getTransaction().begin();
-		em.persist(entity);
-		em.getTransaction().commit();
-		em.close();
+		EntityManager entityManager = getEntityManager();
+		entityManager.getTransaction().begin();
+		entityManager.persist(entity);
+		entityManager.getTransaction().commit();
+		entityManager.close();
 	}
 
 	@Override
 	public void update(T entity) throws DaoException {
-		EntityManager em = factory.createEntityManager();
-		em.getTransaction().begin();
-		em.merge(entity);
-		em.getTransaction().commit();
-		em.close();
+		EntityManager entityManager = getEntityManager();
+		entityManager.getTransaction().begin();
+		entityManager.merge(entity);
+		entityManager.getTransaction().commit();
+		entityManager.close();
 	}
 	
 	@Override
 	public void delete(Integer id) throws DaoException {
-		EntityManager em = factory.createEntityManager();
+		EntityManager entityManager = getEntityManager();
 		try {
-			em.getTransaction().begin();
-			em.remove(em.getReference(classEntity, id)); 
-			em.getTransaction().commit();
+			entityManager.getTransaction().begin();
+			entityManager.remove(entityManager.getReference(classEntity, id)); 
+			entityManager.getTransaction().commit();
 		} finally {
-			em.close();
+			entityManager.close();
 		}
 	}
 	
 	@Override
 	public void delete(T entity) throws DaoException {
-		EntityManager em = factory.createEntityManager();
+		EntityManager entityManager = getEntityManager();
 		try {
-			em.getTransaction().begin();
-			em.remove(entity);
-			em.getTransaction().commit();
+			entityManager.getTransaction().begin();
+			entityManager.remove(entity);
+			entityManager.getTransaction().commit();
 		} finally {
-			em.close();
+			entityManager.close();
 		}
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> getAll() throws DaoException {
-		EntityManager em = factory.createEntityManager();
+		EntityManager entityManager = getEntityManager();
 		try {
-			return em.createQuery("from " + classEntity.getSimpleName()).getResultList();
+			return entityManager.createQuery("from " + classEntity.getSimpleName()).getResultList();
 		} finally {
-			em.close();
+			entityManager.close();
 		}
 	}
 
 	@Override
 	public T getById(Integer id) throws DaoException {
-		EntityManager em = factory.createEntityManager();
+		EntityManager entityManager = getEntityManager();
 		try {
-			return em.find(classEntity, id);
+			return entityManager.find(classEntity, id);
 		} finally {
-			em.close();
+			entityManager.close();
 		}
 	}
 	
