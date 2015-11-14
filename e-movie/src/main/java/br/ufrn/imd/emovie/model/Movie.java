@@ -24,6 +24,8 @@ public class Movie implements Serializable {
 	@Column(name = "id_movie")
 	private Integer id;
 	private String name;
+	
+	@Column(length=10000)
 	private String synopsis;
 
 	private String advertisement;
