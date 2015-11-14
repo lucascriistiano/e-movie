@@ -96,20 +96,11 @@
 			<!-- nav -->
 			<ul id="nav" class="sf-menu">
 				<li class="current-menu-item"><a href="index.php">INÍCIO</a></li>
-				<li><a href="horarios.php">HORÁRIOS</a>
-					<ul>
-						<li><a href="admin/cadastrohorario.php">CADASTRO</a></li>
-					</ul>
-				</li>
+				<li><a href="horarios.php">HORÁRIOS</a></li>
 				<li><a href="#">COMPRAS</a>
 					<ul>
 						<li><a href="trocasessao.php">TROCA DE SESSÃO</a></li>
 						<li><a href="cancelarcompra.php">CANCELAR COMPRA</a></li>
-					</ul>
-				</li>
-				<li><a href="#">FILMES</a>
-					<ul>
-						<li><a href="admin/cadastrofilme.php">CADASTRO</a></li>
 					</ul>
 				</li>
 				<li><a href="cadastro.php">CADASTRO</a></li>

@@ -12,7 +12,7 @@ include_once 'header.php';
 		<div id="page-content" class="cf">
 			<!-- entry-content -->
 			<div class="entry-content cf">
-				<h2 class="heading">Cadastrar Filme</h2>
+				<h2 class="heading">Novo Filme</h2>
 
 				<center>
 					<form id="cadastro">

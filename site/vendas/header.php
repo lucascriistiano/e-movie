@@ -93,12 +93,10 @@
 			<!-- nav -->
 			<ul id="nav" class="sf-menu">
 				<li class="current-menu-item"><a href="index.php">INÍCIO</a></li>
-				<li><a href="#">ADMINISTRAÇÃO</a>
+				<li><a href="#">VENDAS</a>
 					<ul>
-						<li><a href="cadastrofilme.php">NOVO FILME</a></li>
-						<li><a href="cadastrohorario.php">NOVO HORÁRIO</a></li>
-						<li><a href="cadastrosala.php">NOVA SALA</a></li>
-						<li><a href="cadastroexibicao.php">NOVA EXIBIÇÃO</a></li>
+						<li><a href="novavendalocal.php">INICIAR NOVA VENDA</a></li>
+						<li><a href="retiraringresso.php">RETIRAR INGRESSO</a></li>
 					</ul>
 				</li>
 				<li><a href="#logout">SAIR</a></li>

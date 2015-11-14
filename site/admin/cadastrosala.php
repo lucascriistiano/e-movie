@@ -1,5 +1,5 @@
 <?php
-$title = 'Cadastro Horário - E-Movie';
+$title = 'Cadastro Sala - E-Movie';
 $home = false;
 include_once 'header.php';
 ?>
@@ -11,23 +11,12 @@ include_once 'header.php';
 		<div id="page-content" class="cf">
 			<!-- entry-content -->
 			<div class="entry-content cf">
-				<h2 class="heading">Novo Horário</h2>
+				<h2 class="heading">Nova Sala</h2>
 
 				<center>
 					<form id="cadastro">
-						Dia da semana:<br/>
-						<select name="day_week">
-							<option value="0" selected>Domingo</option>
-							<option value="1">Segunda</option>
-							<option value="2">Terça</option>
-							<option value="3">Quarta</option>
-							<option value="4">Quinta</option>
-							<option value="5">Sexta</option>
-							<option value="6">Sábado</option>
-						</select>
-						<br/>
-						Hora:<br/>
-						<input type="time" name="hour">
+						Número de Fileiras:
+						<input type="number" name="rows" value="1" min="1" max="26">
 						<br/>
 						<br/>
 						<input type="hidden" name="operation" value="create" required>
@@ -43,7 +32,7 @@ include_once 'header.php';
 
 <script type="text/javascript">
 	$("#cadastro").submit(function(evento) {
-		enviarInformacoes("cadastro", "sessions", "cadastrofinalizado.php", "../erro.php");
+		enviarInformacoes("cadastro", "rooms", "cadastrofinalizado.php", "../erro.php");
 	});
 </script>
 
