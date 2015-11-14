@@ -11,6 +11,7 @@ import com.sun.net.httpserver.HttpExchange;
 
 import br.ufrn.imd.emovie.dao.exception.DaoException;
 import br.ufrn.imd.emovie.model.User;
+import br.ufrn.imd.emovie.model.UserType;
 import br.ufrn.imd.emovie.service.UserService;
 import br.ufrn.imd.emovie.service.email.MailSender;
 import br.ufrn.imd.emovie.service.exception.ServiceException;
@@ -58,11 +59,10 @@ public class UserServiceExecutor extends ServiceExecutorTemplate {
 		String name = (String) requestParams.get("name");
 		String email = (String) requestParams.get("email");
 		String password = userService.generatePassword();		
-		boolean admin = false; // creates a non admin user by default
 		Date createdAt = new Date();
 		
 		try {
-			User user = new User(name, password, email, admin, createdAt);
+			User user = new User(name, password, email, UserType.USER, createdAt);
 			userService.create(user);
 			mailSender.sendRegisterConfirmation(user);
 			return true;
@@ -88,11 +88,10 @@ public class UserServiceExecutor extends ServiceExecutorTemplate {
 		String name = (String) requestParams.get("name");
 		String password = (String) requestParams.get("password");
 		String email = (String) requestParams.get("email");
-		boolean admin = Boolean.parseBoolean((String) requestParams.get("admin"));
 		Date createdAt = new Date();
 		
 		try {
-			User user = new User(id, name, password, email, admin, createdAt);
+			User user = new User(id, name, password, email, UserType.USER, createdAt);
 			userService.update(user);
 			return true;
 		} catch (ServiceException | DaoException e ) {
