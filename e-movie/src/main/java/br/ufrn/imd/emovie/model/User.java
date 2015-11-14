@@ -24,8 +24,8 @@ public class User implements Serializable {
 	private String password;
 	private String email;
 	
-	@Column(name = "admin")
-	private boolean admin;
+	@Enumerated(EnumType.ORDINAL)
+	private UserType type;
 	
 	@Column(name = "created_at")
 	private Date createdAt;
@@ -34,17 +34,17 @@ public class User implements Serializable {
 		super();
 	}
 	
-	public User(String name, String password, String email, boolean admin, Date createdAt) {
+	public User(String name, String password, String email, UserType type, Date createdAt) {
 		this();
 		this.name = name;
 		this.password = password;
 		this.email = email;
-		this.admin = admin;
+		this.type = type;
 		this.createdAt = createdAt;
 	}
 
-	public User(Integer id, String name, String password, String email, boolean admin, Date createdAt) {
-		this(name, password, email, admin, createdAt);
+	public User(Integer id, String name, String password, String email, UserType type, Date createdAt) {
+		this(name, password, email, type, createdAt);
 		this.id = id;
 	}
 	
@@ -88,12 +88,12 @@ public class User implements Serializable {
 		this.createdAt = createdAt;
 	}
 
-	public boolean isAdmin() {
-		return admin;
+	public UserType getType() {
+		return type;
 	}
 
-	public void setAdmin(boolean admin) {
-		this.admin = admin;
+	public void setType(UserType type) {
+		this.type = type;
 	}
 
 	public String getFirstName() {
