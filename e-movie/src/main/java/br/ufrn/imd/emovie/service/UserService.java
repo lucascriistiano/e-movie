@@ -51,6 +51,10 @@ public class UserService {
 		daoUser.delete(id);
 	}
 	
+	public User checkLogin(User user) throws DaoException {
+		return daoUser.checkLogin(user);
+	}
+	
 	public String generatePassword() {
 		char[] chars = "abcdefghijklmnopqrstuvwxyz1234567890".toCharArray();
 		StringBuilder sb = new StringBuilder();

@@ -24,6 +24,8 @@ import br.ufrn.imd.emovie.service.exception.ServiceException;
 @SuppressWarnings("restriction")
 public class UserServiceExecutor extends ServiceExecutorTemplate {
 	
+	private static final String LOGIN = "login";
+	
 	private UserService userService;
 	private MailSender mailSender;
 	
@@ -50,7 +52,24 @@ public class UserServiceExecutor extends ServiceExecutorTemplate {
 
 	@Override
 	public String processGetOther(HttpExchange httpExchange, List<String> urlParams, Map<String, Object> requestParams) {
-		// TODO Auto-generated method stub
+		String operation = (String) requestParams.get("operation");
+		if(operation.equals(LOGIN)) {
+			try {
+				User usuario = new User();
+				usuario.setEmail((String) requestParams.get("email"));
+				usuario.setPassword((String) requestParams.get("senha"));
+				
+				User user = userService.checkLogin(usuario);
+				
+				Gson gson = new Gson();
+				String jsonTicket = gson.toJson(user);
+				return jsonTicket;
+			} catch (DaoException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
 		return "";
 	}
 

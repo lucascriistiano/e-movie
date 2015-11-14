@@ -51,7 +51,6 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 			
 			Gson gson = new Gson();
 			String jsonTicket = gson.toJson(ticket);
-			System.out.println(jsonTicket);
 			return jsonTicket;
 		}
 		
