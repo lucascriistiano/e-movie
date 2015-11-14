@@ -261,7 +261,7 @@ $(document).ready(function (){
                 sliderHTML += '<div class="slider-description">';
                 sliderHTML += '<h4>' + movie['name'] + '</h4>';
                 sliderHTML += '<p>' + movie['advertisement'] + '. Clique para ver a descrição completa e comprar seu ingresso.';
-                sliderHTML += '<a class="link" href="movie.html?id=' + movie['id'] + '">Leia Mais </a>';
+                sliderHTML += '<a class="link" href="detalhesfilme.php?id=' + movie['id'] + '">Leia Mais </a>';
                 sliderHTML += '</p>';
                 sliderHTML += '</div>';
                 sliderHTML += '</li>';
@@ -273,9 +273,9 @@ $(document).ready(function (){
 
                 var movieHTML = '';
                 movieHTML += '<figure class="web">';
-                movieHTML += '<a href="movie.html?id=' + movie['id'] + '" class="thumb"><img src="img/movies/' + movie['image'] + '.jpg" alt="alt" /></a>';
+                movieHTML += '<a href="detalhesfilme.php?id=' + movie['id'] + '" class="thumb"><img src="img/movies/' + movie['image'] + '.jpg" alt="alt" /></a>';
                 movieHTML += '<figcaption>';
-                movieHTML += '<a href="movie.html?id=' + movie['id'] + '"><h3 class="heading">' + movie['name'] + '</h3></a>';
+                movieHTML += '<a href="detalhesfilme.php?id=' + movie['id'] + '"><h3 class="heading">' + movie['name'] + '</h3></a>';
                 movieHTML += movie['advertisement'];
                 movieHTML += '</figcaption>';
                 movieHTML += '</figure>';
