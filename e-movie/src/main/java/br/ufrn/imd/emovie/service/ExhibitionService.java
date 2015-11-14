@@ -33,6 +33,10 @@ public class ExhibitionService {
 		return daoExhibition.getAll();
 	}
 	
+	public List<Exhibition> listByMovieId(Integer idMovie) {
+		return daoExhibition.listByMovieId(idMovie);
+	}
+	
 	public void create(Exhibition exhibition) throws ServiceException, DaoException {
 		daoExhibition.create(exhibition);
 	}

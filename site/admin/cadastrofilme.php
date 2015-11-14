@@ -23,7 +23,7 @@ include_once 'header.php';
 						<input type="text" name="advertisement" required>
 						<br/>
 						Sinopse:<br/>
-						<textarea rows="4" cols="50" name="synopsis" maxlength="255"></textarea>
+						<textarea rows="4" cols="50" name="synopsis" maxlength="10000"></textarea>
 						<br/>
 						Início da Exibição:<br/>
 						<input type="date" name="start_exhibition" required>

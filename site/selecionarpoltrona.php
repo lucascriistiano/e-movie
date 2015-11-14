@@ -133,7 +133,7 @@ include_once 'header.php';
 			<div class="entry-content cf">
 				<h2 class="heading">Seleção de Poltrona</h2>
 
-				<p>Selecione abaixo a poltrona para a sessão de filme escolhida.</p>
+				<p>Selecione abaixo a poltrona para a exibição de filme escolhida.</p>
 
 				<table id="table-chairs">
 					<!-- automatic table -->

@@ -26,7 +26,6 @@ include_once 'header.php';
         $.ajax({
             type: "GET",
             url: "http://localhost:8000/emovie/sessions",
-            // data: datastring,
             dataType: "json",
             success: function(data) {
                 console.log(data);
@@ -50,7 +49,7 @@ include_once 'header.php';
                 }
             },
             error: function(){
-                $('#session-list').append('<p>Não foi possível listar os horários cadstrados.</p>');
+                $('#session-list').append('<p>Não foi possível listar os horários cadastrados.</p>');
             }
         });
     });

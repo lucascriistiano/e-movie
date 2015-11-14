@@ -11,6 +11,7 @@ import br.ufrn.imd.emovie.model.Exhibition;
 import br.ufrn.imd.emovie.model.Movie;
 import br.ufrn.imd.emovie.model.Room;
 import br.ufrn.imd.emovie.model.Session;
+import br.ufrn.imd.emovie.model.Ticket;
 import br.ufrn.imd.emovie.service.ExhibitionService;
 import br.ufrn.imd.emovie.service.MovieService;
 import br.ufrn.imd.emovie.service.RoomService;
@@ -57,7 +58,14 @@ public class ExhibitionServiceExecutor extends ServiceExecutorTemplate {
 
 	@Override
 	public String processGetOther(HttpExchange httpExchange, List<String> urlParams, Map<String, Object> requestParams) {
-		// TODO Auto-generated method stub
+		if(requestParams.containsKey("id_movie")) {
+			Integer idMovie = Integer.parseInt((String) requestParams.get("id_movie"));
+			List<Exhibition> exhibitions = exhibitionService.listByMovieId(idMovie);
+			Gson gson = new Gson();
+			String jsonTicket = gson.toJson(exhibitions);
+			return jsonTicket;
+		}
+		
 		return "";
 	}
 

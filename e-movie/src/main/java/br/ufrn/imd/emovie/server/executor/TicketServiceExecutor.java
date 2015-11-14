@@ -43,6 +43,7 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 
 	@Override
 	public String processGetOther(HttpExchange httpExchange, List<String> urlParams, Map<String, Object> requestParams) {
+		//TODO
 		String operation = (String) requestParams.get("operation");
 		if(operation.equals(RETRIEVE_TOKEN)) {
 			String token = (String) requestParams.get("token");
