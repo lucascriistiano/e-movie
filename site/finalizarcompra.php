@@ -165,6 +165,7 @@ include_once 'header.php';
 
 						<input id="id_exhibition" type="hidden" name="id_exhibition">
 						<input id="chair_num" type="hidden" name="chair_num">
+						<input type="hidden" name="purchase_location" value="internet">
 						<input type="hidden" name="operation" value="create">
 					</div>
 

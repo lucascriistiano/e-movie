@@ -9,6 +9,7 @@ import com.sun.net.httpserver.HttpExchange;
 
 import br.ufrn.imd.emovie.dao.exception.DaoException;
 import br.ufrn.imd.emovie.model.Exhibition;
+import br.ufrn.imd.emovie.model.PurchaseLocation;
 import br.ufrn.imd.emovie.model.Ticket;
 import br.ufrn.imd.emovie.model.User;
 import br.ufrn.imd.emovie.service.ExhibitionService;
@@ -77,7 +78,17 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 		String chairNum = (String) requestParams.get("chair_num");
 		String email = (String) requestParams.get("email");
 		String password = (String) requestParams.get("password");
-
+		String strPurchaseLocation = (String) requestParams.get("purchase_location");
+		
+		PurchaseLocation purchaseLocation;
+		if(strPurchaseLocation.equals("local")) {
+			purchaseLocation = PurchaseLocation.LOCAL;
+		} else if(strPurchaseLocation.equals("internet")) {
+			purchaseLocation = PurchaseLocation.INTERNET;
+		} else {
+			throw new IllegalArgumentException("Invalid purchase location value '" + strPurchaseLocation + "'");
+		}
+		
 		try {
 			User user = new User();
 			user.setEmail(email);
@@ -87,7 +98,7 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 			if (foundUser != null) {
 				Exhibition exhibition = exhibitionService.find(idExhibition);
 
-				Ticket ticket = new Ticket(exhibition, chairNum, foundUser, new Date());
+				Ticket ticket = new Ticket(exhibition, chairNum, foundUser, purchaseLocation, new Date());
 				ticketService.create(ticket);
 				return true;
 			} else {
@@ -107,6 +118,16 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 		String chairNum = (String) requestParams.get("chair_num");
 		String email = (String) requestParams.get("email");
 		String password = (String) requestParams.get("password");
+		String strPurchaseLocation = (String) requestParams.get("purchase_location");
+		
+		PurchaseLocation purchaseLocation;
+		if(strPurchaseLocation.equals("local")) {
+			purchaseLocation = PurchaseLocation.LOCAL;
+		} else if(strPurchaseLocation.equals("internet")) {
+			purchaseLocation = PurchaseLocation.INTERNET;
+		} else {
+			throw new IllegalArgumentException("Invalid purchase location value '" + strPurchaseLocation + "'");
+		}
 
 		try {
 			User user = new User();
@@ -117,7 +138,7 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 			if (foundUser != null) {
 				Exhibition exhibition = exhibitionService.find(idExhibition);
 
-				Ticket ticket = new Ticket(id, exhibition, chairNum, foundUser, new Date());
+				Ticket ticket = new Ticket(id, exhibition, chairNum, foundUser, purchaseLocation, new Date());
 				ticketService.update(ticket);
 				return true;
 			} else {
