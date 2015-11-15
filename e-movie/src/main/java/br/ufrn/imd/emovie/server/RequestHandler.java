@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,11 +12,11 @@ import java.util.Map;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
-import br.ufrn.imd.emovie.server.executor.MovieServiceExecutor;
-import br.ufrn.imd.emovie.server.executor.RoomServiceExecutor;
 import br.ufrn.imd.emovie.server.executor.ChairServiceExecutor;
 import br.ufrn.imd.emovie.server.executor.ExhibitionServiceExecutor;
 import br.ufrn.imd.emovie.server.executor.IServiceExecutorTemplate;
+import br.ufrn.imd.emovie.server.executor.MovieServiceExecutor;
+import br.ufrn.imd.emovie.server.executor.RoomServiceExecutor;
 import br.ufrn.imd.emovie.server.executor.SessionServiceExecutor;
 import br.ufrn.imd.emovie.server.executor.TicketServiceExecutor;
 import br.ufrn.imd.emovie.server.executor.UserServiceExecutor;
@@ -50,7 +51,7 @@ public class RequestHandler implements HttpHandler {
 		String path = requestURI.getPath();
 		path = path.replaceFirst(contextPath, "");
 
-		System.out.println("Processing request #" + REQUEST_NUMBER + ": " + httpExchange.getRequestMethod() + " " + path);
+		System.out.println("Processing request #" + REQUEST_NUMBER + ": " + httpExchange.getRequestMethod() + " " + path + " - " + new Date());
 		REQUEST_NUMBER++;
 		
 		String[] splittedPath = path.split("/");

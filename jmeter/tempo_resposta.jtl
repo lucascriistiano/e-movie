@@ -1,0 +1,90 @@
+1447610517084,1,Compra,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,Non HTTP response message: Connection to http://127.0.0.1:8000 refused,Teste de Compra 1 1-3,text,false,2164,3,3,0
+1447610517117,12,Compra,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,Non HTTP response message: Connection to http://127.0.0.1:8000 refused,Teste de Compra 1 1-9,text,false,2164,10,10,0
+1447610517076,1,Compra,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,Non HTTP response message: Connection to http://127.0.0.1:8000 refused,Teste de Compra 1 1-1,text,false,2164,1,1,0
+1447610517115,2,Compra,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,Non HTTP response message: Connection to http://127.0.0.1:8000 refused,Teste de Compra 1 1-10,text,false,2164,10,16,0
+1447610517097,0,Compra,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,Non HTTP response message: Connection to http://127.0.0.1:8000 refused,Teste de Compra 1 1-6,text,false,2164,7,7,0
+1447610517090,0,Compra,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,Non HTTP response message: Connection to http://127.0.0.1:8000 refused,Teste de Compra 1 1-4,text,false,2164,4,4,0
+1447610517084,2,Compra,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,Non HTTP response message: Connection to http://127.0.0.1:8000 refused,Teste de Compra 1 1-2,text,false,2164,3,3,0
+1447610517119,2,Compra,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,Non HTTP response message: Connection to http://127.0.0.1:8000 refused,Teste de Compra 1 1-7,text,false,2164,10,12,0
+1447610517120,1,Compra,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,Non HTTP response message: Connection to http://127.0.0.1:8000 refused,Teste de Compra 1 1-8,text,false,2164,10,12,0
+1447610517119,5,Compra,Non HTTP response code: org.apache.http.conn.HttpHostConnectException,Non HTTP response message: Connection to http://127.0.0.1:8000 refused,Teste de Compra 1 1-5,text,false,2164,10,11,0
+1447610536611,1924,Compra,200,OK,Teste de Compra 1 1-7,text,true,156,10,10,1924
+1447610536630,1912,Compra,200,OK,Teste de Compra 1 1-10,text,true,156,9,9,1912
+1447610536607,1940,Compra,200,OK,Teste de Compra 1 1-5,text,true,156,9,9,1940
+1447610536609,1939,Compra,200,OK,Teste de Compra 1 1-6,text,true,156,9,9,1939
+1447610536598,1954,Compra,200,OK,Teste de Compra 1 1-1,text,true,156,9,9,1954
+1447610536614,1943,Compra,200,OK,Teste de Compra 1 1-8,text,true,156,9,9,1943
+1447610536598,2014,Compra,200,OK,Teste de Compra 1 1-2,text,true,156,4,4,2014
+1447610536607,2035,Compra,200,OK,Teste de Compra 1 1-4,text,true,156,4,4,2035
+1447610536615,2081,Compra,200,OK,Teste de Compra 1 1-9,text,true,156,2,2,2081
+1447610536600,2270,Compra,200,OK,Teste de Compra 1 1-3,text,true,156,1,1,2270
+1447610923200,731,Compra,200,OK,Teste de Compra 1 1-6,text,true,156,10,20,731
+1447610923207,744,Compra,200,OK,Teste de Compra 1 1-9,text,true,156,9,19,743
+1447610923174,797,Compra,200,OK,Teste de Compra 1 1-4,text,true,156,8,18,797
+1447610923172,875,Compra,200,OK,Teste de Compra 1 1-3,text,true,156,7,17,875
+1447610923171,916,Compra,200,OK,Teste de Compra 1 1-2,text,true,156,6,16,916
+1447610923209,914,Compra,200,OK,Teste de Compra 1 1-10,text,true,156,5,15,914
+1447610923171,967,Compra,200,OK,Teste de Compra 1 1-1,text,true,156,4,14,967
+1447610923204,943,Compra,200,OK,Teste de Compra 1 1-8,text,true,156,3,13,943
+1447610923197,1121,Compra,200,OK,Teste de Compra 1 1-5,text,true,156,2,12,1121
+1447610923202,1237,Compra,200,OK,Teste de Compra 1 1-7,text,true,156,1,11,1237
+1447611140809,67,Compra,200,OK,Teste de Compra 1 1-3,text,true,157,10,20,67
+1447611140812,587,Compra,200,OK,Teste de Compra 1 1-6,text,true,156,9,19,587
+1447611140816,587,Compra,200,OK,Teste de Compra 1 1-5,text,true,156,9,19,587
+1447611140834,568,Compra,200,OK,Teste de Compra 1 1-8,text,true,156,9,19,568
+1447611140801,602,Compra,200,OK,Teste de Compra 1 1-1,text,true,156,8,18,602
+1447611140839,566,Compra,200,OK,Teste de Compra 1 1-10,text,true,156,8,18,566
+1447611140806,600,Compra,200,OK,Teste de Compra 1 1-4,text,true,156,8,18,600
+1447611140852,558,Compra,200,OK,Teste de Compra 1 1-9,text,true,156,8,18,558
+1447611140801,738,Compra,200,OK,Teste de Compra 1 1-2,text,true,156,2,12,738
+1447611140820,773,Compra,200,OK,Teste de Compra 1 1-7,text,true,156,1,11,773
+1447611401231,29,Compra,200,OK,Teste de Compra 1 1-1,text,true,156,5,5,29
+1447611401238,32,Compra,200,OK,Teste de Compra 1 1-3,text,true,156,6,6,32
+1447611401244,42,Compra,200,OK,Teste de Compra 1 1-2,text,true,156,8,8,42
+1447611401274,42,Compra,200,OK,Teste de Compra 1 1-7,text,true,156,10,20,42
+1447611401286,44,Compra,200,OK,Teste de Compra 1 1-10,text,true,156,10,20,44
+1447611401270,79,Compra,200,OK,Teste de Compra 1 1-6,text,true,156,10,20,79
+1447611401261,92,Compra,200,OK,Teste de Compra 1 1-5,text,true,156,10,20,92
+1447611401242,35,Compra,200,OK,Teste de Compra 1 1-4,text,true,156,7,7,35
+1447611401287,52,Compra,200,OK,Teste de Compra 1 1-9,text,true,156,10,20,52
+1447611401293,65,Compra,200,OK,Teste de Compra 1 1-8,text,true,156,10,20,65
+1447611657451,16,Compra,200,OK,Teste de Compra 1 1-2,text,true,156,9,9,16
+1447611657451,18,Compra,200,OK,Teste de Compra 1 1-1,text,true,156,10,10,18
+1447611657456,18,Compra,200,OK,Teste de Compra 1 1-5,text,true,156,10,10,18
+1447611657455,19,Compra,200,OK,Teste de Compra 1 1-4,text,true,156,10,10,19
+1447611657464,29,Compra,200,OK,Teste de Compra 1 1-8,text,true,156,10,10,29
+1447611657460,20,Compra,200,OK,Teste de Compra 1 1-7,text,true,156,10,10,20
+1447611657470,23,Compra,200,OK,Teste de Compra 1 1-10,text,true,156,10,10,23
+1447611657453,16,Compra,200,OK,Teste de Compra 1 1-3,text,true,156,10,10,16
+1447611657458,35,Compra,200,OK,Teste de Compra 1 1-6,text,true,156,10,10,35
+1447611657467,41,Compra,200,OK,Teste de Compra 1 1-9,text,true,156,10,10,41
+1447611711165,9,Compra,200,OK,Teste de Compra 1 1-1,text,true,156,5,5,9
+1447611711164,11,Compra,200,OK,Teste de Compra 1 1-4,text,true,156,5,5,11
+1447611711162,15,Compra,200,OK,Teste de Compra 1 1-2,text,true,156,5,5,15
+1447611711164,14,Compra,200,OK,Teste de Compra 1 1-3,text,true,156,5,5,14
+1447611711192,9,Compra,200,OK,Teste de Compra 1 1-6,text,true,156,9,9,9
+1447611711199,20,Compra,200,OK,Teste de Compra 1 1-9,text,true,156,10,13,20
+1447611711194,23,Compra,200,OK,Teste de Compra 1 1-7,text,true,156,10,13,23
+1447611711201,33,Compra,200,OK,Teste de Compra 1 1-8,text,true,156,10,14,33
+1447611711175,18,Compra,200,OK,Teste de Compra 1 1-5,text,true,156,6,6,18
+1447611711209,32,Compra,200,OK,Teste de Compra 1 1-10,text,true,156,10,15,32
+1447611967129,356,Compra,200,OK,Teste de Compra 1 1-7,text,true,195,10,20,356
+1447611967107,521,Compra,200,OK,Teste de Compra 1 1-5,text,true,866,9,19,521
+1447611967136,495,Compra,200,OK,Teste de Compra 1 1-8,text,true,867,8,18,495
+1447611967104,532,Compra,200,OK,Teste de Compra 1 1-3,text,true,866,8,18,532
+1447611967102,535,Compra,200,OK,Teste de Compra 1 1-1,text,true,866,8,18,535
+1447611967138,541,Compra,200,OK,Teste de Compra 1 1-10,text,true,867,5,15,541
+1447611967126,551,Compra,200,OK,Teste de Compra 1 1-6,text,true,866,5,15,551
+1447611967134,545,Compra,200,OK,Teste de Compra 1 1-9,text,true,866,5,15,545
+1447611967109,573,Compra,200,OK,Teste de Compra 1 1-2,text,true,866,5,15,573
+1447611967106,576,Compra,200,OK,Teste de Compra 1 1-4,text,true,866,5,15,576
+1447612250465,489,Compra,200,OK,Teste de Compra 1 1-9,text,true,867,10,20,489
+1447612250453,504,Compra,200,OK,Teste de Compra 1 1-3,text,true,866,9,19,504
+1447612250466,492,Compra,200,OK,Teste de Compra 1 1-10,text,true,875,9,19,492
+1447612250462,501,Compra,200,OK,Teste de Compra 1 1-6,text,true,866,9,19,501
+1447612250464,500,Compra,200,OK,Teste de Compra 1 1-8,text,true,866,9,19,500
+1447612250454,511,Compra,200,OK,Teste de Compra 1 1-4,text,true,866,9,19,511
+1447612250463,502,Compra,200,OK,Teste de Compra 1 1-7,text,true,866,9,19,502
+1447612250441,537,Compra,200,OK,Teste de Compra 1 1-1,text,true,866,3,13,537
+1447612250451,547,Compra,200,OK,Teste de Compra 1 1-2,text,true,866,3,13,547
+1447612250479,520,Compra,200,OK,Teste de Compra 1 1-5,text,true,866,3,13,520
