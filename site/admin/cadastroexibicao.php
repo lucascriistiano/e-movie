@@ -12,8 +12,6 @@ include_once 'header.php';
 			url: "http://localhost:8000/emovie/movies",
 			dataType: "json",
 			success: function(data) {
-				console.log(data);
-
 				var resultHTML = '';
 				$.each(data, function(index, movie) {
 					var optionHTML = '';
@@ -37,8 +35,6 @@ include_once 'header.php';
 			url: "http://localhost:8000/emovie/sessions",
 			dataType: "json",
 			success: function(data) {
-				console.log(data);
-
 				var resultHTML = '';
 				$.each(data, function(index, session) {
                     var sessionDays = daysWeek[parseInt(session['dayWeek'])] + 's';
@@ -64,8 +60,6 @@ include_once 'header.php';
 			url: "http://localhost:8000/emovie/rooms",
 			dataType: "json",
 			success: function(data) {
-				console.log(data);
-
 				var resultHTML = '';
 				$.each(data, function(index, room) {
 					var optionHTML = '';
