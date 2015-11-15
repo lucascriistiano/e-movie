@@ -6,6 +6,10 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import br.ufrn.imd.emovie.dao.DaoExhibition;
+import br.ufrn.imd.emovie.dao.DaoTicket;
+import br.ufrn.imd.emovie.dao.IDaoExhibition;
+import br.ufrn.imd.emovie.dao.IDaoTicket;
 import br.ufrn.imd.emovie.dao.exception.DaoException;
 import br.ufrn.imd.emovie.model.Exhibition;
 import br.ufrn.imd.emovie.model.Ticket;
@@ -17,12 +21,12 @@ public class ChairStateService {
 	
 	private static ChairStateService chairStateService;
 	
-	private TicketService ticketService;
-	private ExhibitionService exhibitionService;
+	private IDaoTicket daoTicket;
+	private IDaoExhibition daoExhibition;
 	
 	private ChairStateService() {
-		this.ticketService = TicketService.getInstance();
-		this.exhibitionService = ExhibitionService.getInstance();
+		this.daoTicket = new DaoTicket();
+		this.daoExhibition = new DaoExhibition();
 	}
 	
 	public static ChairStateService getInstance() {
@@ -34,7 +38,7 @@ public class ChairStateService {
 	}
 	
 	public Map<String, Integer> findByExhibitionId(Integer idExhibition) throws DaoException {
-		Exhibition exhibition = exhibitionService.find(idExhibition);
+		Exhibition exhibition = daoExhibition.getById(idExhibition);
 		if(exhibition != null) {
 			Map<String, Integer> chairState = getExhibitionChairState(exhibition);
 			return chairState;
@@ -44,7 +48,7 @@ public class ChairStateService {
 	}
 	
 	public List<Map<String, Integer>> listAll() throws DaoException {
-		List<Exhibition> exhibitions = exhibitionService.listAll();
+		List<Exhibition> exhibitions = daoExhibition.getAll();
 		
 		List<Map<String, Integer>> chairStates = new ArrayList<>();
 		for (Exhibition exhibition : exhibitions) {
@@ -70,7 +74,7 @@ public class ChairStateService {
 			}
 		}
 		
-		List<Ticket> tickets = ticketService.listByExhibitionId(exhibition.getId());
+		List<Ticket> tickets = daoTicket.listByExhibitionId(exhibition.getId());
 		for (Ticket ticket : tickets) {
 			String chairNumber = ticket.getChairNumber();
 			chairState.put(chairNumber, 1);
@@ -78,5 +82,4 @@ public class ChairStateService {
 
 		return chairState;
 	}
-	
 }
