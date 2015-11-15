@@ -62,9 +62,9 @@ public class TicketService {
 		
 		Application.write_sem.acquire();
 		try {
-		validateTicket(ticket);
-		
-		daoTicket.create(ticket);
+			validateTicket(ticket);
+			
+			daoTicket.create(ticket);
 		} finally {
 			Application.write_sem.release();
 		}
