@@ -27,7 +27,7 @@ include_once 'header.php';
 						</select>
 						<br/>
 						Hora:<br/>
-						<input type="time" name="hour">
+						<input type="time" name="hour" min="12:00" max="23:59">
 						<br/>
 						<br/>
 						<input type="hidden" name="operation" value="create" required>
