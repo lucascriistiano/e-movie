@@ -55,7 +55,7 @@ public class ChairStateService {
 		return chairStates;
 	}
 	
-	private Map<String, Integer> getExhibitionChairState(Exhibition exhibition) {
+	public Map<String, Integer> getExhibitionChairState(Exhibition exhibition) {
 		Integer roomRows = exhibition.getRoom().getRows();
 		
 		if(roomRows > ROW_IDENTIFIERS.size()) {

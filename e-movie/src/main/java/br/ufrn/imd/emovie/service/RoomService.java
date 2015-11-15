@@ -9,7 +9,7 @@ import br.ufrn.imd.emovie.model.Room;
 import br.ufrn.imd.emovie.service.exception.ServiceException;
 
 public class RoomService {
-
+	
 	private static RoomService roomService;
 	private IDaoRoom daoRoom;
 	
