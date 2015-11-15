@@ -62,7 +62,6 @@ include_once 'header.php';
 <script type="text/javascript">
 	$("#cadastro").submit(function(evento) {
 		var datastring = $("#cadastro").serialize();
-		console.log(datastring);
 
 		event.preventDefault(); //prevenir o form de fazer submit
 

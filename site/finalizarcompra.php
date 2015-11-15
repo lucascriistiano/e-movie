@@ -180,7 +180,26 @@ include_once 'header.php';
 <script type="text/javascript">
 	$("#finalizar-compra").submit(function(evento) {
 		var serializedData = $("#authentication-info input").serialize();
-		sendSerializedData(serializedData, "tickets", "comprafinalizada.php", "erro.php");
+		event.preventDefault();
+
+		$.ajax({
+			type: "POST",
+			url: "http://localhost:8000/emovie/tickets",
+			data: serializedData,
+			dataType: "json",
+			success: function(data) {
+				if(data['success'] == true) {
+					var ticket = JSON.parse(data['ticket']);
+					var token = ticket['token'];
+					window.location.href = "comprafinalizada.php?token=" + token;
+				} else {
+					window.location.href = "erro.php";
+				}
+			},
+			error: function(){
+				window.location.href = "erro.php";
+			}
+		});
 	});
 </script>
 
