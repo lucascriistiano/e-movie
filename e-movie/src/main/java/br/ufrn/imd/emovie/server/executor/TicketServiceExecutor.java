@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.microtripit.mandrillapp.lutung.model.MandrillApiError;
 import com.sun.net.httpserver.HttpExchange;
 
@@ -78,22 +79,23 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 	}
 
 	@Override
-	public boolean processPostCreate(Map<String, Object> requestParams) {
+	public String processPostCreate(Map<String, Object> requestParams) {
 		Integer idExhibition = Integer.parseInt((String) requestParams.get("id_exhibition"));
 		String chairNum = (String) requestParams.get("chair_num");
 		String email = (String) requestParams.get("email");
 		String password = (String) requestParams.get("password");
 		String strPurchaseLocation = (String) requestParams.get("purchase_location");
-		
+
 		PurchaseLocation purchaseLocation;
-		if(strPurchaseLocation.equals("local")) {
+		if (strPurchaseLocation.equals("local")) {
 			purchaseLocation = PurchaseLocation.LOCAL;
-		} else if(strPurchaseLocation.equals("internet")) {
+		} else if (strPurchaseLocation.equals("internet")) {
 			purchaseLocation = PurchaseLocation.INTERNET;
 		} else {
-			throw new IllegalArgumentException("Invalid purchase location value '" + strPurchaseLocation + "'");
+			System.out.println("Invalid purchase location value '" + strPurchaseLocation + "'");
+			return createErrorJSONResponse("Invalid purchase location value '" + strPurchaseLocation + "'");
 		}
-		
+
 		try {
 			User user = new User();
 			user.setEmail(email);
@@ -106,42 +108,55 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 				Ticket ticket = new Ticket(exhibition, chairNum, foundUser, purchaseLocation, new Date());
 				ticketService.create(ticket);
 				
-				if(purchaseLocation == PurchaseLocation.INTERNET) {
-					sendEmail(ticket);
-				}
-				return true;
+//				if (purchaseLocation == PurchaseLocation.INTERNET) {
+//					mailSender.sendTicket(ticket);
+//				}
+				
+				String objectJSON = new Gson().toJson(ticket);
+				JsonObject responseJson = new JsonObject();
+				responseJson.addProperty("success", true);
+				responseJson.addProperty("ticket", objectJSON);
+				return responseJson.toString();
 			} else {
-				return false;
+				System.out.println("Invalid authentication info");
+				return createErrorJSONResponse("Invalid authentication info");
 			}
-		} catch (ServiceException | DaoException | MandrillApiError | IOException e) {
-			// TODO Auto-generated catch block
+		} catch (ServiceException e) {
+			// TODO Implement log
 			e.printStackTrace();
-			return false;
+			System.out.println("Invalid object to process");
+			return createErrorJSONResponse("Invalid object to process");
+		} catch (DaoException e) {
+			// TODO Implement log
+			e.printStackTrace();
+			System.out.println("Error on saving changes on database");
+			return createErrorJSONResponse("Error on saving changes on database");
 		}
+//		catch (MandrillApiError | IOException e) {
+//			// TODO Implement log
+//			e.printStackTrace();
+//			System.out.println("Error on sending mail");
+//			return createErrorJSONResponse("Error on sending mail");
+//		}
 	}
-
-	private void sendEmail(Ticket ticket) throws DaoException, MandrillApiError, IOException {
-		ticket.setUser(userService.find(ticket.getUser().getId()));
-		ticket.setExhibition(exhibitionService.find(ticket.getExhibition().getId()));
-		mailSender.sendTicket(ticket);
-	}
-
+	
 	@Override
-	public boolean processPostUpdate(Map<String, Object> requestParams) {
+	public String processPostUpdate(Map<String, Object> requestParams) {
 		int id = Integer.parseInt((String) requestParams.get("id"));
 		Integer idExhibition = Integer.parseInt((String) requestParams.get("id_exhibition"));
 		String chairNum = (String) requestParams.get("chair_num");
 		String email = (String) requestParams.get("email");
 		String password = (String) requestParams.get("password");
 		String strPurchaseLocation = (String) requestParams.get("purchase_location");
-		
+
 		PurchaseLocation purchaseLocation;
-		if(strPurchaseLocation.equals("local")) {
+		if (strPurchaseLocation.equals("local")) {
 			purchaseLocation = PurchaseLocation.LOCAL;
-		} else if(strPurchaseLocation.equals("internet")) {
+		} else if (strPurchaseLocation.equals("internet")) {
 			purchaseLocation = PurchaseLocation.INTERNET;
 		} else {
-			throw new IllegalArgumentException("Invalid purchase location value '" + strPurchaseLocation + "'");
+			System.out.println("Invalid purchase location value '" + strPurchaseLocation + "'");
+			return createErrorJSONResponse("Invalid purchase location value '" + strPurchaseLocation + "'");
 		}
 
 		try {
@@ -154,46 +169,70 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 				Exhibition exhibition = exhibitionService.find(idExhibition);
 
 				Ticket foundTicket = ticketService.find(id);
-				
+
 				Ticket ticket = new Ticket(id, exhibition, chairNum, foundUser, purchaseLocation, new Date());
 				ticket.setToken(foundTicket.getToken());
-				
+
 				ticketService.update(ticket);
+
+//				if (purchaseLocation == PurchaseLocation.INTERNET) {
+//					mailSender.sendTicket(ticket);
+//				}
 				
-				if(purchaseLocation == PurchaseLocation.INTERNET) {
-					sendEmail(ticket);
-				}
-				return true;
+				String objectJSON = new Gson().toJson(ticket);
+				JsonObject responseJson = new JsonObject();
+				responseJson.addProperty("success", true);
+				responseJson.addProperty("ticket", objectJSON);
+				return responseJson.toString();
 			} else {
-				return false;
+				System.out.println("Invalid authentication info");
+				return createErrorJSONResponse("Invalid authentication info");
 			}
-		} catch (ServiceException | DaoException | MandrillApiError | IOException e) {
-			// TODO Auto-generated catch block
+		} catch (ServiceException e) {
+			// TODO Implement log
 			e.printStackTrace();
-			return false;
+			System.out.println("Invalid object to process");
+			return createErrorJSONResponse("Invalid object to process");
+		} catch (DaoException e) {
+			// TODO Implement log
+			e.printStackTrace();
+			System.out.println("Error on saving changes on database");
+			return createErrorJSONResponse("Error on saving changes on database");
 		}
+//		catch (MandrillApiError | IOException e) {
+//			// TODO Implement log
+//			e.printStackTrace();
+//			System.out.println("Error on sending mail");
+//			return createErrorJSONResponse("Error on sending mail");
+//		}
 	}
 
 	@Override
-	public boolean processPostDelete(Map<String, Object> requestParams) {
+	public String processPostDelete(Map<String, Object> requestParams) {
 		String token = (String) requestParams.get("token");
 		User user = new User();
 		try {
 			user.setEmail((String) requestParams.get("email"));
 			user.setPassword((String) requestParams.get("password"));
 			ticketService.delete(token, user);
-			return true;
+
+			JsonObject responseJson = new JsonObject();
+			responseJson.addProperty("success", true);
+			responseJson.addProperty("token", token);
+			return responseJson.toString();
 		} catch (DaoException e) {
-			// TODO Auto-generated catch block
+			// TODO Implement log
 			e.printStackTrace();
-			return false;
+			System.out.println("Error on saving changes on database");
+			return createErrorJSONResponse("Error on saving changes on database");
 		}
 	}
 
 	@Override
-	public boolean processPostOther(HttpExchange httpExchange, List<String> urlParams,
+	public String processPostOther(HttpExchange httpExchange, List<String> urlParams,
 			Map<String, Object> requestParams) {
-		return false;
+		System.out.println("Operation not supported");
+		return createErrorJSONResponse("Operation not supported");
 	}
 
 }

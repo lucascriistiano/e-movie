@@ -28,10 +28,10 @@ public abstract class ServiceExecutorTemplate implements IServiceExecutorTemplat
 	public abstract String processGetFindAll() throws DaoException;
 	public abstract String processGetOther(HttpExchange httpExchange, List<String> urlParams, Map<String, Object> requestParams);
 	
-	public abstract boolean processPostCreate(Map<String, Object> requestParams);
-	public abstract boolean processPostUpdate(Map<String, Object> requestParams);
-	public abstract boolean processPostDelete(Map<String, Object> requestParams);
-	public abstract boolean processPostOther(HttpExchange httpExchange, List<String> urlParams, Map<String, Object> requestParams);
+	public abstract String processPostCreate(Map<String, Object> requestParams);
+	public abstract String processPostUpdate(Map<String, Object> requestParams);
+	public abstract String processPostDelete(Map<String, Object> requestParams);
+	public abstract String processPostOther(HttpExchange httpExchange, List<String> urlParams, Map<String, Object> requestParams);
 	
 	@Override
 	public void execute(HttpExchange httpExchange) {
@@ -40,65 +40,84 @@ public abstract class ServiceExecutorTemplate implements IServiceExecutorTemplat
 	
 	@Override
 	public void execute(HttpExchange httpExchange, List<String> urlParams) {
-
 		@SuppressWarnings("unchecked")
 		Map<String, Object> requestParams = (Map<String, Object>) httpExchange.getAttribute("parameters");
 		String requestMethod = httpExchange.getRequestMethod();
 
-		if(requestMethod.equals("GET")) {
-			if(urlParams.size() > 0) {  // has id passed in request
-				String strId = urlParams.get(0);
-				
-				try {
-					int id = Integer.parseInt(strId);
-					String resultJSON = processGetFindOne(id);
-					sendResponseJSON(httpExchange, resultJSON);
-				} catch(NumberFormatException e) {
-					//TODO Implement return error code				
-					throw new IllegalArgumentException("Invalid id passed");
-				} catch (DaoException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			} else if(requestParams.size() > 0) {
-				String resultJSON = processGetOther(httpExchange, urlParams, requestParams);
-				sendResponseJSON(httpExchange, resultJSON);
-			} else {  // get all results					
-				try {
-					String resultJSON = processGetFindAll();
-					sendResponseJSON(httpExchange, resultJSON);
-				} catch (DaoException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+		try {
+			if(requestMethod.equals("GET")) {
+				processGET(httpExchange, urlParams, requestParams);
+			} else {  // create or modify an existing item
+				processPOST(httpExchange, urlParams, requestParams);
 			}
-		} else {  // create or modify an existing movie
-			String operation = (String) requestParams.get("operation");
+		} catch(Exception e) {
+			//TODO LOG
+			System.out.println("Error on request handling");
+			e.printStackTrace();
+		}
+	}
+	
+	private void processGET(HttpExchange httpExchange, List<String> urlParams, Map<String, Object> requestParams) {
+		if(urlParams.size() > 0) {  // has id passed in request
+			String strId = urlParams.get(0);
 			
-			if(operation != null) {
-				boolean result;
-				
-				if(operation.equals(CREATE_OPERATION)) {
-					result = processPostCreate(requestParams);
-				} else if(operation.equals(UPDATE_OPERATION)) {
-					result = processPostUpdate(requestParams);
-				} else if(operation.equals(DELETE_OPERATION)) {
-					result = processPostDelete(requestParams);
-				} else {
-					try {
-						result = processPostOther(httpExchange, urlParams, requestParams);
-					} catch(Exception e) {
-						System.out.println("Unknown operation passed");
-						sendErrorCode(httpExchange, 404);
-						return;
-					}
-				}
-				
-				sendOperationResult(httpExchange, result);
-			} else {
-				System.out.println("Operation param not passed");
-				sendOperationResult(httpExchange, false);
+			try {
+				int id = Integer.parseInt(strId);
+				String resultJSON = processGetFindOne(id);
+				sendResponseJSON(httpExchange, resultJSON);
+			} catch(NumberFormatException e) {
+				System.out.println("Invalid ID passed");
+				sendEmptyResponse(httpExchange);
+			} catch (DaoException e) {
+				//TODO Auto-generated catch block
+				e.printStackTrace();
+				sendEmptyResponse(httpExchange);
 			}
+		} else if(requestParams.size() > 0) {
+			String resultJSON = processGetOther(httpExchange, urlParams, requestParams);
+			sendResponseJSON(httpExchange, resultJSON);
+		} else {  // get all results					
+			try {
+				String resultJSON = processGetFindAll();
+				sendResponseJSON(httpExchange, resultJSON);
+			} catch (DaoException e) {
+				//TODO Auto-generated catch block
+				e.printStackTrace();
+				sendEmptyResponse(httpExchange);
+			}
+		}
+	}
+	
+	private void processPOST(HttpExchange httpExchange, List<String> urlParams, Map<String, Object> requestParams) {
+		String operation = (String) requestParams.get("operation");
+		
+		if(operation != null) {
+			String resultJSON;
+			
+			if(operation.equals(CREATE_OPERATION)) {
+				resultJSON = processPostCreate(requestParams);
+			} else if(operation.equals(UPDATE_OPERATION)) {
+				resultJSON = processPostUpdate(requestParams);
+			} else if(operation.equals(DELETE_OPERATION)) {
+				resultJSON = processPostDelete(requestParams);
+			} else {
+				try {
+					resultJSON = processPostOther(httpExchange, urlParams, requestParams);
+				} catch(Exception e) {
+					System.out.println("Unknown operation received. Operation: " + operation);
+					sendErrorCode(httpExchange, 404);
+					return;
+				}
+			}
+			
+			sendResponseJSON(httpExchange, resultJSON);
+		} else {
+			//TODO Implement Log
+			System.out.println("Param 'operation' not received");
+			JsonObject responseJson = new JsonObject();
+			responseJson.addProperty("success", false);
+			responseJson.addProperty("error", "Param 'operation' not received");
+			sendResponseJSON(httpExchange, responseJson.toString());
 		}
 	}
 	
@@ -151,6 +170,13 @@ public abstract class ServiceExecutorTemplate implements IServiceExecutorTemplat
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public String createErrorJSONResponse(String errorCause) {
+		JsonObject responseJson = new JsonObject();
+		responseJson.addProperty("success", false);
+		responseJson.addProperty("error", errorCause);
+		return responseJson.toString();
 	}
 	
 	private void sendErrorCode(HttpExchange httpExchange, int errorCode) {
