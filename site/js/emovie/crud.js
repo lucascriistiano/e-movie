@@ -5,19 +5,14 @@ function sendFormData($id, $operation, $okPage, $failPage) {
 }
 
 function sendSerializedData($data, $operation, $okPage, $failPage) {
-	console.log($data);
 	event.preventDefault(); //prevenir o form de fazer submit
-
-	var response;
 	$.ajax({
 		type: "POST",
 		url: "http://localhost:8000/emovie/" + $operation,
 		data: $data,
 		dataType: "json",
 		success: function(data) {
-			response = data;
-			console.log(response);
-			if(response['success'] == true) {
+			if(data['success'] == true) {
 				window.location.href = $okPage;
 			} else {
 				window.location.href = $failPage;
@@ -27,6 +22,4 @@ function sendSerializedData($data, $operation, $okPage, $failPage) {
 			window.location.href = $failPage;
 		}
 	});
-
-	return response;
 }

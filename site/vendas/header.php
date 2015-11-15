@@ -81,6 +81,9 @@
 	<!-- flexslider -->
 	<link rel="stylesheet" href="../css/flexslider.css" >
 	<script src="../js/jquery.flexslider.js"></script>
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="../css/emovie/custom.css">
 </head>
 
 <body class= <?php echo ($home ? "home" : "page");?>>
@@ -88,17 +91,11 @@
 	<header>
 		<div class="wrapper cf">
 			<div id="logo">
-				<a href="index.php"><img  src="../img/logoF.png" alt="Simpler"></a>
+				<a href="#"><img  src="../img/logoF.png" alt="Simpler"></a>
 			</div>
 
 			<!-- nav -->
 			<ul id="nav" class="sf-menu">
-				<li class="current-menu-item"><a href="index.php">INÍCIO</a></li>
-				<li><a href="#">VENDAS</a>
-					<ul>
-						<li><a href="novavendalocal.php">INICIAR NOVA VENDA</a></li>
-					</ul>
-				</li>
 				<li><a href="/index.php">SAIR</a></li>
 			</ul>
 			<div id="combo-holder"></div>

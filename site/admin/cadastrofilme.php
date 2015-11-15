@@ -47,7 +47,7 @@ include_once 'header.php';
 
 <script type="text/javascript">
 	$("#cadastro").submit(function(evento) {
-		sendFormData("cadastro", "movies", "cadastrofinalizado.php", "../erro.php");
+		sendFormData("cadastro", "movies", "cadastrofinalizado.php", "erro.php");
 	});
 </script>
 

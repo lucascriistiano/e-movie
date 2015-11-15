@@ -48,20 +48,20 @@ include_once 'header.php';
 	  	dataType: "json",
 	  	success: function(data) {
 	  		if(data != null) {
-					switch (data["type"]) {
-						case "ADMIN":
-							window.location.href = 'admin/index.php';
-							break;
-						case "VENDAS":
-							window.location.href = 'vendas/index.php';
-							break;
-						default:
-							window.location.href = 'index.php';
-							break;
-					}
-				} else {
-					alert("Login/Senha incorretos!");
+				switch (data["type"]) {
+					case "ADMIN":
+						window.location.href = 'admin/index.php';
+						break;
+					case "VENDAS":
+						window.location.href = 'vendas/index.php?id_user='+ data["id"];
+						break;
+					default:
+						window.location.href = 'index.php';
+						break;
 				}
+			} else {
+				alert("Login/Senha incorretos!");
+			}
 	  	},
 	  	error: function(){
 				console.log("Um erro ocorreu!");
