@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import br.ufrn.imd.emovie.Application;
@@ -18,12 +19,16 @@ import br.ufrn.imd.emovie.service.exception.ServiceException;
 
 public class TicketService {
 	
-	public final static long SIXHOURS = 21600000;
-
+	public static final long SIXHOURS = 21600000;
+	public static final double ONLINE_SALES_PERCENT = 0.4;
+	
+	private ChairStateService chairStateService;
+	
 	private static TicketService ticketService;
 	private IDaoTicket daoTicket;
 
 	private TicketService() {
+		this.chairStateService = ChairStateService.getInstance();
 		this.daoTicket = new DaoTicket();
 	}
 
@@ -57,9 +62,9 @@ public class TicketService {
 		
 		Application.write_sem.acquire();
 		try {
-			validarTicket(ticket);
-			
-			daoTicket.create(ticket);
+		validateTicket(ticket);
+		
+		daoTicket.create(ticket);
 		} finally {
 			Application.write_sem.release();
 		}
@@ -146,20 +151,24 @@ public class TicketService {
 	 * @param ticket
 	 * @throws ServiceException
 	 */
-	private void validarTicket(Ticket ticket) throws ServiceException {
-		Ticket mesmaCadeira = daoTicket.findByChairExhibition(ticket);
-		Integer sizeInternet = daoTicket.countTicketsInternet(ticket.getExhibition().getId());
-		Integer sizeAll = daoTicket.countTicketsAll(ticket.getExhibition().getId());
+	private void validateTicket(Ticket ticket) throws ServiceException {
+		Ticket foundChair = daoTicket.findByChairExhibition(ticket);	
 		
-		if(mesmaCadeira != null) {
-			throw new ServiceException("Já existe um ticket comprado para essa mesma cadeira(" + ticket.getChairNumber() + ") e sessão");
+		Integer occupedChairsByInternet = daoTicket.countTicketsInternet(ticket.getExhibition().getId());
+		Integer totalOccupedChairs = daoTicket.countTicketsAll(ticket.getExhibition().getId());
+		
+		Map<String, Integer> exhibitionChairState = chairStateService.getExhibitionChairState(ticket.getExhibition());
+		int totalRoomChairs = exhibitionChairState.keySet().size();
+		
+		if(foundChair != null) {
+			throw new ServiceException("Já existe um ticket comprado para essa mesma cadeira e sessão");
 		}
 		
-		if(sizeInternet >= 40 && ticket.getPurchaseLocation() == PurchaseLocation.INTERNET) {
+		if((ticket.getPurchaseLocation() == PurchaseLocation.INTERNET) && (occupedChairsByInternet >= Math.round(totalRoomChairs * ONLINE_SALES_PERCENT))) {
 			throw new ServiceException("Limite de compras pela internet atingido.");
 		}
 		
-		if(sizeAll >= 100) {
+		if(totalOccupedChairs >= totalRoomChairs) {
 			throw new ServiceException("Sala lotada.");
 		}
 		

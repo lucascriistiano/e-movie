@@ -242,7 +242,7 @@ $(document).ready(function (){
         url: "http://localhost:8000/emovie/movies",
         dataType: "json",
         success: function(data) {
-            console.log(data);
+            // console.log(data);
 
             var $container = $("#filter-container");
             var $slider = $("#movies-slider");

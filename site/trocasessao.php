@@ -233,6 +233,9 @@ include_once 'header.php';
         resultHTML += '<input type="password" name="password">';
         resultHTML += '</br></br>';
 
+        resultHTML += '<input type="checkbox" name="send_mail" value="true">Receber ticket por e-mail<br/>';
+        resultHTML += '<br/><br/>';
+
         resultHTML += '<input id="ticket_id" type="hidden" name="id">';
 
         resultHTML += '<input type="hidden" name="purchase_location" value="internet">';
@@ -319,7 +322,6 @@ include_once 'header.php';
 <script type="text/javascript">
     $("#consult-token").submit(function(evento) {
         var datastring = $("#consult-token").serialize();
-        console.log(datastring);
 
         event.preventDefault(); //prevenir o form de fazer submit
 

@@ -51,7 +51,7 @@ public class RequestHandler implements HttpHandler {
 		String path = requestURI.getPath();
 		path = path.replaceFirst(contextPath, "");
 
-		System.out.println("Processing request #" + REQUEST_NUMBER + ": " + httpExchange.getRequestMethod() + " " + path + " - " + new Date());
+		System.out.println(new Date() + " - Processing request #" + REQUEST_NUMBER + ": " + httpExchange.getRequestMethod() + " " + path);
 		REQUEST_NUMBER++;
 		
 		String[] splittedPath = path.split("/");
