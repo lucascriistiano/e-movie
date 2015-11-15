@@ -39,6 +39,7 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 		ticketService = TicketService.getInstance();
 		userService = UserService.getInstance();
 		exhibitionService = ExhibitionService.getInstance();
+		mailSender = MailSender.getInstance();
 	}
 
 	@Override

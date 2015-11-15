@@ -1,27 +1,41 @@
 package br.ufrn.imd.emovie.service.email;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Date;
 
 import com.microtripit.mandrillapp.lutung.MandrillApi;
 import com.microtripit.mandrillapp.lutung.model.MandrillApiError;
 import com.microtripit.mandrillapp.lutung.view.MandrillMessage;
 import com.microtripit.mandrillapp.lutung.view.MandrillMessage.Recipient;
 
+import br.ufrn.imd.emovie.model.Exhibition;
 import br.ufrn.imd.emovie.model.Ticket;
 import br.ufrn.imd.emovie.model.User;
 
 public class MailSender {
 
-	private MandrillApi mandrillApi;
-	private static String LOGIN_PAGE_URL = "http://localhost:8888/login.html";
+	private static String LOGIN_PAGE_URL = "http://localhost:8888/login.php";
 	private static String SENDER_EMAIL = "lucacristiano27@gmail.com";
 	private static String SENDER_NAME = "E-Movie";
 	private static String LOGO_LINK = "http://i.imgur.com/bjijalG.png";
 	
-	public MailSender() {
+	private static MailSender mailSender;
+	
+	private MandrillApi mandrillApi;
+	
+	private MailSender() {
 		mandrillApi = new MandrillApi("y4Vy2Sx3dGl7I8nzR_CRBg");
+	}
+	
+	public static MailSender getInstance() {
+		if(mailSender == null) {
+			mailSender = new MailSender();
+		}
+		
+		return mailSender;
 	}
 	
 	public void sendTicket(Ticket ticket) throws MandrillApiError, IOException {
@@ -32,15 +46,18 @@ public class MailSender {
 		htmlMessage += "<img src=\"" + LOGO_LINK + "\" alt=\"E-Movie\" /><br />";
 		htmlMessage += "<h1>Olá, " + ticket.getUser().getName() + "!</h1><br />";
 		
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(ticket.getExhibition().getSession().getHour());
+		Exhibition exhibition = ticket.getExhibition();
+		String ticketDayWeek = getDayWeek(exhibition.getSession().getDayWeek());
+		DateFormat format = new SimpleDateFormat("HH:mm");
+		Date ticketHour = exhibition.getSession().getHour();
+		String formattedTicketHour = format.format(ticketHour); 
 		
 		htmlMessage += "Aqui está seu ticket gerado em <em>E-Movie</em>:<br /><br />";
 		htmlMessage += "<strong>Ticket:</strong> " + ticket.getToken() + "<br />";
-		htmlMessage += "<strong>Filme:</strong> " + ticket.getExhibition().getMovie().getName() + "<br />";
-		htmlMessage += "<strong>Sala:</strong> " + ticket.getExhibition().getRoom().getId() + "<br /><br />";
-		htmlMessage += "<strong>Cadeira:</strong> " + ticket.getExhibition().getRoom().getId() + "<br /><br />";
-		htmlMessage += "<strong>Horário:</strong> " + getDayWeek(ticket.getExhibition().getSession().getDayWeek()) + ", " + calendar.get(Calendar.HOUR) + ":" + calendar.get(Calendar.MINUTE) + "<br /><br />";
+		htmlMessage += "<strong>Filme:</strong> " + exhibition.getMovie().getName() + "<br />";
+		htmlMessage += "<strong>Sala:</strong> " + exhibition.getRoom().getId() + "<br /><br />";
+		htmlMessage += "<strong>Cadeira:</strong> " + ticket.getChairNumber() + "<br /><br />";
+		htmlMessage += "<strong>Horário:</strong> " + ticketDayWeek + ", " + formattedTicketHour + "<br /><br />";
 		
 		htmlMessage += "Você pode acessar o sistema agora clicando <a href=\"" + LOGIN_PAGE_URL + "\">aqui</a>.<br />";
 		htmlMessage += "Esperamos que aproveite tudo que o <em>E-Movie</em> tem a lhe oferecer.<br /><br />";
@@ -64,7 +81,7 @@ public class MailSender {
 		
 		ArrayList<String> tags = new ArrayList<String>();
 		tags.add("e-movie");
-		tags.add("cadastro");
+		tags.add("ticket");
 		message.setTags(tags);
 		
 		mandrillApi.messages().send(message, false);

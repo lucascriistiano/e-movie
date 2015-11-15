@@ -31,7 +31,7 @@ public class UserServiceExecutor extends ServiceExecutorTemplate {
 	
 	public UserServiceExecutor() {
 		userService = UserService.getInstance();
-		mailSender = new MailSender();
+		mailSender = MailSender.getInstance();
 	}
 
 	@Override
