@@ -153,13 +153,21 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 			if (foundUser != null) {
 				Exhibition exhibition = exhibitionService.find(idExhibition);
 
+				Ticket foundTicket = ticketService.find(id);
+				
 				Ticket ticket = new Ticket(id, exhibition, chairNum, foundUser, purchaseLocation, new Date());
+				ticket.setToken(foundTicket.getToken());
+				
 				ticketService.update(ticket);
+				
+				if(purchaseLocation == PurchaseLocation.INTERNET) {
+					sendEmail(ticket);
+				}
 				return true;
 			} else {
 				return false;
 			}
-		} catch (ServiceException | DaoException e) {
+		} catch (ServiceException | DaoException | MandrillApiError | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
