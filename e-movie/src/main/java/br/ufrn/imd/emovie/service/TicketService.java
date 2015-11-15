@@ -82,6 +82,11 @@ public class TicketService {
 		}
 	}
 
+	/**
+	 * Compare two dates to see de hours difference between then.
+	 * @param ticket
+	 * @return
+	 */
 	private boolean compareDates(Ticket ticket) {
 		Integer dayWeekTicket = ticket.getExhibition().getSession().getDayWeek();
 		Date hourTicket = ticket.getExhibition().getSession().getHour();
