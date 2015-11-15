@@ -99,5 +99,12 @@ public class User implements Serializable {
 	public String getFirstName() {
 		return this.name.trim().split(" ")[0];
 	}
+	
+	public boolean compareLogin(User anotherUser) {
+		if(email.equals(anotherUser.getEmail()) && password.equals(anotherUser.getPassword())) {
+			return true;
+		}
+		return false;
+	}
 
 }

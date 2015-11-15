@@ -1,10 +1,12 @@
 package br.ufrn.imd.emovie.server.executor;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 import com.google.gson.Gson;
+import com.microtripit.mandrillapp.lutung.model.MandrillApiError;
 import com.sun.net.httpserver.HttpExchange;
 
 import br.ufrn.imd.emovie.dao.exception.DaoException;
@@ -15,6 +17,7 @@ import br.ufrn.imd.emovie.model.User;
 import br.ufrn.imd.emovie.service.ExhibitionService;
 import br.ufrn.imd.emovie.service.TicketService;
 import br.ufrn.imd.emovie.service.UserService;
+import br.ufrn.imd.emovie.service.email.MailSender;
 import br.ufrn.imd.emovie.service.exception.ServiceException;
 
 /**
@@ -30,6 +33,7 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 	private TicketService ticketService;
 	private UserService userService;
 	private ExhibitionService exhibitionService;
+	private MailSender mailSender;
 
 	public TicketServiceExecutor() {
 		ticketService = TicketService.getInstance();
@@ -100,15 +104,25 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 
 				Ticket ticket = new Ticket(exhibition, chairNum, foundUser, purchaseLocation, new Date());
 				ticketService.create(ticket);
+				
+				if(purchaseLocation == PurchaseLocation.INTERNET) {
+					sendEmail(ticket);
+				}
 				return true;
 			} else {
 				return false;
 			}
-		} catch (ServiceException | DaoException e) {
+		} catch (ServiceException | DaoException | MandrillApiError | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}
+	}
+
+	private void sendEmail(Ticket ticket) throws DaoException, MandrillApiError, IOException {
+		ticket.setUser(userService.find(ticket.getUser().getId()));
+		ticket.setExhibition(exhibitionService.find(ticket.getExhibition().getId()));
+		mailSender.sendTicket(ticket);
 	}
 
 	@Override
@@ -153,9 +167,12 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 
 	@Override
 	public boolean processPostDelete(Map<String, Object> requestParams) {
-		int id = Integer.parseInt((String) requestParams.get("id"));
+		String token = (String) requestParams.get("token");
+		User user = new User();
 		try {
-			ticketService.delete(id);
+			user.setEmail((String) requestParams.get("email"));
+			user.setPassword((String) requestParams.get("password"));
+			ticketService.delete(token, user);
 			return true;
 		} catch (DaoException e) {
 			// TODO Auto-generated catch block
