@@ -1,6 +1,7 @@
 package br.ufrn.imd.emovie;
 
 import java.net.InetSocketAddress;
+import java.util.concurrent.Semaphore;
 
 import javax.persistence.PersistenceException;
 
@@ -19,6 +20,7 @@ import br.ufrn.imd.emovie.server.RequestHandler;
 public class Application {
 
 	private static final int PORT = 8000;
+	public static final Semaphore write_sem = new Semaphore(1, true);
 	
     public static void main(String[] args) throws Exception {
         HttpServer server = HttpServer.create(new InetSocketAddress(PORT), 0);

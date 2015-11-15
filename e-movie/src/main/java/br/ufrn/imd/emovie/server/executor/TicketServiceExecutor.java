@@ -138,6 +138,12 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 //			System.out.println("Error on sending mail");
 //			return createErrorJSONResponse("Error on sending mail");
 //		}
+		catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Error on concurrency");
+			return createErrorJSONResponse("Error on concurrency");
+		}
 	}
 	
 	@Override

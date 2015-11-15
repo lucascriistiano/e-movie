@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+import br.ufrn.imd.emovie.Application;
 import br.ufrn.imd.emovie.dao.DaoTicket;
 import br.ufrn.imd.emovie.dao.IDaoTicket;
 import br.ufrn.imd.emovie.dao.exception.DaoException;
@@ -50,13 +51,18 @@ public class TicketService {
 		return daoTicket.listByExhibitionId(idExhibition);
 	}
 
-	public void create(Ticket ticket) throws ServiceException, DaoException {
+	public void create(Ticket ticket) throws ServiceException, DaoException, InterruptedException {
 		String token = generateToken(ticket.getUser().getId());
 		ticket.setToken(token);
 		
-		validarTicket(ticket);
-		
-		daoTicket.create(ticket);
+		Application.write_sem.acquire();
+		try {
+			validarTicket(ticket);
+			
+			daoTicket.create(ticket);
+		} finally {
+			Application.write_sem.release();
+		}
 	}
 
 	public void update(Ticket ticket) throws ServiceException, DaoException {
@@ -146,7 +152,7 @@ public class TicketService {
 		Integer sizeAll = daoTicket.countTicketsAll(ticket.getExhibition().getId());
 		
 		if(mesmaCadeira != null) {
-			throw new ServiceException("Já existe um ticket comprado para essa mesma cadeira e sessão");
+			throw new ServiceException("Já existe um ticket comprado para essa mesma cadeira(" + ticket.getChairNumber() + ") e sessão");
 		}
 		
 		if(sizeInternet >= 40 && ticket.getPurchaseLocation() == PurchaseLocation.INTERNET) {

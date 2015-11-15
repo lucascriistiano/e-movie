@@ -128,3 +128,83 @@
 1447615368431,272,Compra,200,OK,Teste de Compra Mesma Cadeira 1-2,text,true,193,5,5,272
 1447615368423,315,Compra,200,OK,Teste de Compra Mesma Cadeira 1-4,text,true,193,3,3,315
 1447615368433,320,Compra,200,OK,Teste de Compra Mesma Cadeira 1-6,text,true,193,2,2,320
+1447616317586,68,Compra,200,OK,Teste de Compra Mesma Cadeira 1-4,text,true,198,10,10,68
+1447616317579,13524,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-2,text,false,2068,9,9,0
+1447616317581,13523,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-3,text,false,2068,9,9,0
+1447616317583,13521,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-1,text,false,2068,9,9,0
+1447616317591,13520,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-5,text,false,2068,6,6,0
+1447616317614,13497,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-6,text,false,2068,6,6,0
+1447616317614,13499,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-9,text,false,2068,6,6,0
+1447616317622,13489,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-10,text,false,2068,6,6,0
+1447616317611,13502,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-8,text,false,2068,6,6,0
+1447616317607,13504,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-7,text,false,2068,6,6,0
+1447616510456,6931,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-10,text,false,2068,10,10,0
+1447616510442,6945,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-9,text,false,2068,10,10,0
+1447616510442,6946,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-3,text,false,2068,10,10,0
+1447616510430,6957,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-5,text,false,2068,10,10,0
+1447616510437,6952,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-4,text,false,2068,10,10,0
+1447616510430,6959,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-7,text,false,2068,10,10,0
+1447616510423,6965,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-2,text,false,2068,10,10,0
+1447616510437,6952,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-8,text,false,2068,10,10,0
+1447616510423,6963,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-1,text,false,2068,10,10,0
+1447616510422,6964,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-6,text,false,2068,10,10,0
+1447616547938,42,Compra,200,OK,Teste de Compra Mesma Cadeira 1-6,text,true,198,10,10,42
+1447616547906,10492,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-2,text,false,2068,9,9,0
+1447616547911,10487,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-3,text,false,2068,9,9,0
+1447616547925,10474,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-5,text,false,2068,9,9,0
+1447616547926,10473,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-4,text,false,2068,9,9,0
+1447616547896,10502,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-1,text,false,2068,9,9,0
+1447616547945,10463,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-7,text,false,2068,5,5,0
+1447616547961,10445,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-10,text,false,2068,7,7,0
+1447616547955,10452,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-9,text,false,2068,5,5,0
+1447616547948,10459,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-8,text,false,2068,5,5,0
+1447616681544,31831,Compra,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Teste de Compra Mesma Cadeira 1-3,text,false,2575,10,10,0
+1447616681556,31819,Compra,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Teste de Compra Mesma Cadeira 1-5,text,false,2575,10,10,0
+1447616681577,31799,Compra,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Teste de Compra Mesma Cadeira 1-8,text,false,2575,10,10,0
+1447616681543,31832,Compra,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Teste de Compra Mesma Cadeira 1-1,text,false,2575,10,10,0
+1447616681565,31813,Compra,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Teste de Compra Mesma Cadeira 1-9,text,false,2575,10,10,0
+1447616681566,31812,Compra,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Teste de Compra Mesma Cadeira 1-10,text,false,2575,10,10,0
+1447616681548,31840,Compra,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Teste de Compra Mesma Cadeira 1-2,text,false,2575,10,10,0
+1447616681546,31833,Compra,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Teste de Compra Mesma Cadeira 1-4,text,false,2575,10,10,0
+1447616681577,31808,Compra,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Teste de Compra Mesma Cadeira 1-6,text,false,2575,10,10,0
+1447616681572,31816,Compra,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Teste de Compra Mesma Cadeira 1-7,text,false,2575,10,10,0
+1447616806093,462,Compra,200,OK,Teste de Compra Mesma Cadeira 1-8,text,true,193,10,10,462
+1447616806096,465,Compra,200,OK,Teste de Compra Mesma Cadeira 1-7,text,true,193,9,9,464
+1447616806097,475,Compra,200,OK,Teste de Compra Mesma Cadeira 1-10,text,true,193,8,8,475
+1447616806075,514,Compra,200,OK,Teste de Compra Mesma Cadeira 1-6,text,true,193,7,7,514
+1447616806080,502,Compra,200,OK,Teste de Compra Mesma Cadeira 1-5,text,true,193,7,7,502
+1447616806042,554,Compra,200,OK,Teste de Compra Mesma Cadeira 1-1,text,true,193,5,5,554
+1447616806097,521,Compra,200,OK,Teste de Compra Mesma Cadeira 1-9,text,true,193,4,4,521
+1447616806059,568,Compra,200,OK,Teste de Compra Mesma Cadeira 1-2,text,true,193,3,3,568
+1447616806063,582,Compra,200,OK,Teste de Compra Mesma Cadeira 1-4,text,true,193,3,3,582
+1447616806050,597,Compra,200,OK,Teste de Compra Mesma Cadeira 1-3,text,true,866,3,3,597
+1447617387132,735,Compra,200,OK,Teste de Compra Mesma Cadeira 1-4,text,true,193,10,10,735
+1447617387141,759,Compra,200,OK,Teste de Compra Mesma Cadeira 1-1,text,true,866,9,9,759
+1447617387149,29796,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-7,text,false,2068,8,8,0
+1447617387166,29779,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-8,text,false,2068,8,8,0
+1447617387160,29784,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-10,text,false,2068,8,8,0
+1447617387123,29825,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-3,text,false,2068,8,8,0
+1447617387146,29799,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-6,text,false,2068,8,8,0
+1447617387121,29822,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-2,text,false,2068,8,8,0
+1447617387141,29806,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-5,text,false,2068,8,8,0
+1447617387158,29786,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-9,text,false,2068,8,8,0
+1447617556326,432,Compra,200,OK,Teste de Compra Mesma Cadeira 1-6,text,true,193,10,10,432
+1447617556347,43481,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-10,text,false,2068,9,9,0
+1447617556293,43542,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-2,text,false,2068,9,9,0
+1447617556297,43539,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-3,text,false,2068,9,9,0
+1447617556299,43529,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-4,text,false,2068,9,9,0
+1447617556332,43496,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-8,text,false,2068,9,9,0
+1447617556304,43533,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-7,text,false,2068,9,9,0
+1447617556302,43535,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-5,text,false,2068,9,9,0
+1447617556345,43484,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-9,text,false,2068,9,9,0
+1447617556288,43547,Compra,Non HTTP response code: org.apache.http.NoHttpResponseException,Non HTTP response message: The target server failed to respond,Teste de Compra Mesma Cadeira 1-1,text,false,2068,9,9,0
+1447617663851,622,Compra,200,OK,Teste de Compra Mesma Cadeira 1-7,text,true,193,10,10,622
+1447617663822,665,Compra,200,OK,Teste de Compra Mesma Cadeira 1-2,text,true,193,9,9,665
+1447617663836,654,Compra,200,OK,Teste de Compra Mesma Cadeira 1-5,text,true,193,9,9,654
+1447617663856,643,Compra,200,OK,Teste de Compra Mesma Cadeira 1-9,text,true,193,7,7,643
+1447617663853,644,Compra,200,OK,Teste de Compra Mesma Cadeira 1-8,text,true,193,7,7,644
+1447617663829,676,Compra,200,OK,Teste de Compra Mesma Cadeira 1-4,text,true,193,7,7,676
+1447617663858,647,Compra,200,OK,Teste de Compra Mesma Cadeira 1-10,text,true,193,7,7,647
+1447617663839,675,Compra,200,OK,Teste de Compra Mesma Cadeira 1-6,text,true,193,7,7,675
+1447617663824,690,Compra,200,OK,Teste de Compra Mesma Cadeira 1-1,text,true,193,7,7,690
+1447617663826,735,Compra,200,OK,Teste de Compra Mesma Cadeira 1-3,text,true,866,1,1,735
