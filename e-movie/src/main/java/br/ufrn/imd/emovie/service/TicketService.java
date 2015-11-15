@@ -10,6 +10,7 @@ import java.util.Random;
 import br.ufrn.imd.emovie.dao.DaoTicket;
 import br.ufrn.imd.emovie.dao.IDaoTicket;
 import br.ufrn.imd.emovie.dao.exception.DaoException;
+import br.ufrn.imd.emovie.model.PurchaseLocation;
 import br.ufrn.imd.emovie.model.Ticket;
 import br.ufrn.imd.emovie.model.User;
 import br.ufrn.imd.emovie.service.exception.ServiceException;
@@ -52,7 +53,9 @@ public class TicketService {
 	public void create(Ticket ticket) throws ServiceException, DaoException {
 		String token = generateToken(ticket.getUser().getId());
 		ticket.setToken(token);
-
+		
+		validarTicket(ticket);
+		
 		daoTicket.create(ticket);
 	}
 
@@ -132,4 +135,27 @@ public class TicketService {
 		return sb.toString().toUpperCase();
 	}
 
+	/**
+	 * Verifica o cumprimento das regras de negócio
+	 * @param ticket
+	 * @throws ServiceException
+	 */
+	private void validarTicket(Ticket ticket) throws ServiceException {
+		Ticket mesmaCadeira = daoTicket.findByChairExhibition(ticket);
+		Integer sizeInternet = daoTicket.countTicketsInternet(ticket.getExhibition().getId());
+		Integer sizeAll = daoTicket.countTicketsAll(ticket.getExhibition().getId());
+		
+		if(mesmaCadeira != null) {
+			throw new ServiceException("Já existe um ticket comprado para essa mesma cadeira e sessão");
+		}
+		
+		if(sizeInternet >= 40 && ticket.getPurchaseLocation() == PurchaseLocation.INTERNET) {
+			throw new ServiceException("Limite de compras pela internet atingido.");
+		}
+		
+		if(sizeAll >= 100) {
+			throw new ServiceException("Sala lotada.");
+		}
+		
+	}
 }
