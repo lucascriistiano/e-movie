@@ -4,6 +4,13 @@ $home = false;
 include_once 'header.php';
 ?>
 
+<script type="text/javascript">
+	$(document).ready(function () {
+		var token = getQueryVariable('token');
+		$('#token').text(token);
+	});
+</script>
+
 <!-- MAIN -->
 <div id="main">
 	<div class="wrapper cf">
@@ -13,7 +20,11 @@ include_once 'header.php';
 			<div class="entry-content cf">
 				<h2 class="heading">Compra Finalizada</h2>
 
-				<p>Sua compra foi finalizada com sucesso. Dentro de instantes você receberá um e-mail com o token para recuperar o seu ingresso.</p>
+				<p>Sua compra foi finalizada com sucesso!</p>
+
+				<p>Você pode recuperar o seu ingresso na seção "Retirar Ingresso" com o seguinte token:</p>
+
+				<h2 id="token" class="heading"></h2>
 			</div>
 		</div>
 	</div>
