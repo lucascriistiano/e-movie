@@ -37,7 +37,7 @@ include_once 'header.php';
 
 <script type="text/javascript">
 	$("#cadastro").submit(function(evento) {
-		sendFormData("cadastro", "tickets", "cadastrofinalizado.php", "erro.php");
+		sendFormData("cadastro", "tickets", "operacaorealizada.php", "erro.php");
 	});
 </script>
 
