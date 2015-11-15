@@ -64,16 +64,11 @@ public class RoomServiceExecutor extends ServiceExecutorTemplate {
 			responseJson.addProperty("success", true);
 			responseJson.addProperty("room", objectJSON);
 			return responseJson.toString();
-		} catch (ServiceException e) {
+		} catch (ServiceException | DaoException e) {
 			// TODO Implement log
 			e.printStackTrace();
-			System.out.println("Invalid object to process");
-			return createErrorJSONResponse("Invalid object to process");
-		} catch (DaoException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println("Error on saving changes on database");
-			return createErrorJSONResponse("Error on saving changes on database");
+			System.out.println(e.getMessage());
+			return createErrorJSONResponse(e.getMessage());
 		}
 	}
 
@@ -91,16 +86,11 @@ public class RoomServiceExecutor extends ServiceExecutorTemplate {
 			responseJson.addProperty("success", true);
 			responseJson.addProperty("room", objectJSON);
 			return responseJson.toString();
-		} catch (ServiceException e) {
+		} catch (ServiceException | DaoException e) {
 			// TODO Implement log
 			e.printStackTrace();
-			System.out.println("Invalid object to process");
-			return createErrorJSONResponse("Invalid object to process");
-		} catch (DaoException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println("Error on saving changes on database");
-			return createErrorJSONResponse("Error on saving changes on database");
+			System.out.println(e.getMessage());
+			return createErrorJSONResponse(e.getMessage());
 		}
 	}
 
@@ -117,8 +107,8 @@ public class RoomServiceExecutor extends ServiceExecutorTemplate {
 		} catch (DaoException e) {
 			// TODO Implement log
 			e.printStackTrace();
-			System.out.println("Error on saving changes on database");
-			return createErrorJSONResponse("Error on saving changes on database");
+			System.out.println(e.getMessage());
+			return createErrorJSONResponse(e.getMessage());
 		}
 	}
 

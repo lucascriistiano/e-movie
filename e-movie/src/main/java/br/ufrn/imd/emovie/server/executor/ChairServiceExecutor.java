@@ -46,17 +46,14 @@ public class ChairServiceExecutor extends ServiceExecutorTemplate {
 				Map<String, Integer> chairState = chairStateService.findByExhibitionId(idExhibition);
 
 				Gson gson = new Gson();
-				String jsonTicket = gson.toJson(chairState); // returns empty
-																// string if
-																// chairState ==
-																// null
+				String jsonTicket = gson.toJson(chairState); // returns empty string if chairState == null
 				return jsonTicket;
 			} catch (DaoException e) {
-				// TODO Auto-generated catch block
+				// TODO Implement log
 				e.printStackTrace();
+				System.out.println(e.getMessage());
 				return "";
 			}
-
 		}
 
 		return "";

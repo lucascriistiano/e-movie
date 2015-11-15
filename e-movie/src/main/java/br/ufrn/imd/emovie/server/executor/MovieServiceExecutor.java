@@ -82,16 +82,11 @@ public class MovieServiceExecutor extends ServiceExecutorTemplate {
 			e.printStackTrace();
 			System.out.println("Invalid date format");
 			return createErrorJSONResponse("Invalid date format");
-		} catch (ServiceException e) {
+		} catch (ServiceException | DaoException e) {
 			// TODO Implement log
 			e.printStackTrace();
-			System.out.println("Invalid object to process");
-			return createErrorJSONResponse("Invalid object to process");
-		} catch (DaoException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println("Error on saving changes on database");
-			return createErrorJSONResponse("Error on saving changes on database");
+			System.out.println(e.getMessage());
+			return createErrorJSONResponse(e.getMessage());
 		}
 	}
 
@@ -124,16 +119,11 @@ public class MovieServiceExecutor extends ServiceExecutorTemplate {
 			e.printStackTrace();
 			System.out.println("Invalid date format");
 			return createErrorJSONResponse("Invalid date format");
-		} catch (ServiceException e) {
+		} catch (ServiceException | DaoException e) {
 			// TODO Implement log
 			e.printStackTrace();
-			System.out.println("Invalid object to process");
-			return createErrorJSONResponse("Invalid object to process");
-		} catch (DaoException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println("Error on saving changes on database");
-			return createErrorJSONResponse("Error on saving changes on database");
+			System.out.println(e.getMessage());
+			return createErrorJSONResponse(e.getMessage());
 		}
 	}
 
@@ -150,8 +140,8 @@ public class MovieServiceExecutor extends ServiceExecutorTemplate {
 		} catch (DaoException e) {
 			// TODO Implement log
 			e.printStackTrace();
-			System.out.println("Error on saving changes on database");
-			return createErrorJSONResponse("Error on saving changes on database");
+			System.out.println(e.getMessage());
+			return createErrorJSONResponse(e.getMessage());
 		}
 	}
 

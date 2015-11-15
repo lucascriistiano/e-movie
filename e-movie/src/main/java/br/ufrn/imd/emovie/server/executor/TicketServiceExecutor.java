@@ -95,10 +95,10 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 			System.out.println("Invalid purchase location value '" + strPurchaseLocation + "'");
 			return createErrorJSONResponse("Invalid purchase location value '" + strPurchaseLocation + "'");
 		}
-		
+
 		String strSendMail = (String) requestParams.get("send_mail");
 		boolean sendMail = false;
-		if(strSendMail != null && strSendMail.equals("true") && purchaseLocation == PurchaseLocation.INTERNET) {
+		if (strSendMail != null && strSendMail.equals("true") && purchaseLocation == PurchaseLocation.INTERNET) {
 			sendMail = true;
 		}
 
@@ -113,11 +113,11 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 
 				Ticket ticket = new Ticket(exhibition, chairNum, foundUser, purchaseLocation, new Date());
 				ticketService.create(ticket);
-				
+
 				if (sendMail) {
 					mailSender.sendTicket(ticket);
 				}
-				
+
 				String objectJSON = new Gson().toJson(ticket);
 				JsonObject responseJson = new JsonObject();
 				responseJson.addProperty("success", true);
@@ -127,18 +127,12 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 				System.out.println("Invalid authentication info");
 				return createErrorJSONResponse("Invalid authentication info");
 			}
-		} catch (ServiceException e) {
+		} catch (ServiceException | DaoException e) {
 			// TODO Implement log
 			e.printStackTrace();
-			System.out.println("Invalid object to process");
-			return createErrorJSONResponse("Invalid object to process");
-		} catch (DaoException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println("Error on saving changes on database");
-			return createErrorJSONResponse("Error on saving changes on database");
-		}
-		catch (MandrillApiError | IOException e) {
+			System.out.println(e.getMessage());
+			return createErrorJSONResponse(e.getMessage());
+		} catch (MandrillApiError | IOException e) {
 			// TODO Implement log
 			e.printStackTrace();
 			System.out.println("Error on sending mail");
@@ -150,7 +144,7 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 			return createErrorJSONResponse("Error on saving changes on database");
 		}
 	}
-	
+
 	@Override
 	public String processPostUpdate(Map<String, Object> requestParams) {
 		int id = Integer.parseInt((String) requestParams.get("id"));
@@ -169,13 +163,13 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 			System.out.println("Invalid purchase location value '" + strPurchaseLocation + "'");
 			return createErrorJSONResponse("Invalid purchase location value '" + strPurchaseLocation + "'");
 		}
-		
+
 		String strSendMail = (String) requestParams.get("send_mail");
 		boolean sendMail = false;
-		if(strSendMail != null && strSendMail.equals("true") && purchaseLocation == PurchaseLocation.INTERNET) {
+		if (strSendMail != null && strSendMail.equals("true") && purchaseLocation == PurchaseLocation.INTERNET) {
 			sendMail = true;
 		}
-		
+
 		try {
 			User user = new User();
 			user.setEmail(email);
@@ -195,7 +189,7 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 				if (sendMail) {
 					mailSender.sendTicket(ticket);
 				}
-				
+
 				String objectJSON = new Gson().toJson(ticket);
 				JsonObject responseJson = new JsonObject();
 				responseJson.addProperty("success", true);
@@ -205,22 +199,21 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 				System.out.println("Invalid authentication info");
 				return createErrorJSONResponse("Invalid authentication info");
 			}
-		} catch (ServiceException e) {
+		} catch (ServiceException | DaoException e) {
 			// TODO Implement log
 			e.printStackTrace();
-			System.out.println("Invalid object to process");
-			return createErrorJSONResponse("Invalid object to process");
-		} catch (DaoException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println("Error on saving changes on database");
-			return createErrorJSONResponse("Error on saving changes on database");
-		}
-		catch (MandrillApiError | IOException e) {
+			System.out.println(e.getMessage());
+			return createErrorJSONResponse(e.getMessage());
+		} catch (MandrillApiError | IOException e) {
 			// TODO Implement log
 			e.printStackTrace();
 			System.out.println("Error on sending mail");
 			return createErrorJSONResponse("Error on sending mail");
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Error on saving changes on database");
+			return createErrorJSONResponse("Error on saving changes on database");
 		}
 	}
 
@@ -237,11 +230,11 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 			responseJson.addProperty("success", true);
 			responseJson.addProperty("token", token);
 			return responseJson.toString();
-		} catch (DaoException e) {
+		} catch (ServiceException | DaoException e) {
 			// TODO Implement log
 			e.printStackTrace();
-			System.out.println("Error on saving changes on database");
-			return createErrorJSONResponse("Error on saving changes on database");
+			System.out.println(e.getMessage());
+			return createErrorJSONResponse(e.getMessage());
 		}
 	}
 

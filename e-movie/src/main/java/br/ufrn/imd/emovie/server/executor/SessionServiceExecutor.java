@@ -66,7 +66,7 @@ public class SessionServiceExecutor extends ServiceExecutorTemplate {
 
 			Session session = new Session(dayWeek, hour);
 			sessionService.create(session);
-			
+
 			String objectJSON = new Gson().toJson(session);
 			JsonObject responseJson = new JsonObject();
 			responseJson.addProperty("success", true);
@@ -77,16 +77,11 @@ public class SessionServiceExecutor extends ServiceExecutorTemplate {
 			e.printStackTrace();
 			System.out.println("Invalid time format");
 			return createErrorJSONResponse("Invalid time format");
-		} catch (ServiceException e) {
+		} catch (ServiceException | DaoException e) {
 			// TODO Implement log
 			e.printStackTrace();
-			System.out.println("Invalid object to process");
-			return createErrorJSONResponse("Invalid object to process");
-		} catch (DaoException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println("Error on saving changes on database");
-			return createErrorJSONResponse("Error on saving changes on database");
+			System.out.println(e.getMessage());
+			return createErrorJSONResponse(e.getMessage());
 		}
 	}
 
@@ -103,7 +98,7 @@ public class SessionServiceExecutor extends ServiceExecutorTemplate {
 
 			Session session = new Session(id, dayWeek, hour);
 			sessionService.update(session);
-			
+
 			String objectJSON = new Gson().toJson(session);
 			JsonObject responseJson = new JsonObject();
 			responseJson.addProperty("success", true);
@@ -114,16 +109,11 @@ public class SessionServiceExecutor extends ServiceExecutorTemplate {
 			e.printStackTrace();
 			System.out.println("Invalid time format");
 			return createErrorJSONResponse("Invalid time format");
-		} catch (ServiceException e) {
+		} catch (ServiceException | DaoException e) {
 			// TODO Implement log
 			e.printStackTrace();
-			System.out.println("Invalid object to process");
-			return createErrorJSONResponse("Invalid object to process");
-		} catch (DaoException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println("Error on saving changes on database");
-			return createErrorJSONResponse("Error on saving changes on database");
+			System.out.println(e.getMessage());
+			return createErrorJSONResponse(e.getMessage());
 		}
 	}
 
@@ -132,7 +122,7 @@ public class SessionServiceExecutor extends ServiceExecutorTemplate {
 		int id = Integer.parseInt((String) requestParams.get("id"));
 		try {
 			sessionService.delete(id);
-			
+
 			JsonObject responseJson = new JsonObject();
 			responseJson.addProperty("success", true);
 			responseJson.addProperty("id", id);
@@ -140,8 +130,8 @@ public class SessionServiceExecutor extends ServiceExecutorTemplate {
 		} catch (DaoException e) {
 			// TODO Implement log
 			e.printStackTrace();
-			System.out.println("Error on saving changes on database");
-			return createErrorJSONResponse("Error on saving changes on database");
+			System.out.println(e.getMessage());
+			return createErrorJSONResponse(e.getMessage());
 		}
 	}
 

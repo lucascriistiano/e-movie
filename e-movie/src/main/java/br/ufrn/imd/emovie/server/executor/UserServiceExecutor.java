@@ -69,10 +69,11 @@ public class UserServiceExecutor extends ServiceExecutorTemplate {
 				String jsonTicket = gson.toJson(user);
 				return jsonTicket;
 			} catch (DaoException e) {
-				// TODO Auto-generated catch block
+				// TODO Implement log
 				e.printStackTrace();
+				System.out.println(e.getMessage());
+				return createErrorJSONResponse(e.getMessage());
 			}
-
 		}
 		return "";
 	}
@@ -87,26 +88,20 @@ public class UserServiceExecutor extends ServiceExecutorTemplate {
 		try {
 			User user = new User(name, password, email, UserType.USER, createdAt);
 			userService.create(user);
-			
+
 			mailSender.sendRegisterConfirmation(user);
-			
+
 			String objectJSON = new Gson().toJson(user);
 			JsonObject responseJson = new JsonObject();
 			responseJson.addProperty("success", true);
 			responseJson.addProperty("user", objectJSON);
 			return responseJson.toString();
-		} catch (ServiceException e) {
+		} catch (ServiceException | DaoException e) {
 			// TODO Implement log
 			e.printStackTrace();
-			System.out.println("Invalid object to process");
-			return createErrorJSONResponse("Invalid object to process");
-		} catch (DaoException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println("Error on saving changes on database");
-			return createErrorJSONResponse("Error on saving changes on database");
-		}
-		catch (MandrillApiError | IOException e) {
+			System.out.println(e.getMessage());
+			return createErrorJSONResponse(e.getMessage());
+		} catch (MandrillApiError | IOException e) {
 			// TODO Implement log
 			e.printStackTrace();
 			System.out.println("Error on sending mail");
@@ -125,22 +120,17 @@ public class UserServiceExecutor extends ServiceExecutorTemplate {
 		try {
 			User user = new User(id, name, password, email, UserType.USER, createdAt);
 			userService.update(user);
-			
+
 			String objectJSON = new Gson().toJson(user);
 			JsonObject responseJson = new JsonObject();
 			responseJson.addProperty("success", true);
 			responseJson.addProperty("user", objectJSON);
 			return responseJson.toString();
-		} catch (ServiceException e) {
+		} catch (ServiceException | DaoException e) {
 			// TODO Implement log
 			e.printStackTrace();
-			System.out.println("Invalid object to process");
-			return createErrorJSONResponse("Invalid object to process");
-		} catch (DaoException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println("Error on saving changes on database");
-			return createErrorJSONResponse("Error on saving changes on database");
+			System.out.println(e.getMessage());
+			return createErrorJSONResponse(e.getMessage());
 		}
 	}
 
@@ -149,7 +139,7 @@ public class UserServiceExecutor extends ServiceExecutorTemplate {
 		int id = Integer.parseInt((String) requestParams.get("id"));
 		try {
 			userService.delete(id);
-			
+
 			JsonObject responseJson = new JsonObject();
 			responseJson.addProperty("success", true);
 			responseJson.addProperty("id", id);
@@ -157,8 +147,8 @@ public class UserServiceExecutor extends ServiceExecutorTemplate {
 		} catch (DaoException e) {
 			// TODO Implement log
 			e.printStackTrace();
-			System.out.println("Error on saving changes on database");
-			return createErrorJSONResponse("Error on saving changes on database");
+			System.out.println(e.getMessage());
+			return createErrorJSONResponse(e.getMessage());
 		}
 	}
 
