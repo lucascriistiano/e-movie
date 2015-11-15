@@ -160,8 +160,10 @@ include_once 'header.php';
 
 						Senha:<br/>
 						<input type="password" name="password" required>
-						<br/>
-						<br/>
+						<br/><br/>
+
+						<input type="checkbox" name="send_mail" value="true">Receber ticket por e-mail<br/>
+						<br/><br/>
 
 						<input id="id_exhibition" type="hidden" name="id_exhibition">
 						<input id="chair_num" type="hidden" name="chair_num">
