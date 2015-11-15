@@ -13,14 +13,19 @@ import br.ufrn.imd.emovie.dao.DaoTicket;
 import br.ufrn.imd.emovie.dao.IDaoTicket;
 import br.ufrn.imd.emovie.dao.exception.DaoException;
 import br.ufrn.imd.emovie.model.PurchaseLocation;
+import br.ufrn.imd.emovie.model.Session;
 import br.ufrn.imd.emovie.model.Ticket;
 import br.ufrn.imd.emovie.model.User;
 import br.ufrn.imd.emovie.service.exception.ServiceException;
 
 public class TicketService {
 	
-	public static final long SIXHOURS = 21600000;
 	public static final double ONLINE_SALES_PERCENT = 0.4;
+	
+	public static final long ONE_HOUR = 3600000; // millis
+	public static final long TICKET_BUY_TIME_LIMIT = ONE_HOUR;
+	public static final long TICKET_CHANGE_TIME_LIMIT = ONE_HOUR * 4;
+	public static final long TICKET_CANCEL_TIME_LIMIT = ONE_HOUR * 6;
 	
 	private ChairStateService chairStateService;
 	
@@ -62,16 +67,29 @@ public class TicketService {
 		
 		Application.write_sem.acquire();
 		try {
-			validateTicket(ticket);
-			
-			daoTicket.create(ticket);
+			if(compareDates(ticket, TICKET_BUY_TIME_LIMIT)) {
+				validateTicket(ticket);
+				daoTicket.create(ticket);
+			} else {
+				throw new ServiceException("Passada a hora limite para realizar a compra de Tickets para a exibição");
+			}
 		} finally {
 			Application.write_sem.release();
 		}
 	}
 
-	public void update(Ticket ticket) throws ServiceException, DaoException {
-		daoTicket.update(ticket);
+	public void update(Ticket ticket) throws ServiceException, DaoException, InterruptedException {
+		Application.write_sem.acquire();
+		try {
+			if(compareDates(ticket, TICKET_CHANGE_TIME_LIMIT)) {
+				validateTicket(ticket);
+				daoTicket.update(ticket);
+			} else {
+				throw new ServiceException("Passada hora limite para realizar a troca da sessão dessa exibição");
+			}
+		} finally {
+			Application.write_sem.release();
+		}
 	}
 
 	public void delete(Ticket ticket) throws DaoException {
@@ -82,30 +100,32 @@ public class TicketService {
 		daoTicket.delete(id);
 	}
 	
-	public void delete(String token, User user) throws DaoException {
+	public void delete(String token, User user) throws ServiceException, DaoException {
 		Ticket ticket = daoTicket.getByToken(token);
 		
 		if(ticket != null && user.compareLogin(ticket.getUser())) {
-			if(compareDates(ticket)) {
+			if(compareDates(ticket, TICKET_CANCEL_TIME_LIMIT)) {
 				daoTicket.delete(ticket.getId());
 			} else {
-				throw new DaoException("Passada hora mínima para realizar o cancelamento do Ticket");
+				throw new ServiceException("Passada hora limite para realizar o cancelamento do Ticket");
 			}
 		} else {
-			throw new DaoException("Um erro ocorreu, verifique as informações digitadas");
+			throw new ServiceException("Um erro ocorreu, verifique as informações digitadas");
 		}
 	}
 
 	/**
-	 * Compare two dates to see de hours difference between then.
+	 * Compare two dates to see the hours difference between then.
 	 * @param ticket
 	 * @return
 	 */
-	private boolean compareDates(Ticket ticket) {
-		Integer dayWeekTicket = ticket.getExhibition().getSession().getDayWeek();
-		Date hourTicket = ticket.getExhibition().getSession().getHour();
+	private boolean compareDates(Ticket ticket, long timeLimit) {
+		Session session = ticket.getExhibition().getSession();
+		Integer sessionDayWeek = session.getDayWeek();
+		Date sessionHour = session.getHour();
+		
 		Calendar calendarTicket = Calendar.getInstance();
-		calendarTicket.setTime(hourTicket);
+		calendarTicket.setTime(sessionHour);
 		
 		Calendar today = Calendar.getInstance();
 		Integer todayDayOfWeek = today.get(Calendar.DAY_OF_WEEK) - 1;
@@ -114,12 +134,12 @@ public class TicketService {
 		calendarTicket.set(Calendar.YEAR, today.get(Calendar.YEAR));
 		calendarTicket.set(Calendar.DAY_OF_MONTH, today.get(Calendar.DAY_OF_MONTH));
 		
-		Integer differenceDay = Math.abs(dayWeekTicket - todayDayOfWeek);
+		Integer differenceDay = Math.abs(sessionDayWeek - todayDayOfWeek);
 		calendarTicket.add(Calendar.DATE, differenceDay);
 		
 		long diferenceHours = calendarTicket.getTimeInMillis() - today.getTimeInMillis();
 		
-		return (diferenceHours >= SIXHOURS ? true : false);
+		return (diferenceHours >= timeLimit ? true : false);
 	}
 
 	/**
