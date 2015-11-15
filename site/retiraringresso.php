@@ -64,29 +64,29 @@ include_once 'header.php';
 		var datastring = $("#cadastro").serialize();
 		console.log(datastring);
 
-	  event.preventDefault(); //prevenir o form de fazer submit
+		event.preventDefault(); //prevenir o form de fazer submit
 
-	  var retorno;
-	  $.ajax({
-	  	type: "GET",
-	  	url: "http://localhost:8000/emovie/tickets",
-	  	data: datastring,
-	  	dataType: "json",
-	  	success: function(data) {
-	  		if(data != null) {
-				preencherTicket(data);
-			} else {
+		var retorno;
+		$.ajax({
+			type: "GET",
+			url: "http://localhost:8000/emovie/tickets",
+			data: datastring,
+			dataType: "json",
+			success: function(data) {
+				if(data != null) {
+					preencherTicket(data);
+				} else {
+					$("#comprovante").hide();
+					$("#erro").show();
+				}
+			},
+			error: function(){
 				$("#comprovante").hide();
 				$("#erro").show();
 			}
-	  	},
-	  	error: function(){
-			$("#comprovante").hide();
-			$("#erro").show();
-	  	}
-	  });
+		});
 
-	  return retorno;
+		return retorno;
 	});
 
 	function preencherTicket($data) {
@@ -103,7 +103,7 @@ include_once 'header.php';
 
 	function mountHorario(session) {
 		var sessionDay = daysWeek[parseInt(session['dayWeek'])];
-        var sessionTime = getFormattedTime(session['hour']);
+		var sessionTime = getFormattedTime(session['hour']);
 
 		return sessionDay + ', ' + sessionTime;
 	}
