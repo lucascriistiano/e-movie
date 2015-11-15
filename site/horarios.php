@@ -7,21 +7,6 @@ include_once 'header.php';
 <script type="text/javascript">
     var daysWeek = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
 
-    function getFormmatedTime(dateString) {
-        var date = new Date(dateString);
-        var hours = date.getHours();
-        if(hours < 10) {
-            hours = '0' + hours;
-        }
-
-        var minutes = date.getMinutes();
-        if(minutes < 10) {
-            minutes = '0' + minutes;
-        }
-
-        return hours + ':' + minutes;
-    }
-
     $(document).ready(function () {
         $.ajax({
             type: "GET",
@@ -35,7 +20,7 @@ include_once 'header.php';
                     for (var index in sessions) {
                         var session = sessions[index];
                         var sessionDays = daysWeek[parseInt(session['dayWeek'])] + 's';
-                        var sessionTime = getFormmatedTime(session['hour']);
+                        var sessionTime = getFormattedTime(session['hour']);
 
                         resultHTML += '<li>';
                         resultHTML += sessionDays + ' - ' + sessionTime;

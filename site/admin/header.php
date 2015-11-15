@@ -25,6 +25,7 @@
 
 	<script src="../js/tabs.js"></script>
 	<script src="../js/emovie/crud.js"></script>
+	<script src="../js/emovie/common.js"></script>
 	<script src="../js/css3-mediaqueries.js"></script>
 	<script src="../js/jquery.columnizer.min.js"></script>
 

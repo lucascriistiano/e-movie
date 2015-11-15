@@ -25,6 +25,7 @@
 
 	<script src="../js/tabs.js"></script>
 	<script src="../js/emovie/crud.js"></script>
+	<script src="../js/emovie/common.js"></script>
 	<script src="../js/css3-mediaqueries.js"></script>
 	<script src="../js/jquery.columnizer.min.js"></script>
 
@@ -96,7 +97,6 @@
 				<li><a href="#">VENDAS</a>
 					<ul>
 						<li><a href="novavendalocal.php">INICIAR NOVA VENDA</a></li>
-						<li><a href="retiraringresso.php">RETIRAR INGRESSO</a></li>
 					</ul>
 				</li>
 				<li><a href="/index.php">SAIR</a></li>

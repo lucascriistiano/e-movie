@@ -32,23 +32,6 @@ include_once 'header.php';
 		});
 
 		// Listagem das sessões
-		var daysWeek = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
-
-		function getFormmatedTime(dateString) {
-			var date = new Date(dateString);
-			var hours = date.getHours();
-			if(hours < 10) {
-				hours = '0' + hours;
-			}
-
-			var minutes = date.getMinutes();
-			if(minutes < 10) {
-				minutes = '0' + minutes;
-			}
-
-			return hours + ':' + minutes;
-		}
-
 		$.ajax({
 			type: "GET",
 			url: "http://localhost:8000/emovie/sessions",
@@ -59,7 +42,7 @@ include_once 'header.php';
 				var resultHTML = '';
 				$.each(data, function(index, session) {
                     var sessionDays = daysWeek[parseInt(session['dayWeek'])] + 's';
-                    var sessionTime = getFormmatedTime(session['hour']);
+                    var sessionTime = getFormattedTime(session['hour']);
 
 					var optionHTML = '';
 					optionHTML += '<option value="' + session['id'] + '">';
@@ -131,6 +114,10 @@ include_once 'header.php';
 							<!-- Room options -->
 						</select>
 						<br/>
+
+						Preço:<br/>
+						R$ <input type="number" min="0.01" step="0.01" value="0.00" name="price" required>
+						<br/>
 						<br/>
 
 						<input type="hidden" name="operation" value="create" required>
@@ -146,7 +133,7 @@ include_once 'header.php';
 
 <script type="text/javascript">
 	$("#cadastro").submit(function(evento) {
-		enviarInformacoes("cadastro", "exhibitions", "cadastrofinalizado.php", "../erro.php");
+		sendFormData("cadastro", "exhibitions", "cadastrofinalizado.php", "../erro.php");
 	});
 </script>
 

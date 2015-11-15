@@ -1,5 +1,5 @@
 <?php
-$title = 'Recuperar Ticket - E-Movie';
+$title = 'Retirar Ingresso - E-Movie';
 $home = false;
 include_once 'header.php';
 ?>
@@ -11,41 +11,45 @@ include_once 'header.php';
 		<div id="page-content" class="cf">
 			<!-- entry-content -->
 			<div class="entry-content cf">
-				<h2 class="heading">Recuperar Ticket</h2>
+				<h2 class="heading">Retirar Ingresso</h2>
 
 				<center>
 					<form id="cadastro">
-						Ticket:<br/>
-						<input type="text" name="token">
+						Token:<br/>
+						<input type="text" name="token" size="25">
 						<br/>
 						<br/>
 						<input type="hidden" name="operation" value="retrieveToken" required>
 						<input class="link-button blue" type="submit" value="Consultar">
 					</form>
 				</center>
+				<br/>
+				<br/>
 
-				<div id="comprovante" style="display: none;">
-					<br/>
-					<br/>
+				<div id="comprovante" style="display: none; background-color: white;">
 					<center>
-						<h1>Seu Ticket</h1>
+						</br>
+						<h3>Ingresso</h3>
 						<br/>
-						<h2 id="ticket">afionsafoiasn</h2>
+						<h2 id="ticket"></h2>
 						<br/>
-						<h3 id="email">exemplo@email.com</h3>
+						<h3 id="email"></h3>
 						<br/>
-						<h4 id="filme">Vingadores</h4>
+						<h4 id="filme"></h4>
 						<br/>
-						<h4 id="horario">20/10/2015 10:35</h4>
+						<h4 id="horario"></h4>
 						<br/>
-						<h4 id="sala">1</h4>
-						<h4 id="cadeira">1</h4>
+						<h4 id="sala"></h4>
+						<h4 id="cadeira"></h4>
+						</br>
 					</center>
 				</div>
+				</br>
+				</br>
 
 				<div id="erro" style="display: none;">
 					<center>
-						<h1>Nada encontrado!</h1>
+						<h3>Nenhum ingresso correspondente ao token inserido</h3>
 					</center>
 				</div>
 
@@ -70,15 +74,15 @@ include_once 'header.php';
 	  	dataType: "json",
 	  	success: function(data) {
 	  		if(data != null) {
-					preencherTicket(data);
-				} else {
-					$("#comprovante").hide();
-					$("#erro").show();
-				}
-	  	},
-	  	error: function(){
+				preencherTicket(data);
+			} else {
 				$("#comprovante").hide();
 				$("#erro").show();
+			}
+	  	},
+	  	error: function(){
+			$("#comprovante").hide();
+			$("#erro").show();
 	  	}
 	  });
 
@@ -97,35 +101,11 @@ include_once 'header.php';
 		document.getElementById("cadeira").innerHTML = "Cadeira: " + $data["chairNumber"];
 	}
 
-	function mountHorario($horario) {
-		var retorno = "";
-		switch($horario["dayWeek"]) {
-			case 0:
-				retorno = "Domingo";
-				break;
-			case 1:
-				retorno = "Segunda";
-				break;
-			case 2:
-				retorno = "Terça";
-				break;
-			case 3:
-				retorno = "Quarta";
-				break;
-			case 4:
-				retorno = "Quinta";
-				break;
-			case 5:
-				retorno = "Sexta";
-				break;
-			case 6:
-				retorno = "Sábado";
-				break;
-		}
+	function mountHorario(session) {
+		var sessionDay = daysWeek[parseInt(session['dayWeek'])];
+        var sessionTime = getFormattedTime(session['hour']);
 
-		retorno += ", " + $horario["hour"].substring(12, $horario["hour"].length);
-
-		return retorno;
+		return sessionDay + ', ' + sessionTime;
 	}
 </script>
 

@@ -26,8 +26,6 @@ public class Ticket implements Serializable {
 	@GeneratedValue
 	@Column(name = "id_ticket")
 	private Integer id;
-	private Date date;
-	private float price;
 	private String token;
 	
 	@OneToOne
@@ -48,18 +46,16 @@ public class Ticket implements Serializable {
 		super();
 	}
 	
-	public Ticket(Date date, float price, Exhibition exhibition, String chairNumber, User user, Date createdAt) {
+	public Ticket(Exhibition exhibition, String chairNumber, User user, Date createdAt) {
 		this();
-		this.date = date;
-		this.price = price;
 		this.exhibition = exhibition;
 		this.chairNumber = chairNumber;
 		this.user = user;
 		this.createdAt = createdAt;
 	}
 	
-	public Ticket(Integer id, Date date, float price, Exhibition exhibition, String chairNumber, User user, Date createdAt) {
-		this(date, price, exhibition, chairNumber, user, createdAt);
+	public Ticket(Integer id, Exhibition exhibition, String chairNumber, User user, Date createdAt) {
+		this(exhibition, chairNumber, user, createdAt);
 		this.id = id;
 	}
 
@@ -69,22 +65,6 @@ public class Ticket implements Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public Date getDate() {
-		return this.date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
-	public float getPrice() {
-		return price;
-	}
-
-	public void setPrice(float price) {
-		this.price = price;
 	}
 	
 	public String getToken() {

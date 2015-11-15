@@ -25,6 +25,8 @@ public class Exhibition implements Serializable {
 	@Column(name = "id_exhibition")
 	private Integer id;
 	
+	private float price;
+	
 	@ManyToOne
 	@JoinColumn(name = "id_movie")
 	private Movie movie;
@@ -39,15 +41,16 @@ public class Exhibition implements Serializable {
 
 	public Exhibition() {}
 	
-	public Exhibition(Movie movie, Session session, Room room) {
+	public Exhibition(Movie movie, Session session, Room room, float price) {
 		this();
 		this.movie = movie;
 		this.session = session;
 		this.room = room;
+		this.price = price;
 	}
 
-	public Exhibition(Integer id, Movie movie, Session session, Room room) {
-		this(movie, session, room);
+	public Exhibition(Integer id, Movie movie, Session session, Room room, float price) {
+		this(movie, session, room, price);
 		this.id = id;
 	}
 	
@@ -57,6 +60,14 @@ public class Exhibition implements Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public float getPrice() {
+		return price;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
 	}
 
 	public Movie getMovie() {

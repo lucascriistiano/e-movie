@@ -15,7 +15,7 @@ include_once 'header.php';
 
 				<center>
 					<form id="cadastro">
-						Nome Completo:<br/>
+						Nome completo:<br/>
 						<input type="text" name="name" required>
 						<br/>
 						Email:<br/>
@@ -34,7 +34,7 @@ include_once 'header.php';
 
 <script type="text/javascript">
 	$("#cadastro").submit(function(evento) {
-		enviarInformacoes("cadastro", "users", "cadastrofinalizado.php", "erro.php");
+		sendFormData("cadastro", "users", "cadastrofinalizado.php", "erro.php");
 	});
 </script>
 

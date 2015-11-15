@@ -17,18 +17,6 @@ include_once 'header.php';
 		$("#" + chairCode).attr("src", selectedImg);
 	}
 
-	function getQueryVariable(variable) {
-		var query = window.location.search.substring(1);
-		var vars = query.split("&");
-		for (var i=0;i<vars.length;i++) {
-			var pair = vars[i].split("=");
-			if (pair[0] == variable) {
-				return pair[1];
-			}
-		}
-		return '';
-	}
-
 	var imgFolder = "img/chair/";
 	var freeImg = imgFolder + "free.png";
 	var occupiedImg = imgFolder + "occupied.png";
@@ -204,8 +192,7 @@ include_once 'header.php';
 
 				<p>Poltrona atual: <strong><span id="selected-chair"></span></strong></p>
 
-				<form id="chair-selection">
-					<input type="hidden" name="operation" value="" required>
+				<form id="select-chair">
 					<input class="link-button blue" type="submit" value="Selecionar">
 				</form>
 			</div>
@@ -213,6 +200,20 @@ include_once 'header.php';
 	</div>
 </div>
 <!-- ENDS MAIN -->
+
+<script type="text/javascript">
+	// Add listener to button click to redirect to buy screen
+	$("#select-chair").submit(function(evento) {
+		event.preventDefault(); //prevenir o form de fazer submit
+		if(selectedChair != '') {
+			window.location.href = "finalizarcompra.php?id_exhibition=" + exhibitionId + "&chair_num=" + selectedChair;
+		} else {
+			alert('Você deve selecionar uma poltrona para prosseguir');
+		}
+	});
+
+
+</script>
 
 <?php
 include_once 'footer.php';

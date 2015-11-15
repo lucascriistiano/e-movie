@@ -5,41 +5,8 @@ include_once 'header.php';
 ?>
 
 <script type="text/javascript">
-	function getQueryVariable(variable) {
-		var query = window.location.search.substring(1);
-		var vars = query.split("&");
-		for (var i=0;i<vars.length;i++) {
-			var pair = vars[i].split("=");
-			if (pair[0] == variable) {
-				return pair[1];
-			}
-		}
-		return '';
-	}
-
 	// Listagem das sessões
 	var daysWeek = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
-
-	function getFormmatedTime(dateString) {
-		var date = new Date(dateString);
-		var hours = date.getHours();
-		if(hours < 10) {
-			hours = '0' + hours;
-		}
-
-		var minutes = date.getMinutes();
-		if(minutes < 10) {
-			minutes = '0' + minutes;
-		}
-
-		return hours + ':' + minutes;
-	}
-
-	function getFormmatedDate(dateString) {
-		var date = new Date(dateString);
-		var strDate = date.getDate() + '/' + (date.getMonth()+1) + '/' + date.getFullYear();
-		return strDate;
-	}
 
 	var movieId = getQueryVariable("id");
 	if(movieId != '') {
@@ -60,8 +27,8 @@ include_once 'header.php';
 
 					resultHTML += '<p>Sinopse:</br>' + movie['synopsis'] + '</p>';
 
-					var startExhibition = getFormmatedDate(movie['startExhibition']);
-					var endExhibition = getFormmatedDate(movie['endExhibition']);
+					var startExhibition = getFormattedDate(movie['startExhibition']);
+					var endExhibition = getFormattedDate(movie['endExhibition']);
 					resultHTML += '<p>Período de exibição: ' + startExhibition + ' a ' + endExhibition + '</p>';
 
 					$('#movie-info').append(resultHTML);
@@ -96,11 +63,12 @@ include_once 'header.php';
 
 						var session = exhibition['session'];
                         var sessionDay = daysWeek[parseInt(session['dayWeek'])];
-                        var sessionTime = getFormmatedTime(session['hour']);
+                        var sessionTime = getFormattedTime(session['hour']);
 
 						var room = exhibition['room'];
+						var price = parseFloat(exhibition['price']).toFixed(2);
 
-						var strExhibition = sessionDay + ' - ' + sessionTime + ' - Sala ' + room['id'];
+						var strExhibition = sessionDay + ' - ' + sessionTime + ' - Sala ' + room['id'] + ' - R$ ' + price;
 						resultHTML += '<option value="' + exhibition['id'] + '">' + strExhibition + '</option>';
 					});
 

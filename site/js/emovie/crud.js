@@ -1,28 +1,32 @@
-function enviarInformacoes($id, $operacao, $paginaok, $paginafail) {
+function sendFormData($id, $operation, $okPage, $failPage) {
 	var datastring = $("#" + $id).serialize();
-	console.log(datastring);
+	event.preventDefault(); //prevenir o form de fazer submit
+	return sendSerializedData(datastring, $operation, $okPage, $failPage);
+}
 
-  event.preventDefault(); //prevenir o form de fazer submit
+function sendSerializedData($data, $operation, $okPage, $failPage) {
+	console.log($data);
+	event.preventDefault(); //prevenir o form de fazer submit
 
-  var retorno;
-  $.ajax({
-  	type: "POST",
-  	url: "http://localhost:8000/emovie/" + $operacao,
-  	data: datastring,
-  	dataType: "json",
-  	success: function(data) {
-  		console.log(data);
-  		retorno = data;
-  		if(data['success'] == true) {
-  			window.location.href = $paginaok;
-  		} else {
-  			window.location.href = $paginafail;
-  		}
-  	},
-  	error: function(){
-  		window.location.href = $paginafail;
-  	}
-  });
+	var response;
+	$.ajax({
+		type: "POST",
+		url: "http://localhost:8000/emovie/" + $operation,
+		data: $data,
+		dataType: "json",
+		success: function(data) {
+			response = data;
+			console.log(response);
+			if(response['success'] == true) {
+				window.location.href = $okPage;
+			} else {
+				window.location.href = $failPage;
+			}
+		},
+		error: function(){
+			window.location.href = $failPage;
+		}
+	});
 
-  return retorno;
+	return response;
 }

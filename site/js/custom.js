@@ -196,7 +196,7 @@ jQuery(document).ready(function($) {
 	$("<option />", {
 		"selected": "selected",
 		"value"   : "",
-		"text"    : "Navigation"
+		"text"    : "Menu"
 	}).appendTo("#combo-holder select");
 
 	// Populate dropdown with menu items

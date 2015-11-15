@@ -73,16 +73,17 @@ public class ExhibitionServiceExecutor extends ServiceExecutorTemplate {
 		Integer idMovie = Integer.parseInt((String) requestParams.get("id_movie"));
 		Integer idSession = Integer.parseInt((String) requestParams.get("id_session"));
 		Integer idRoom = Integer.parseInt((String) requestParams.get("id_room"));
+		float price = Float.parseFloat((String) requestParams.get("price"));
 		
 		try {
 			Movie movie = movieService.find(idMovie);
 			Session session = sessionService.find(idSession);
 			Room room = roomService.find(idRoom);
 			
-			Exhibition exhibition = new Exhibition(movie, session, room);
+			Exhibition exhibition = new Exhibition(movie, session, room, price);
 			exhibitionService.create(exhibition);
 			return true;
-		} catch (ServiceException | DaoException e ) {
+		} catch (ServiceException | DaoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
@@ -95,16 +96,17 @@ public class ExhibitionServiceExecutor extends ServiceExecutorTemplate {
 		Integer idMovie = Integer.parseInt((String) requestParams.get("id_movie"));
 		Integer idSession = Integer.parseInt((String) requestParams.get("id_session"));
 		Integer idRoom = Integer.parseInt((String) requestParams.get("id_room"));
+		float price = Float.parseFloat((String) requestParams.get("price"));
 		
 		try {
 			Movie movie = movieService.find(idMovie);
 			Session session = sessionService.find(idSession);
 			Room room = roomService.find(idRoom);
 			
-			Exhibition exhibition = new Exhibition(id, movie, session, room);
+			Exhibition exhibition = new Exhibition(id, movie, session, room, price);
 			exhibitionService.update(exhibition);
 			return true;
-		} catch (ServiceException | DaoException e ) {
+		} catch (ServiceException | DaoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
