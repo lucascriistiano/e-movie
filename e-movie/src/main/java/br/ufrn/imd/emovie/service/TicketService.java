@@ -158,7 +158,7 @@ public class TicketService {
 		Integer totalOccupedChairs = daoTicket.countTicketsAll(ticket.getExhibition().getId());
 		
 		Map<String, Integer> exhibitionChairState = chairStateService.getExhibitionChairState(ticket.getExhibition());
-		int totalRoomChairs = exhibitionChairState.keySet().size();
+		int totalRoomChairs = exhibitionChairState.size();
 		
 		if(foundChair != null) {
 			throw new ServiceException("Já existe um ticket comprado para essa mesma cadeira e sessão");
