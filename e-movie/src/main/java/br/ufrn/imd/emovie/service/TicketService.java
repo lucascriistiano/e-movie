@@ -164,7 +164,7 @@ public class TicketService {
 			throw new ServiceException("Já existe um ticket comprado para essa mesma cadeira e sessão");
 		}
 		
-		if((ticket.getPurchaseLocation() == PurchaseLocation.INTERNET) && (occupedChairsByInternet >= Math.round(totalRoomChairs * ONLINE_SALES_PERCENT))) {
+		if((ticket.getPurchaseLocation() == PurchaseLocation.INTERNET) && (occupedChairsByInternet >= ((int) Math.round(totalRoomChairs * ONLINE_SALES_PERCENT)))) {
 			throw new ServiceException("Limite de compras pela internet atingido.");
 		}
 		
