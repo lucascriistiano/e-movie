@@ -85,7 +85,39 @@ include_once 'header.php';
 					$("#select-exhibition").submit(function(evento) {
 						event.preventDefault(); //prevenir o form de fazer submit
 						var selectedExhibitionId = $("#exhibition option:selected").val();
-						window.location.href = "selecionarpoltrona.php?id_exhibition=" + selectedExhibitionId;
+
+						$.ajax({
+							type: "GET",
+							url: "http://localhost:8000/emovie/chairs",
+							data: 'id_exhibition=' + selectedExhibitionId,
+							dataType: "json",
+							success: function(data) {
+								var chairs = data;
+								var occupedChairs = 0;
+								var totalChairs = 0;
+
+								// Sum of total and occuped chairs
+								for(var chair in chairs) {
+									var chairState = parseInt(chairs[chair]);
+									if(chairState == 1) {
+										occupedChairs++;
+									}
+									totalChairs++;
+								}
+
+								// Online sales limits verification
+								var onlineSalesLimit = Math.round(totalChairs * 0.4);
+
+								if(occupedChairs < onlineSalesLimit) { //Limit 40% of sales online
+									window.location.href = "selecionarpoltrona.php?id_exhibition=" + selectedExhibitionId;
+								} else {
+									alert("Não existem mais ingressos disponíveis para venda online da exibição selecionada. Escolha outra exibição do filme ou procure os pontos de vendas no nosso cinema.");
+								}
+							},
+							error: function(){
+								window.location.href = "erro.php";
+							}
+						});
 					});
 
 				} else {
