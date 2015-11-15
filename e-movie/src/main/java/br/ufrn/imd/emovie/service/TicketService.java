@@ -2,6 +2,7 @@ package br.ufrn.imd.emovie.service;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -10,9 +11,12 @@ import br.ufrn.imd.emovie.dao.DaoTicket;
 import br.ufrn.imd.emovie.dao.IDaoTicket;
 import br.ufrn.imd.emovie.dao.exception.DaoException;
 import br.ufrn.imd.emovie.model.Ticket;
+import br.ufrn.imd.emovie.model.User;
 import br.ufrn.imd.emovie.service.exception.ServiceException;
 
 public class TicketService {
+	
+	public final static long SIXHOURS = 21600000;
 
 	private static TicketService ticketService;
 	private IDaoTicket daoTicket;
@@ -62,6 +66,41 @@ public class TicketService {
 
 	public void delete(Integer id) throws DaoException {
 		daoTicket.delete(id);
+	}
+	
+	public void delete(String token, User user) throws DaoException {
+		Ticket ticket = daoTicket.getByToken(token);
+		
+		if(ticket != null && user.compareLogin(ticket.getUser())) {
+			if(compareDates(ticket)) {
+				daoTicket.delete(ticket.getId());
+			} else {
+				throw new DaoException("Passada hora mínima para realizar o cancelamento do Ticket");
+			}
+		} else {
+			throw new DaoException("Um erro ocorreu, verifique as informações digitadas");
+		}
+	}
+
+	private boolean compareDates(Ticket ticket) {
+		Integer dayWeekTicket = ticket.getExhibition().getSession().getDayWeek();
+		Date hourTicket = ticket.getExhibition().getSession().getHour();
+		Calendar calendarTicket = Calendar.getInstance();
+		calendarTicket.setTime(hourTicket);
+		
+		Calendar today = Calendar.getInstance();
+		Integer todayDayOfWeek = today.get(Calendar.DAY_OF_WEEK) - 1;
+		
+		calendarTicket.set(Calendar.MONTH, today.get(Calendar.MONTH));
+		calendarTicket.set(Calendar.YEAR, today.get(Calendar.YEAR));
+		calendarTicket.set(Calendar.DAY_OF_MONTH, today.get(Calendar.DAY_OF_MONTH));
+		
+		Integer differenceDay = Math.abs(dayWeekTicket - todayDayOfWeek);
+		calendarTicket.add(Calendar.DATE, differenceDay);
+		
+		long diferenceHours = calendarTicket.getTimeInMillis() - today.getTimeInMillis();
+		
+		return (diferenceHours >= SIXHOURS ? true : false);
 	}
 
 	/**

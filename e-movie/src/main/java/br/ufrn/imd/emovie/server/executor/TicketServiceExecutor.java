@@ -153,9 +153,12 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 
 	@Override
 	public boolean processPostDelete(Map<String, Object> requestParams) {
-		int id = Integer.parseInt((String) requestParams.get("id"));
+		String token = (String) requestParams.get("token");
+		User user = new User();
 		try {
-			ticketService.delete(id);
+			user.setEmail((String) requestParams.get("email"));
+			user.setPassword((String) requestParams.get("password"));
+			ticketService.delete(token, user);
 			return true;
 		} catch (DaoException e) {
 			// TODO Auto-generated catch block
