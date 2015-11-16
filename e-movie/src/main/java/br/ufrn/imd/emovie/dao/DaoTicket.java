@@ -44,7 +44,7 @@ public class DaoTicket extends DaoGeneric<Ticket> implements IDaoTicket {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public Ticket findByChairExhibition(Ticket ticket) {
+	public Ticket findByChairAndExhibition(Ticket ticket) {
 		EntityManager entityManager = getEntityManager();
 		List<Ticket> tickets = entityManager.createQuery("FROM Ticket WHERE chairNumber = '" + ticket.getChairNumber() + "' AND exhibition.id = " + ticket.getExhibition().getId()).getResultList();
 		entityManager.close();

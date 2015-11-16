@@ -172,17 +172,21 @@ public class TicketService {
 	 * @throws ServiceException
 	 */
 	private void validateTicket(Ticket ticket) throws ServiceException {
-		Ticket foundChair = daoTicket.findByChairExhibition(ticket);	
-		
-		Integer occupedChairsByInternet = daoTicket.countTicketsInternet(ticket.getExhibition().getId());
-		Integer totalOccupedChairs = daoTicket.countTicketsAll(ticket.getExhibition().getId());
+		Ticket foundTicket = daoTicket.findByChairAndExhibition(ticket);	
+		if(foundTicket != null) {
+			throw new ServiceException("Já existe um ticket comprado para essa mesma cadeira e sessão");
+		}
 		
 		Map<String, Integer> exhibitionChairState = chairStateService.getExhibitionChairState(ticket.getExhibition());
 		int totalRoomChairs = exhibitionChairState.size();
 		
-		if(foundChair != null) {
-			throw new ServiceException("Já existe um ticket comprado para essa mesma cadeira e sessão");
+		String selectedChair = ticket.getChairNumber();
+		if(!exhibitionChairState.containsKey(selectedChair)) {
+			throw new ServiceException("A cadeira selecionada não é existente na sala dessa exibição.");
 		}
+		
+		Integer occupedChairsByInternet = daoTicket.countTicketsInternet(ticket.getExhibition().getId());
+		Integer totalOccupedChairs = daoTicket.countTicketsAll(ticket.getExhibition().getId());
 		
 		if((ticket.getPurchaseLocation() == PurchaseLocation.INTERNET) && (occupedChairsByInternet >= ((int) Math.round(totalRoomChairs * ONLINE_SALES_PERCENT)))) {
 			throw new ServiceException("Limite de compras pela internet atingido.");

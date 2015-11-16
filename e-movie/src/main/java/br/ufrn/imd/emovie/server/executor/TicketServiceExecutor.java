@@ -66,7 +66,6 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 	@Override
 	public String processGetOther(HttpExchange httpExchange, List<String> urlParams,
 			Map<String, Object> requestParams) {
-		// TODO
 		String operation = (String) requestParams.get("operation");
 		if (operation.equals(RETRIEVE_TOKEN)) {
 			String token = (String) requestParams.get("token");
@@ -154,7 +153,7 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 		String strPurchaseLocation = (String) requestParams.get("purchase_location");
 		
 		//TODO To remove
-		System.out.println(String.format("%d - %s:%s", id, email, password));
+//		System.out.println(String.format("%d - %s:%s", id, email, password));
 
 		PurchaseLocation purchaseLocation;
 		if (strPurchaseLocation.equals("local")) {

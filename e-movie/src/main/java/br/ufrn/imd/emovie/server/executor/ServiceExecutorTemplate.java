@@ -55,7 +55,9 @@ public abstract class ServiceExecutorTemplate implements IServiceExecutorTemplat
 				processPOST(httpExchange, urlParams, requestParams);
 			}
 		} catch(Exception e) {
-			LOGGER.error("Error on request handling: " + e.getMessage(), e);
+			//TODO Solve null pointer
+//			LOGGER.error("Error on request handling: " + e.getMessage(), e);
+			LOGGER.error("Error on request handling: " + e.getMessage());
 			sendEmptyResponse(httpExchange);
 		}
 	}
@@ -81,7 +83,9 @@ public abstract class ServiceExecutorTemplate implements IServiceExecutorTemplat
 			LOGGER.error(e.getMessage(), e);
 			sendEmptyResponse(httpExchange);
 		} catch (Exception e) {
-			LOGGER.error(e.getMessage(), e);
+			//TODO Solve null pointer
+//			LOGGER.error(e.getMessage(), e);
+			LOGGER.error(e.getMessage());
 			sendEmptyResponse(httpExchange);
 		}
 	}
@@ -108,7 +112,9 @@ public abstract class ServiceExecutorTemplate implements IServiceExecutorTemplat
 			
 			sendResponseJSON(httpExchange, resultJSON);
 		} catch(Exception e) {
-			LOGGER.error(e.getMessage(), e);
+			//TODO Solve null pointer
+//			LOGGER.error(e.getMessage(), e);
+			LOGGER.error(e.getMessage());
 			String resultJSON = createErrorJSONResponse(e.getMessage());
 			sendResponseJSON(httpExchange, resultJSON);
 		}
