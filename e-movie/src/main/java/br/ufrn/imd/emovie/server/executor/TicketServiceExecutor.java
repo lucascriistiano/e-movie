@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.microtripit.mandrillapp.lutung.model.MandrillApiError;
@@ -29,6 +31,8 @@ import br.ufrn.imd.emovie.service.exception.ServiceException;
 @SuppressWarnings("restriction")
 public class TicketServiceExecutor extends ServiceExecutorTemplate {
 
+	private static final Logger LOGGER = Logger.getLogger(TicketServiceExecutor.class.getName());
+	
 	private static final String RETRIEVE_TOKEN = "retrieveToken";
 
 	private TicketService ticketService;
@@ -47,8 +51,7 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 	public String processGetFindOne(Integer id) throws DaoException {
 		Ticket ticket = ticketService.find(id);
 		Gson gson = new Gson();
-		String jsonMovie = gson.toJson(ticket); // returns empty string if
-												// ticket == null
+		String jsonMovie = gson.toJson(ticket); // returns empty string if ticket == null
 		return jsonMovie;
 	}
 
@@ -56,8 +59,7 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 	public String processGetFindAll() throws DaoException {
 		List<Ticket> tickets = ticketService.listAll();
 		Gson gson = new Gson();
-		String jsonMovie = gson.toJson(tickets); // returns empty string if
-													// movie == null
+		String jsonMovie = gson.toJson(tickets); // returns empty string if movie == null
 		return jsonMovie;
 	}
 
@@ -92,7 +94,7 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 		} else if (strPurchaseLocation.equals("internet")) {
 			purchaseLocation = PurchaseLocation.INTERNET;
 		} else {
-			System.out.println("Invalid purchase location value '" + strPurchaseLocation + "'");
+			LOGGER.warn("Invalid purchase location value '" + strPurchaseLocation + "'");
 			return createErrorJSONResponse("Invalid purchase location value '" + strPurchaseLocation + "'");
 		}
 
@@ -124,23 +126,20 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 				responseJson.addProperty("ticket", objectJSON);
 				return responseJson.toString();
 			} else {
-				System.out.println("Invalid authentication info");
+				LOGGER.warn("Invalid authentication info");
 				return createErrorJSONResponse("Invalid authentication info");
 			}
-		} catch (ServiceException | DaoException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println(e.getMessage());
+		} catch (ServiceException e) {
+			LOGGER.warn(e.getMessage());
+			return createErrorJSONResponse(e.getMessage());
+		} catch (DaoException e) {
+			LOGGER.error(e.getMessage(), e);
 			return createErrorJSONResponse(e.getMessage());
 		} catch (MandrillApiError | IOException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println("Error on sending mail");
+			LOGGER.error("Error on sending mail", e);
 			return createErrorJSONResponse("Error on sending mail");
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println("Error on saving changes on database");
+			LOGGER.error("Error on saving changes on database", e);
 			return createErrorJSONResponse("Error on saving changes on database");
 		}
 	}
@@ -153,6 +152,9 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 		String email = (String) requestParams.get("email");
 		String password = (String) requestParams.get("password");
 		String strPurchaseLocation = (String) requestParams.get("purchase_location");
+		
+		//TODO To remove
+		System.out.println(String.format("%d - %s:%s", id, email, password));
 
 		PurchaseLocation purchaseLocation;
 		if (strPurchaseLocation.equals("local")) {
@@ -160,7 +162,7 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 		} else if (strPurchaseLocation.equals("internet")) {
 			purchaseLocation = PurchaseLocation.INTERNET;
 		} else {
-			System.out.println("Invalid purchase location value '" + strPurchaseLocation + "'");
+			LOGGER.warn("Invalid purchase location value '" + strPurchaseLocation + "'");
 			return createErrorJSONResponse("Invalid purchase location value '" + strPurchaseLocation + "'");
 		}
 
@@ -196,23 +198,20 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 				responseJson.addProperty("ticket", objectJSON);
 				return responseJson.toString();
 			} else {
-				System.out.println("Invalid authentication info");
+				LOGGER.warn("Invalid authentication info");
 				return createErrorJSONResponse("Invalid authentication info");
 			}
-		} catch (ServiceException | DaoException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println(e.getMessage());
+		} catch (ServiceException e) {
+			LOGGER.warn(e.getMessage());
+			return createErrorJSONResponse(e.getMessage());
+		} catch (DaoException e) {
+			LOGGER.error(e.getMessage(), e);
 			return createErrorJSONResponse(e.getMessage());
 		} catch (MandrillApiError | IOException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println("Error on sending mail");
+			LOGGER.error("Error on sending mail", e);
 			return createErrorJSONResponse("Error on sending mail");
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println("Error on saving changes on database");
+			LOGGER.error("Error on saving changes on database", e);
 			return createErrorJSONResponse("Error on saving changes on database");
 		}
 	}
@@ -230,10 +229,11 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 			responseJson.addProperty("success", true);
 			responseJson.addProperty("token", token);
 			return responseJson.toString();
-		} catch (ServiceException | DaoException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println(e.getMessage());
+		} catch (ServiceException e) {
+			LOGGER.warn(e.getMessage());
+			return createErrorJSONResponse(e.getMessage());
+		} catch (DaoException e) {
+			LOGGER.error(e.getMessage(), e);
 			return createErrorJSONResponse(e.getMessage());
 		}
 	}
@@ -241,7 +241,7 @@ public class TicketServiceExecutor extends ServiceExecutorTemplate {
 	@Override
 	public String processPostOther(HttpExchange httpExchange, List<String> urlParams,
 			Map<String, Object> requestParams) {
-		System.out.println("Operation not supported");
+		LOGGER.warn("Operation not supported");
 		return createErrorJSONResponse("Operation not supported");
 	}
 

@@ -5,6 +5,8 @@ import java.util.concurrent.Semaphore;
 
 import javax.persistence.PersistenceException;
 
+import org.apache.log4j.Logger;
+
 import com.sun.net.httpserver.HttpContext;
 import com.sun.net.httpserver.HttpServer;
 
@@ -19,6 +21,8 @@ import br.ufrn.imd.emovie.server.RequestHandler;
 @SuppressWarnings("restriction")
 public class Application {
 
+	private static final Logger LOGGER = Logger.getLogger(Application.class.getName());
+	
 	private static final int PORT = 8000;
 	public static final Semaphore write_sem = new Semaphore(1, true);
 	
@@ -31,9 +35,9 @@ public class Application {
 	        server.setExecutor(null); // creates a default executor
 	        server.start();
 	    	
-	        System.out.println("[LOG] Started server on port " + PORT);
+	        LOGGER.info("Servidor iniciado na porta " + PORT);
         } catch(PersistenceException e) {
-        	System.out.println("[LOG] Não foi possível conectar com a base de dados. Verifique se o servidor de dados se encontra ativo.");
+        	LOGGER.error("Não foi possível conectar com a base de dados. Verifique se o servidor de dados se encontra ativo.", e);
         }
     }
 

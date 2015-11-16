@@ -4,10 +4,11 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.apache.log4j.Logger;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
@@ -29,7 +30,9 @@ import br.ufrn.imd.emovie.server.executor.UserServiceExecutor;
 @SuppressWarnings("restriction")
 public class RequestHandler implements HttpHandler {
 
-	private static int REQUEST_NUMBER = 1;
+	private static final Logger LOGGER = Logger.getLogger(RequestHandler.class.getName());
+	
+	private static long REQUEST_NUMBER = 1;
 	private Map<String, IServiceExecutorTemplate> serviceExecutors;
 
 	public RequestHandler() {
@@ -51,7 +54,7 @@ public class RequestHandler implements HttpHandler {
 		String path = requestURI.getPath();
 		path = path.replaceFirst(contextPath, "");
 
-		System.out.println(new Date() + " - Processing request #" + REQUEST_NUMBER + ": " + httpExchange.getRequestMethod() + " " + path);
+		LOGGER.info("Processing request #" + REQUEST_NUMBER + ": " + httpExchange.getRequestMethod() + " " + path);
 		REQUEST_NUMBER++;
 		
 		String[] splittedPath = path.split("/");

@@ -3,6 +3,8 @@ package br.ufrn.imd.emovie.server.executor;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import com.google.gson.Gson;
 import com.sun.net.httpserver.HttpExchange;
 
@@ -17,6 +19,8 @@ import br.ufrn.imd.emovie.service.ChairStateService;
 @SuppressWarnings("restriction")
 public class ChairServiceExecutor extends ServiceExecutorTemplate {
 
+	private static final Logger LOGGER = Logger.getLogger(TicketServiceExecutor.class.getName());
+	
 	private ChairStateService chairStateService;
 
 	public ChairServiceExecutor() {
@@ -32,8 +36,7 @@ public class ChairServiceExecutor extends ServiceExecutorTemplate {
 	public String processGetFindAll() throws DaoException {
 		List<Map<String, Integer>> chairStates = chairStateService.listAll();
 		Gson gson = new Gson();
-		String jsonMovie = gson.toJson(chairStates); // returns empty string if
-														// chairStates == null
+		String jsonMovie = gson.toJson(chairStates); // returns empty string if chairStates == null
 		return jsonMovie;
 	}
 
@@ -49,10 +52,8 @@ public class ChairServiceExecutor extends ServiceExecutorTemplate {
 				String jsonTicket = gson.toJson(chairState); // returns empty string if chairState == null
 				return jsonTicket;
 			} catch (DaoException e) {
-				// TODO Implement log
-				e.printStackTrace();
-				System.out.println(e.getMessage());
-				return "";
+				LOGGER.error(e.getMessage(), e);
+				return createErrorJSONResponse(e.getMessage());
 			}
 		}
 
@@ -61,26 +62,26 @@ public class ChairServiceExecutor extends ServiceExecutorTemplate {
 
 	@Override
 	public String processPostCreate(Map<String, Object> requestParams) {
-		System.out.println("Operation not supported");
+		LOGGER.warn("Operation not supported");
 		return createErrorJSONResponse("Operation not supported");
 	}
 
 	@Override
 	public String processPostUpdate(Map<String, Object> requestParams) {
-		System.out.println("Operation not supported");
+		LOGGER.warn("Operation not supported");
 		return createErrorJSONResponse("Operation not supported");
 	}
 
 	@Override
 	public String processPostDelete(Map<String, Object> requestParams) {
-		System.out.println("Operation not supported");
+		LOGGER.warn("Operation not supported");
 		return createErrorJSONResponse("Operation not supported");
 	}
 
 	@Override
 	public String processPostOther(HttpExchange httpExchange, List<String> urlParams,
 			Map<String, Object> requestParams) {
-		System.out.println("Operation not supported");
+		LOGGER.warn("Operation not supported");
 		return createErrorJSONResponse("Operation not supported");
 	}
 }

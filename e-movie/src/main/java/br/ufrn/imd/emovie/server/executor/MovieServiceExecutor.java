@@ -6,6 +6,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.sun.net.httpserver.HttpExchange;
@@ -23,6 +25,8 @@ import br.ufrn.imd.emovie.service.exception.ServiceException;
 @SuppressWarnings("restriction")
 public class MovieServiceExecutor extends ServiceExecutorTemplate {
 
+	private static final Logger LOGGER = Logger.getLogger(MovieServiceExecutor.class.getName());
+	
 	private MovieService movieService;
 
 	public MovieServiceExecutor() {
@@ -33,8 +37,7 @@ public class MovieServiceExecutor extends ServiceExecutorTemplate {
 	public String processGetFindOne(Integer id) throws DaoException {
 		Movie movie = movieService.find(id);
 		Gson gson = new Gson();
-		String jsonMovie = gson.toJson(movie); // returns empty string if movie
-												// == null
+		String jsonMovie = gson.toJson(movie); // returns empty string if movie == null
 		return jsonMovie;
 	}
 
@@ -42,15 +45,13 @@ public class MovieServiceExecutor extends ServiceExecutorTemplate {
 	public String processGetFindAll() throws DaoException {
 		List<Movie> movies = movieService.listAll();
 		Gson gson = new Gson();
-		String jsonMovie = gson.toJson(movies); // returns empty string if movie
-												// == null
+		String jsonMovie = gson.toJson(movies); // returns empty string if movie == null
 		return jsonMovie;
 	}
 
 	@Override
 	public String processGetOther(HttpExchange httpExchange, List<String> urlParams,
 			Map<String, Object> requestParams) {
-		// TODO Auto-generated method stub
 		return "";
 	}
 
@@ -78,14 +79,13 @@ public class MovieServiceExecutor extends ServiceExecutorTemplate {
 			responseJson.addProperty("movie", objectJSON);
 			return responseJson.toString();
 		} catch (ParseException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println("Invalid date format");
+			LOGGER.error("Invalid date format", e);
 			return createErrorJSONResponse("Invalid date format");
-		} catch (ServiceException | DaoException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println(e.getMessage());
+		} catch (ServiceException e) {
+			LOGGER.warn(e.getMessage());
+			return createErrorJSONResponse(e.getMessage());
+		} catch (DaoException e) {
+			LOGGER.error(e.getMessage(), e);
 			return createErrorJSONResponse(e.getMessage());
 		}
 	}
@@ -115,14 +115,13 @@ public class MovieServiceExecutor extends ServiceExecutorTemplate {
 			responseJson.addProperty("movie", objectJSON);
 			return responseJson.toString();
 		} catch (ParseException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println("Invalid date format");
+			LOGGER.error("Invalid date format", e);
 			return createErrorJSONResponse("Invalid date format");
-		} catch (ServiceException | DaoException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println(e.getMessage());
+		} catch (ServiceException e) {
+			LOGGER.warn(e.getMessage());
+			return createErrorJSONResponse(e.getMessage());
+		} catch (DaoException e) {
+			LOGGER.error(e.getMessage(), e);
 			return createErrorJSONResponse(e.getMessage());
 		}
 	}
@@ -138,9 +137,7 @@ public class MovieServiceExecutor extends ServiceExecutorTemplate {
 			responseJson.addProperty("id", id);
 			return responseJson.toString();
 		} catch (DaoException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println(e.getMessage());
+			LOGGER.error(e.getMessage(), e);
 			return createErrorJSONResponse(e.getMessage());
 		}
 	}
@@ -148,7 +145,7 @@ public class MovieServiceExecutor extends ServiceExecutorTemplate {
 	@Override
 	public String processPostOther(HttpExchange httpExchange, List<String> urlParams,
 			Map<String, Object> requestParams) {
-		System.out.println("Operation not supported");
+		LOGGER.warn("Operation not supported");
 		return createErrorJSONResponse("Operation not supported");
 	}
 }

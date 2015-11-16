@@ -1,0 +1,743 @@
+2015-11-15 22:47:22 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-15 22:47:22 INFO  Version:37 - HHH000412: Hibernate Core {5.0.2.Final}
+2015-11-15 22:47:22 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2015-11-15 22:47:22 INFO  Environment:317 - HHH000021: Bytecode provider name : javassist
+2015-11-15 22:47:22 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.0.Final}
+2015-11-15 22:47:22 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-15 22:47:22 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-15 22:47:22 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-15 22:47:22 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-15 22:47:22 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-15 22:47:22 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-15 22:47:22 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-15 22:47:22 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-15 22:47:23 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-15 22:47:23 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-15 22:47:23 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-15 22:47:23 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-15 22:47:23 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-15 22:47:23 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-15 22:47:23 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-15 22:47:23 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-15 22:47:23 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-15 22:47:23 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-15 22:47:24 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-15 22:47:24 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-15 22:47:24 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-15 22:47:24 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-15 22:47:24 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-15 22:47:24 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-15 22:47:24 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-15 22:47:24 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-15 22:47:24 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-15 22:47:24 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-15 22:47:24 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-15 22:47:24 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-15 22:47:24 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-15 22:47:24 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-15 22:47:24 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-15 22:47:24 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-15 22:47:24 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-15 22:47:24 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-15 22:47:24 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-15 22:47:24 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-15 22:47:24 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-15 22:47:24 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-15 22:47:24 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-15 22:47:25 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-15 22:47:25 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-15 22:47:25 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-15 22:47:25 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-15 22:47:25 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-15 22:47:25 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-15 22:47:25 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-15 22:47:25 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-15 22:47:25 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-15 22:47:25 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-15 22:47:25 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-15 22:47:25 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-15 22:47:25 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-15 22:47:25 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-15 22:47:25 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-15 22:47:25 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-15 22:47:25 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-15 22:47:25 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-15 22:47:25 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-15 22:47:25 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-15 22:47:25 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-15 22:47:25 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-15 22:47:25 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-15 22:47:25 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-15 22:47:25 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-15 22:47:25 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-15 22:47:25 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-15 22:47:25 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-15 22:47:25 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-15 22:47:25 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-15 22:47:25 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-15 22:47:25 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-15 22:47:25 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-15 22:47:26 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-15 22:47:26 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-15 22:47:26 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-15 22:47:26 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-15 22:47:26 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-15 22:47:26 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-15 22:47:26 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-15 22:47:26 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-15 22:47:26 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-15 22:47:26 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-15 22:47:26 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-15 22:47:26 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-15 23:01:57 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-15 23:01:57 INFO  Version:37 - HHH000412: Hibernate Core {5.0.2.Final}
+2015-11-15 23:01:57 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2015-11-15 23:01:57 INFO  Environment:317 - HHH000021: Bytecode provider name : javassist
+2015-11-15 23:01:57 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.0.Final}
+2015-11-15 23:01:57 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-15 23:01:57 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-15 23:01:57 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-15 23:01:57 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-15 23:01:57 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-15 23:01:57 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-15 23:01:58 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-15 23:01:58 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-15 23:01:58 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-15 23:01:58 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-15 23:01:58 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-15 23:01:58 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-15 23:01:58 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-15 23:01:58 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-15 23:01:58 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-15 23:01:58 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-15 23:01:58 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-15 23:01:58 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-15 23:01:58 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-15 23:01:59 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-15 23:01:59 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-15 23:01:59 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-15 23:01:59 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-15 23:01:59 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-15 23:01:59 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-15 23:01:59 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-15 23:01:59 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-15 23:01:59 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-15 23:01:59 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-15 23:01:59 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-15 23:01:59 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-15 23:01:59 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-15 23:01:59 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-15 23:01:59 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-15 23:01:59 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-15 23:01:59 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-15 23:01:59 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-15 23:01:59 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-15 23:01:59 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-15 23:01:59 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-15 23:01:59 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-15 23:02:00 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-15 23:02:00 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-15 23:02:00 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-15 23:02:00 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-15 23:02:00 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-15 23:02:00 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-15 23:02:00 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-15 23:02:00 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-15 23:02:00 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-15 23:02:00 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-15 23:02:00 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-15 23:02:00 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-15 23:02:00 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-15 23:02:00 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-15 23:02:00 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-15 23:02:00 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-15 23:02:00 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-15 23:02:00 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-15 23:02:00 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-15 23:02:00 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-15 23:02:00 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-15 23:02:00 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-15 23:02:00 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-15 23:02:00 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-15 23:02:00 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-15 23:02:00 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-15 23:02:00 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-15 23:02:00 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-15 23:02:00 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-15 23:02:00 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-15 23:02:00 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-15 23:02:00 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-15 23:02:00 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-15 23:02:01 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-15 23:02:01 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-15 23:02:01 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-15 23:02:01 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-15 23:02:01 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-15 23:02:01 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-15 23:02:01 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-15 23:02:01 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-15 23:02:01 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-15 23:02:01 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-15 23:02:01 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-15 23:02:01 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-15 23:02:01 INFO  Application:38 - Servidor iniciado na porta 8000
+2015-11-16 00:13:10 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-16 00:13:11 INFO  Version:37 - HHH000412: Hibernate Core {5.0.2.Final}
+2015-11-16 00:13:11 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2015-11-16 00:13:11 INFO  Environment:317 - HHH000021: Bytecode provider name : javassist
+2015-11-16 00:13:11 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.0.Final}
+2015-11-16 00:13:11 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:13:11 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-16 00:13:11 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-16 00:13:11 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-16 00:13:11 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-16 00:13:11 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-16 00:13:11 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-16 00:13:11 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-16 00:13:12 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-16 00:13:12 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-16 00:13:12 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:13:12 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-16 00:13:12 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-16 00:13:12 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-16 00:13:12 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-16 00:13:12 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-16 00:13:12 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-16 00:13:12 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-16 00:13:12 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-16 00:13:13 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:13:13 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-16 00:13:13 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:13:13 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-16 00:13:13 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-16 00:13:13 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-16 00:13:13 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-16 00:13:13 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-16 00:13:13 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-16 00:13:13 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-16 00:13:13 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-16 00:13:13 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:13:13 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-16 00:13:13 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:13:13 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-16 00:13:13 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-16 00:13:13 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-16 00:13:13 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-16 00:13:13 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-16 00:13:13 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-16 00:13:13 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-16 00:13:13 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-16 00:13:14 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:13:14 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-16 00:13:14 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:13:14 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-16 00:13:14 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-16 00:13:14 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-16 00:13:14 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-16 00:13:14 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-16 00:13:14 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-16 00:13:14 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-16 00:13:14 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-16 00:13:14 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:13:14 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-16 00:13:14 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:13:14 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-16 00:13:14 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-16 00:13:14 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-16 00:13:14 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-16 00:13:14 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-16 00:13:14 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-16 00:13:14 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-16 00:13:14 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-16 00:13:14 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:13:14 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-16 00:13:14 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:13:14 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-16 00:13:14 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-16 00:13:14 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-16 00:13:14 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-16 00:13:14 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-16 00:13:14 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-16 00:13:14 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-16 00:13:14 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-16 00:13:15 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:13:15 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-16 00:13:15 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:13:15 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-16 00:13:15 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-16 00:13:15 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-16 00:13:15 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-16 00:13:15 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-16 00:13:15 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-16 00:13:15 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-16 00:13:15 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-16 00:13:15 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:13:15 INFO  Application:38 - Servidor iniciado na porta 8000
+2015-11-16 00:13:23 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-11-16 00:13:52 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-11-16 00:15:06 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-11-16 00:15:06 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-11-16 00:15:06 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-11-16 00:15:06 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-11-16 00:15:06 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:15:06 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:15:06 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:15:06 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:15:06 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:15:06 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:15:06 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:15:06 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:15:06 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:23:56 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-16 00:23:56 INFO  Version:37 - HHH000412: Hibernate Core {5.0.2.Final}
+2015-11-16 00:23:56 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2015-11-16 00:23:56 INFO  Environment:317 - HHH000021: Bytecode provider name : javassist
+2015-11-16 00:23:56 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.0.Final}
+2015-11-16 00:23:56 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:23:56 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-16 00:23:56 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-16 00:23:56 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-16 00:23:56 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-16 00:23:56 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-16 00:23:56 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-16 00:23:56 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-16 00:23:57 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-16 00:23:57 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-16 00:23:57 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:23:57 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-16 00:23:57 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-16 00:23:57 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-16 00:23:57 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-16 00:23:57 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-16 00:23:57 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-16 00:23:57 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-16 00:23:57 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-16 00:23:57 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:23:57 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-16 00:23:57 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:23:57 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-16 00:23:57 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-16 00:23:57 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-16 00:23:57 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-16 00:23:57 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-16 00:23:57 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-16 00:23:57 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-16 00:23:58 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-16 00:23:58 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:23:58 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-16 00:23:58 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:23:58 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-16 00:23:58 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-16 00:23:58 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-16 00:23:58 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-16 00:23:58 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-16 00:23:58 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-16 00:23:58 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-16 00:23:58 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-16 00:23:58 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:23:58 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-16 00:23:58 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:23:58 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-16 00:23:58 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-16 00:23:58 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-16 00:23:58 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-16 00:23:58 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-16 00:23:58 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-16 00:23:58 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-16 00:23:58 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-16 00:23:59 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:23:59 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-16 00:23:59 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:23:59 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-16 00:23:59 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-16 00:23:59 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-16 00:23:59 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-16 00:23:59 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-16 00:23:59 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-16 00:23:59 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-16 00:23:59 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-16 00:23:59 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:23:59 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-16 00:23:59 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:23:59 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-16 00:23:59 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-16 00:23:59 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-16 00:23:59 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-16 00:23:59 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-16 00:23:59 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-16 00:23:59 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-16 00:23:59 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-16 00:23:59 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:23:59 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-16 00:23:59 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:23:59 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-16 00:23:59 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-16 00:23:59 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-16 00:23:59 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-16 00:23:59 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-16 00:23:59 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-16 00:23:59 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-16 00:23:59 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-16 00:24:00 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:24:00 INFO  Application:38 - Servidor iniciado na porta 8000
+2015-11-16 00:25:30 INFO  RequestHandler:59 - Processing request #1: GET /movies
+2015-11-16 00:25:30 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-11-16 00:29:52 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-16 00:29:52 INFO  Version:37 - HHH000412: Hibernate Core {5.0.2.Final}
+2015-11-16 00:29:52 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2015-11-16 00:29:52 INFO  Environment:317 - HHH000021: Bytecode provider name : javassist
+2015-11-16 00:29:52 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.0.Final}
+2015-11-16 00:29:52 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:29:52 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-16 00:29:52 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-16 00:29:52 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-16 00:29:52 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-16 00:29:52 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-16 00:29:52 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-16 00:29:52 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-16 00:29:53 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-16 00:29:53 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-16 00:29:53 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:29:53 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-16 00:29:53 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-16 00:29:53 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-16 00:29:53 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-16 00:29:53 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-16 00:29:53 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-16 00:29:53 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-16 00:29:53 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-16 00:29:53 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:29:53 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-16 00:29:53 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:29:53 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-16 00:29:53 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-16 00:29:53 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-16 00:29:53 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-16 00:29:53 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-16 00:29:54 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-16 00:29:54 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-16 00:29:54 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-16 00:29:54 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:29:54 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-16 00:29:54 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:29:54 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-16 00:29:54 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-16 00:29:54 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-16 00:29:54 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-16 00:29:54 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-16 00:29:54 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-16 00:29:54 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-16 00:29:54 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-16 00:29:54 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:29:54 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-16 00:29:54 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:29:54 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-16 00:29:54 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-16 00:29:54 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-16 00:29:54 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-16 00:29:54 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-16 00:29:54 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-16 00:29:54 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-16 00:29:54 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-16 00:29:55 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:29:55 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-16 00:29:55 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:29:55 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-16 00:29:55 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-16 00:29:55 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-16 00:29:55 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-16 00:29:55 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-16 00:29:55 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-16 00:29:55 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-16 00:29:55 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-16 00:29:55 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:29:55 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-16 00:29:55 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:29:55 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-16 00:29:55 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-16 00:29:55 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-16 00:29:55 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-16 00:29:55 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-16 00:29:55 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-16 00:29:55 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-16 00:29:55 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-16 00:29:55 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:29:55 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: e-movie
+	...]
+2015-11-16 00:29:55 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:29:55 INFO  DriverManagerConnectionProviderImpl:149 - HHH000401: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/emovie?autoReconnect=true]
+2015-11-16 00:29:55 INFO  DriverManagerConnectionProviderImpl:158 - HHH000046: Connection properties: {user=emovie, password=****}
+2015-11-16 00:29:55 INFO  DriverManagerConnectionProviderImpl:163 - HHH000006: Autocommit mode: false
+2015-11-16 00:29:55 INFO  DriverManagerConnectionProviderImpl:85 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2015-11-16 00:29:55 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2015-11-16 00:29:55 INFO  LobCreatorBuilderImpl:124 - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2015-11-16 00:29:55 INFO  BasicTypeRegistry:138 - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@59fd97a8
+2015-11-16 00:29:55 INFO  SchemaUpdate:101 - HHH000228: Running hbm2ddl schema update
+2015-11-16 00:29:56 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:29:56 INFO  Application:38 - Servidor iniciado na porta 8000
+2015-11-16 00:30:04 INFO  RequestHandler:57 - Processing request #1: GET /movies
+2015-11-16 00:30:04 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2015-11-16 00:32:00 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:32:01 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:32:01 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:32:01 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:32:01 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:32:01 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:32:02 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:32:02 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:32:02 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:32:02 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:32:02 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:32:02 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:32:03 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:32:03 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:32:03 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:32:03 INFO  Application:38 - Servidor iniciado na porta 8000
+2015-11-16 00:32:17 INFO  RequestHandler:57 - Processing request #1: GET /movies/112
+2015-11-16 00:32:17 INFO  RequestHandler:57 - Processing request #2: GET /exhibitions
+2015-11-16 00:36:33 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:36:34 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:36:34 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:36:34 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:36:35 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:36:35 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:36:35 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:36:35 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:36:35 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:36:35 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:36:36 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:36:36 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:36:36 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:36:36 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:36:37 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:36:37 INFO  Application:38 - Servidor iniciado na porta 8000
+2015-11-16 00:37:00 INFO  RequestHandler:57 - Processing request #1: POST /tickets
+2015-11-16 00:37:00 INFO  RequestHandler:57 - Processing request #2: POST /tickets
+2015-11-16 00:37:00 WARN  ServiceExecutorTemplate:105 - Param 'operation' not received
+2015-11-16 00:37:00 INFO  RequestHandler:57 - Processing request #3: POST /tickets
+2015-11-16 00:37:00 INFO  RequestHandler:57 - Processing request #4: POST /tickets
+2015-11-16 00:37:00 INFO  RequestHandler:57 - Processing request #5: POST /tickets
+2015-11-16 00:37:00 INFO  RequestHandler:57 - Processing request #6: POST /tickets
+2015-11-16 00:37:00 INFO  RequestHandler:57 - Processing request #7: POST /tickets
+2015-11-16 00:37:00 INFO  RequestHandler:57 - Processing request #8: POST /tickets
+2015-11-16 00:37:00 INFO  RequestHandler:57 - Processing request #9: POST /tickets
+2015-11-16 00:37:01 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:37:01 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:37:01 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:37:01 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:37:01 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:37:01 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:37:01 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:41:04 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:41:05 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:41:06 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:41:06 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:41:06 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:41:06 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:41:06 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:41:06 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:41:07 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:41:07 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:41:07 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:41:07 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:41:08 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:41:08 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:41:08 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:41:08 INFO  Application:38 - Servidor iniciado na porta 8000
+2015-11-16 00:43:05 INFO  RequestHandler:57 - Processing request #1: POST /tickets
+2015-11-16 00:43:05 INFO  RequestHandler:57 - Processing request #2: POST /tickets
+2015-11-16 00:43:06 INFO  RequestHandler:57 - Processing request #3: POST /tickets
+2015-11-16 00:43:06 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:43:06 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:43:06 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:43:06 INFO  RequestHandler:57 - Processing request #4: POST /tickets
+2015-11-16 00:43:06 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:43:06 INFO  RequestHandler:57 - Processing request #5: POST /tickets
+2015-11-16 00:43:06 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:43:06 INFO  RequestHandler:57 - Processing request #6: POST /tickets
+2015-11-16 00:43:06 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:43:06 INFO  RequestHandler:57 - Processing request #7: POST /tickets
+2015-11-16 00:43:06 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:43:07 INFO  RequestHandler:57 - Processing request #8: POST /tickets
+2015-11-16 00:43:07 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:43:07 INFO  RequestHandler:57 - Processing request #9: POST /tickets
+2015-11-16 00:43:07 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:44:23 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:44:24 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:44:25 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:44:25 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:44:25 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:44:25 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:44:25 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:44:25 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:44:26 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:44:26 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:44:26 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:44:26 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:44:26 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:44:26 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:44:27 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:44:27 INFO  Application:38 - Servidor iniciado na porta 8000
+2015-11-16 00:44:28 INFO  RequestHandler:57 - Processing request #1: POST /tickets
+2015-11-16 00:44:29 INFO  RequestHandler:57 - Processing request #2: POST /tickets
+2015-11-16 00:44:29 INFO  RequestHandler:57 - Processing request #3: POST /tickets
+2015-11-16 00:44:29 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:44:29 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:44:29 INFO  RequestHandler:57 - Processing request #4: POST /tickets
+2015-11-16 00:44:29 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:44:29 INFO  RequestHandler:57 - Processing request #5: POST /tickets
+2015-11-16 00:44:29 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:44:30 INFO  RequestHandler:57 - Processing request #6: POST /tickets
+2015-11-16 00:44:30 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:44:30 INFO  RequestHandler:57 - Processing request #7: POST /tickets
+2015-11-16 00:44:30 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:44:30 INFO  RequestHandler:57 - Processing request #8: POST /tickets
+2015-11-16 00:44:30 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:44:30 INFO  RequestHandler:57 - Processing request #9: POST /tickets
+2015-11-16 00:44:30 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:45:28 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:45:29 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:45:29 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:45:29 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:45:30 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:45:30 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:45:30 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:45:30 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:45:30 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:45:30 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:45:31 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:45:31 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:45:31 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:45:31 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:45:31 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:45:31 INFO  Application:38 - Servidor iniciado na porta 8000
+2015-11-16 00:45:35 INFO  RequestHandler:57 - Processing request #1: POST /tickets
+2015-11-16 00:45:35 INFO  RequestHandler:57 - Processing request #2: POST /tickets
+2015-11-16 00:45:35 INFO  RequestHandler:57 - Processing request #3: POST /tickets
+2015-11-16 00:45:35 INFO  RequestHandler:57 - Processing request #4: POST /tickets
+2015-11-16 00:45:35 INFO  RequestHandler:57 - Processing request #5: POST /tickets
+2015-11-16 00:45:35 INFO  RequestHandler:57 - Processing request #6: POST /tickets
+2015-11-16 00:45:35 INFO  RequestHandler:57 - Processing request #7: POST /tickets
+2015-11-16 00:45:35 INFO  RequestHandler:57 - Processing request #8: POST /tickets
+2015-11-16 00:45:35 INFO  RequestHandler:57 - Processing request #9: POST /tickets
+2015-11-16 00:45:36 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:45:36 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:45:36 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:45:36 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:45:36 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:45:36 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:45:36 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:45:36 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:45:36 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:46:13 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:46:14 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:46:14 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:46:15 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:46:15 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:46:15 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:46:15 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:46:15 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:46:16 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:46:16 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:46:16 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:46:16 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:46:16 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:46:16 WARN  DriverManagerConnectionProviderImpl:76 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2015-11-16 00:46:17 WARN  EntityManagerFactoryRegistry:63 - HHH000436: Entity manager factory name (e-movie) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2015-11-16 00:46:17 INFO  Application:38 - Servidor iniciado na porta 8000
+2015-11-16 00:46:18 INFO  RequestHandler:57 - Processing request #1: POST /tickets
+2015-11-16 00:46:18 INFO  RequestHandler:57 - Processing request #2: POST /tickets
+2015-11-16 00:46:18 INFO  RequestHandler:57 - Processing request #3: POST /tickets
+2015-11-16 00:46:18 INFO  RequestHandler:57 - Processing request #4: POST /tickets
+2015-11-16 00:46:18 INFO  RequestHandler:57 - Processing request #5: POST /tickets
+2015-11-16 00:46:18 INFO  RequestHandler:57 - Processing request #6: POST /tickets
+2015-11-16 00:46:18 INFO  RequestHandler:57 - Processing request #7: POST /tickets
+2015-11-16 00:46:18 INFO  RequestHandler:57 - Processing request #8: POST /tickets
+2015-11-16 00:46:18 INFO  RequestHandler:57 - Processing request #9: POST /tickets
+2015-11-16 00:46:19 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:46:19 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:46:19 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:46:19 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:46:19 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:46:19 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:46:19 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão
+2015-11-16 00:46:19 WARN  TicketServiceExecutor:205 - Já existe um ticket comprado para essa mesma cadeira e sessão

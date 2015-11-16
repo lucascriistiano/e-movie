@@ -3,6 +3,8 @@ package br.ufrn.imd.emovie.server.executor;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.sun.net.httpserver.HttpExchange;
@@ -20,6 +22,8 @@ import br.ufrn.imd.emovie.service.exception.ServiceException;
 @SuppressWarnings("restriction")
 public class RoomServiceExecutor extends ServiceExecutorTemplate {
 
+	private static final Logger LOGGER = Logger.getLogger(RoomServiceExecutor.class.getName());
+	
 	private RoomService roomService;
 
 	public RoomServiceExecutor() {
@@ -30,8 +34,7 @@ public class RoomServiceExecutor extends ServiceExecutorTemplate {
 	public String processGetFindOne(Integer id) throws DaoException {
 		Room room = roomService.find(id);
 		Gson gson = new Gson();
-		String jsonMovie = gson.toJson(room); // returns empty string if room ==
-												// null
+		String jsonMovie = gson.toJson(room); // returns empty string if room == null
 		return jsonMovie;
 	}
 
@@ -39,15 +42,13 @@ public class RoomServiceExecutor extends ServiceExecutorTemplate {
 	public String processGetFindAll() throws DaoException {
 		List<Room> rooms = roomService.listAll();
 		Gson gson = new Gson();
-		String jsonMovie = gson.toJson(rooms); // returns empty string if room
-												// == null
+		String jsonMovie = gson.toJson(rooms); // returns empty string if room == null
 		return jsonMovie;
 	}
 
 	@Override
 	public String processGetOther(HttpExchange httpExchange, List<String> urlParams,
 			Map<String, Object> requestParams) {
-		// TODO Auto-generated method stub
 		return "";
 	}
 
@@ -64,10 +65,11 @@ public class RoomServiceExecutor extends ServiceExecutorTemplate {
 			responseJson.addProperty("success", true);
 			responseJson.addProperty("room", objectJSON);
 			return responseJson.toString();
-		} catch (ServiceException | DaoException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println(e.getMessage());
+		} catch (ServiceException e) {
+			LOGGER.warn(e.getMessage());
+			return createErrorJSONResponse(e.getMessage());
+		} catch (DaoException e) {
+			LOGGER.error(e.getMessage(), e);
 			return createErrorJSONResponse(e.getMessage());
 		}
 	}
@@ -86,10 +88,11 @@ public class RoomServiceExecutor extends ServiceExecutorTemplate {
 			responseJson.addProperty("success", true);
 			responseJson.addProperty("room", objectJSON);
 			return responseJson.toString();
-		} catch (ServiceException | DaoException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println(e.getMessage());
+		} catch (ServiceException e) {
+			LOGGER.warn(e.getMessage());
+			return createErrorJSONResponse(e.getMessage());
+		} catch (DaoException e) {
+			LOGGER.error(e.getMessage(), e);
 			return createErrorJSONResponse(e.getMessage());
 		}
 	}
@@ -105,9 +108,7 @@ public class RoomServiceExecutor extends ServiceExecutorTemplate {
 			responseJson.addProperty("id", id);
 			return responseJson.toString();
 		} catch (DaoException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println(e.getMessage());
+			LOGGER.error(e.getMessage(), e);
 			return createErrorJSONResponse(e.getMessage());
 		}
 	}
@@ -115,7 +116,7 @@ public class RoomServiceExecutor extends ServiceExecutorTemplate {
 	@Override
 	public String processPostOther(HttpExchange httpExchange, List<String> urlParams,
 			Map<String, Object> requestParams) {
-		System.out.println("Operation not supported");
+		LOGGER.warn("Operation not supported");
 		return createErrorJSONResponse("Operation not supported");
 	}
 }

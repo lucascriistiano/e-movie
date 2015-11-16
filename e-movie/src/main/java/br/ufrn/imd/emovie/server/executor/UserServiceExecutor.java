@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.microtripit.mandrillapp.lutung.model.MandrillApiError;
@@ -25,6 +27,8 @@ import br.ufrn.imd.emovie.service.exception.ServiceException;
 @SuppressWarnings("restriction")
 public class UserServiceExecutor extends ServiceExecutorTemplate {
 
+	private static final Logger LOGGER = Logger.getLogger(UserServiceExecutor.class.getName());
+	
 	private static final String LOGIN = "login";
 
 	private UserService userService;
@@ -39,8 +43,7 @@ public class UserServiceExecutor extends ServiceExecutorTemplate {
 	public String processGetFindOne(Integer id) throws DaoException {
 		User user = userService.find(id);
 		Gson gson = new Gson();
-		String jsonMovie = gson.toJson(user); // returns empty string if user ==
-												// null
+		String jsonMovie = gson.toJson(user); // returns empty string if user == null
 		return jsonMovie;
 	}
 
@@ -48,8 +51,7 @@ public class UserServiceExecutor extends ServiceExecutorTemplate {
 	public String processGetFindAll() throws DaoException {
 		List<User> users = userService.listAll();
 		Gson gson = new Gson();
-		String jsonMovie = gson.toJson(users); // returns empty string if user
-												// == null
+		String jsonMovie = gson.toJson(users); // returns empty string if user == null
 		return jsonMovie;
 	}
 
@@ -69,9 +71,7 @@ public class UserServiceExecutor extends ServiceExecutorTemplate {
 				String jsonTicket = gson.toJson(user);
 				return jsonTicket;
 			} catch (DaoException e) {
-				// TODO Implement log
-				e.printStackTrace();
-				System.out.println(e.getMessage());
+				LOGGER.error(e.getMessage(), e);
 				return createErrorJSONResponse(e.getMessage());
 			}
 		}
@@ -96,15 +96,14 @@ public class UserServiceExecutor extends ServiceExecutorTemplate {
 			responseJson.addProperty("success", true);
 			responseJson.addProperty("user", objectJSON);
 			return responseJson.toString();
-		} catch (ServiceException | DaoException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println(e.getMessage());
+		} catch (ServiceException e) {
+			LOGGER.warn(e.getMessage());
+			return createErrorJSONResponse(e.getMessage());
+		} catch (DaoException e) {
+			LOGGER.error(e.getMessage(), e);
 			return createErrorJSONResponse(e.getMessage());
 		} catch (MandrillApiError | IOException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println("Error on sending mail");
+			LOGGER.error("Error on sending mail", e);
 			return createErrorJSONResponse("Error on sending mail");
 		}
 	}
@@ -126,10 +125,11 @@ public class UserServiceExecutor extends ServiceExecutorTemplate {
 			responseJson.addProperty("success", true);
 			responseJson.addProperty("user", objectJSON);
 			return responseJson.toString();
-		} catch (ServiceException | DaoException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println(e.getMessage());
+		} catch (ServiceException e) {
+			LOGGER.warn(e.getMessage());
+			return createErrorJSONResponse(e.getMessage());
+		} catch (DaoException e) {
+			LOGGER.error(e.getMessage(), e);
 			return createErrorJSONResponse(e.getMessage());
 		}
 	}
@@ -145,9 +145,7 @@ public class UserServiceExecutor extends ServiceExecutorTemplate {
 			responseJson.addProperty("id", id);
 			return responseJson.toString();
 		} catch (DaoException e) {
-			// TODO Implement log
-			e.printStackTrace();
-			System.out.println(e.getMessage());
+			LOGGER.error(e.getMessage(), e);
 			return createErrorJSONResponse(e.getMessage());
 		}
 	}
@@ -155,7 +153,7 @@ public class UserServiceExecutor extends ServiceExecutorTemplate {
 	@Override
 	public String processPostOther(HttpExchange httpExchange, List<String> urlParams,
 			Map<String, Object> requestParams) {
-		System.out.println("Operation not supported");
+		LOGGER.warn("Operation not supported");
 		return createErrorJSONResponse("Operation not supported");
 	}
 }
