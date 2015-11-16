@@ -182,7 +182,7 @@ public class TicketService {
 		
 		String selectedChair = ticket.getChairNumber();
 		if(!exhibitionChairState.containsKey(selectedChair)) {
-			throw new ServiceException("A cadeira selecionada não é existente na sala dessa exibição.");
+			throw new ServiceException("A cadeira selecionada (" + selectedChair + ") não é existente na sala dessa exibição.");
 		}
 		
 		Integer occupedChairsByInternet = daoTicket.countTicketsInternet(ticket.getExhibition().getId());
