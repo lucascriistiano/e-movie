@@ -19,12 +19,12 @@ import br.ufrn.imd.emovie.server.RequestHandler;
  *
  */
 @SuppressWarnings("restriction")
-public class Application {
+public class Server {
 
-	private static final Logger LOGGER = Logger.getLogger(Application.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(Server.class.getName());
 	
 	private static final int PORT = 8000;
-	public static final Semaphore write_sem = new Semaphore(1, true);
+	public static final Semaphore writeSemaphore = new Semaphore(1, true);
 	
     public static void main(String[] args) throws Exception {
         HttpServer server = HttpServer.create(new InetSocketAddress(PORT), 0);

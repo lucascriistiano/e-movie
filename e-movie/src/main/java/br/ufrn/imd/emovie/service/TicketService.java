@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import br.ufrn.imd.emovie.Application;
+import br.ufrn.imd.emovie.Server;
 import br.ufrn.imd.emovie.dao.DaoTicket;
 import br.ufrn.imd.emovie.dao.IDaoTicket;
 import br.ufrn.imd.emovie.dao.exception.DaoException;
@@ -65,7 +65,7 @@ public class TicketService {
 		String token = generateToken(ticket.getUser().getId());
 		ticket.setToken(token);
 		
-		Application.write_sem.acquire();
+		Server.writeSemaphore.acquire();
 		try {
 			if(compareDates(ticket, TICKET_BUY_TIME_LIMIT)) {
 				validateTicket(ticket);
@@ -74,12 +74,12 @@ public class TicketService {
 				throw new ServiceException("Passada a hora limite para realizar a compra de Tickets para a exibição");
 			}
 		} finally {
-			Application.write_sem.release();
+			Server.writeSemaphore.release();
 		}
 	}
 
 	public void update(Ticket ticket) throws ServiceException, DaoException, InterruptedException {
-		Application.write_sem.acquire();
+		Server.writeSemaphore.acquire();
 		try {
 			if(compareDates(ticket, TICKET_CHANGE_TIME_LIMIT)) {
 				validateTicket(ticket);
@@ -88,7 +88,7 @@ public class TicketService {
 				throw new ServiceException("Passada hora limite para realizar a troca da sessão dessa exibição");
 			}
 		} finally {
-			Application.write_sem.release();
+			Server.writeSemaphore.release();
 		}
 	}
 
