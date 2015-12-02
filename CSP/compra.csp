@@ -1,0 +1,20 @@
+channel exibicao:{0..14}
+channel cadeira:{0..99}
+channel compra, cadastro, cancelamento, troca
+channel id:{1..}
+
+COMPRA = exibicao?x -> cadeira?x -> ESCOLHA
+
+CADASTRO = SKIP
+
+CANCELAMENTO = SKIP
+
+TROCA = SKIP
+
+ESCOLHA = compra?id -> COMPRA
+          []
+          cadastro?id -> CADASTRO
+          []
+          cancelamento?id -> CANCELAMENTO
+          []
+          troca?id -> TROCA
