@@ -5,11 +5,13 @@ channel id:{1..}
 
 COMPRA = exibicao?x -> cadeira?x -> ESCOLHA
 
-CADASTRO = SKIP
+CADASTRO = email -> senha ->  SKIP
 
-CANCELAMENTO = SKIP
+CANCELAMENTO = exibicaoCancelada?x -> SKIP
 
-TROCA = SKIP
+TROCA = exibicaoCancelada?x -> exibicao?x -> cadeira?x -> SKIP
+
+CLIENTE = ESCOLHA
 
 ESCOLHA = compra?id -> COMPRA
           []
