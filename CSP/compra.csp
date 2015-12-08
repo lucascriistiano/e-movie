@@ -1,29 +1,35 @@
 datatype ocupacao = livre | ocupada
 
-channel exibicao:{0..14}
-channel cadeira : ocupacao.{0..99}
-channel compra, cadastro, cancelamento, troca
+channel exibicao:{0..4}
+channel cadeira : ocupacao.{0..4}.{0..10}
+channel comprar, cadastro, cancelar, troca
 channel email, senha, exibicaoCancelada
 channel id:{1..}
 
-CADEIRA(i) = cadeira.ocupada!i -> cadeira.livre!i -> CADEIRA(i)
+-- conjuntos
+CA = {|cadeira|}                                                  -- cadeiras
+CO = {|exibicao, cadeira|}                                        -- compras
+CAN = {|exibicao, cadeira|}                                       -- cancelamento
+CL = {|comprar, cadastro, cancelar, troca, cadeira, exibicao|}    -- cliente
 
-CADEIRAS = ||| i:{0..99} @ CADEIRA(i)
-
-COMPRA = exibicao?x -> cadeira?x -> ESCOLHA
-
-CADASTRO = email -> senha ->  SKIP
-
---CANCELAMENTO = exibicaoCancelada?x -> SKIP
-
---TROCA = exibicaoCancelada?x -> exibicao?x -> cadeira?x -> SKIP
+-- controle de cadeiras
+CADEIRA(num) = cadeira.ocupada?exib!num -> cadeira.livre?exib!num -> CADEIRA(num)
+CADEIRAS = ||| i:{0..10} @ CADEIRA(i)
 
 CLIENTE = ESCOLHA
 
-ESCOLHA = compra -> COMPRA
+ESCOLHA = comprar -> exibicao?x -> cadeira.ocupada!x?y -> ESCOLHA
+          --[]
+          --cadastro -> CADASTRO
           []
-          cadastro -> CADASTRO
+          cancelar -> exibicao?x -> cadeira.livre!x?y -> ESCOLHA
           --[]
-          --cancelamento?id -> CANCELAMENTO
-          --[]
-          --troca?id -> TROCA
+          --troca -> TROCA
+
+SISTEMA = CLIENTE [CL || CA] CADEIRAS
+
+-- verifica se o sistema é livre de deadlock
+assert SISTEMA:[deadlock free]
+
+--CADASTRO = email -> senha ->  ESCOLHA
+--TROCA = exibicaoCancelada?x -> exibicao?x -> cadeira?x -> SKIP
