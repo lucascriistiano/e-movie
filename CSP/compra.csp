@@ -1,22 +1,29 @@
+datatype ocupacao = livre | ocupada
+
 channel exibicao:{0..14}
-channel cadeira:{0..99}
+channel cadeira : ocupacao.{0..99}
 channel compra, cadastro, cancelamento, troca
+channel email, senha, exibicaoCancelada
 channel id:{1..}
+
+CADEIRA(i) = cadeira.ocupada!i -> cadeira.livre!i -> CADEIRA(i)
+
+CADEIRAS = ||| i:{0..99} @ CADEIRA(i)
 
 COMPRA = exibicao?x -> cadeira?x -> ESCOLHA
 
 CADASTRO = email -> senha ->  SKIP
 
-CANCELAMENTO = exibicaoCancelada?x -> SKIP
+--CANCELAMENTO = exibicaoCancelada?x -> SKIP
 
-TROCA = exibicaoCancelada?x -> exibicao?x -> cadeira?x -> SKIP
+--TROCA = exibicaoCancelada?x -> exibicao?x -> cadeira?x -> SKIP
 
 CLIENTE = ESCOLHA
 
-ESCOLHA = compra?id -> COMPRA
+ESCOLHA = compra -> COMPRA
           []
-          cadastro?id -> CADASTRO
-          []
-          cancelamento?id -> CANCELAMENTO
-          []
-          troca?id -> TROCA
+          cadastro -> CADASTRO
+          --[]
+          --cancelamento?id -> CANCELAMENTO
+          --[]
+          --troca?id -> TROCA
