@@ -1,35 +1,79 @@
+-- Descrição CSP - esboço
 datatype ocupacao = livre | ocupada
+datatype localCompra = local | internet
 
 channel exibicao:{0..4}
+channel compraFinalizada:{0..4}
+channel cancelamentoFinalizado:{0..4}
 channel cadeira : ocupacao.{0..4}.{0..10}
-channel comprar, cadastro, cancelar, troca
+channel comprarLocal, comprarInternet, cadastrar, cancelar, trocar
 channel email, senha, exibicaoCancelada
 channel id:{1..}
 
--- conjuntos
-CA = {|cadeira|}                                                  -- cadeiras
-CO = {|exibicao, cadeira|}                                        -- compras
-CAN = {|exibicao, cadeira|}                                       -- cancelamento
-CL = {|comprar, cadastro, cancelar, troca, cadeira, exibicao|}    -- cliente
+channel compraLocal, compraOnline
+
+maximoOnline = 4
+
+-- conjuntos de eventos
+CA = {| cadeira |}                                                  -- cadeiras
+
+CAN = {| exibicao, cadeira |}                                       -- cancelamento
+-- CL = {| comprar, cadastrar, cancelar, trocar, cadeira, exibicao |}    -- cliente
+ECE = {| exibicao, compraFinalizada, cancelamentoFinalizado |} -- eventos para compra online e exibicao
+
+ECO   = {| exibicao, cadeira |}                                        -- compras
+ECOL = {| exibicao, compraFinalizada, cancelamentoFinalizado |} -- eventos da compra online limitada
+
+EXIB = {| exibicao, compraFinalizada, cancelamentoFinalizado |} -- eventos de exibicao
+
+ESO = {| comprarInternet, comprarLocal,  exibicao, cadeira, compraFinalizada, cancelamentoFinalizado, trocar, cancelar |} -- eventos do sistema online
+--ECL = {| ??? |} -- eventos da compra local
 
 -- controle de cadeiras
 CADEIRA(num) = cadeira.ocupada?exib!num -> cadeira.livre?exib!num -> CADEIRA(num)
 CADEIRAS = ||| i:{0..10} @ CADEIRA(i)
 
-CLIENTE = ESCOLHA
+-- controle das exibicoes
+EXIBICAO(num, ocupacao) = if(ocupacao == 0) then exibicao.num -> compraFinalizada.num -> EXIBICAO(num, ocupacao+1)
+     else if(ocupacao < maximoOnline) then exibicao.num -> (compraFinalizada.num -> EXIBICAO(num, ocupacao+1)
+            [] cancelamentoFinalizado.num -> EXIBICAO(num, ocupacao-1))
+                else exibicao.num -> cancelamentoFinalizado.num -> EXIBICAO(num, ocupacao-1)
+EXIBICOES = ||| i:{0..4} @ EXIBICAO(i,0)
+-- operacao de compra local
+COMPRA_LOCAL = comprarLocal -> exibicao?x -> cadeira.ocupada!x?y -> SISTEMA_ONLINE
 
-ESCOLHA = comprar -> exibicao?x -> cadeira.ocupada!x?y -> ESCOLHA
-          --[]
-          --cadastro -> CADASTRO
-          []
-          cancelar -> exibicao?x -> cadeira.livre!x?y -> ESCOLHA
-          --[]
-          --troca -> TROCA
+-- operacao de compra online
+COMPRA = comprarInternet -> exibicao?x -> cadeira.ocupada!x?y -> compraFinalizada.x -> SISTEMA_ONLINE
 
-SISTEMA = CLIENTE [CL || CA] CADEIRAS
+-- operacao de cancelamento
+CANCELAMENTO = cancelar -> exibicao?x -> cadeira.livre!x?y -> SISTEMA_ONLINE
+
+-- operacao de troca de ingresso
+TROCAR = trocar -> exibicao?x -> cadeira.livre!x?y -> exibicao?x -> cadeira.ocupada!x?y -> SISTEMA_ONLINE
+
+--CADASTRO = cadastrar -> email -> senha -> SISTEMA_ONLINE
+
+SISTEMA_ONLINE = COMPRA
+        [] COMPRA_LOCAL
+--       [] CADASTRO
+       [] CANCELAMENTO
+       [] TROCAR
+
+
+
+SISTEMA = (SISTEMA_ONLINE [ ESO || EXIB ] EXIBICOES) [ESO || CA] CADEIRAS
+
+CLIENTE = ???
+
+UM_NOME = CLIENTE [ ?? || ?? ] SISTEMA
 
 -- verifica se o sistema é livre de deadlock
 assert SISTEMA:[deadlock free]
 
---CADASTRO = email -> senha ->  ESCOLHA
---TROCA = exibicaoCancelada?x -> exibicao?x -> cadeira?x -> SKIP
+-- Especificação do modelo esperado
+-- SPEC = ???
+
+-- Verificações de refinamentos
+-- SPEC [T= SISTEMA
+-- SPEC [F= SISTEMA
+-- SPEC [FD= SISTEMA
