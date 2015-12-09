@@ -1,79 +1,101 @@
--- Descrição CSP - esboço
-datatype ocupacao = livre | ocupada
+datatype ocupacao = liberar | reservar
 datatype localCompra = local | internet
 
-channel exibicao:{0..4}
-channel compraFinalizada:{0..4}
-channel cancelamentoFinalizado:{0..4}
-channel cadeira : ocupacao.{0..4}.{0..10}
-channel comprarLocal, comprarInternet, cadastrar, cancelar, trocar
-channel email, senha, exibicaoCancelada
-channel id:{1..}
+codsExibicoes = {1..2}
+codsCadeiras = {1..5}
 
-channel compraLocal, compraOnline
+channel exibicao:Bool.codsExibicoes
+channel compraFinalizada:codsExibicoes
+channel cancelamentoFinalizado:codsExibicoes
+channel cadeira : ocupacao.codsExibicoes.codsCadeiras
+channel comprarLocal, comprarInternet, cancelar, trocar
+channel operacaoInvalida
 
-maximoOnline = 4
+maximoOnline = 2
 
 -- conjuntos de eventos
-CA = {| cadeira |}                                                  -- cadeiras
-
-CAN = {| exibicao, cadeira |}                                       -- cancelamento
--- CL = {| comprar, cadastrar, cancelar, trocar, cadeira, exibicao |}    -- cliente
-ECE = {| exibicao, compraFinalizada, cancelamentoFinalizado |} -- eventos para compra online e exibicao
-
-ECO   = {| exibicao, cadeira |}                                        -- compras
-ECOL = {| exibicao, compraFinalizada, cancelamentoFinalizado |} -- eventos da compra online limitada
-
-EXIB = {| exibicao, compraFinalizada, cancelamentoFinalizado |} -- eventos de exibicao
-
+ECA = {| cadeira |}                                                              -- eventos de cadeiras
 ESO = {| comprarInternet, comprarLocal,  exibicao, cadeira, compraFinalizada, cancelamentoFinalizado, trocar, cancelar |} -- eventos do sistema online
---ECL = {| ??? |} -- eventos da compra local
+EXIB = {| exibicao.True, compraFinalizada, cancelamentoFinalizado |}   -- eventos de exibicao
 
--- controle de cadeiras
-CADEIRA(num) = cadeira.ocupada?exib!num -> cadeira.livre?exib!num -> CADEIRA(num)
-CADEIRAS = ||| i:{0..10} @ CADEIRA(i)
+CADEIRA(exib,num) = cadeira.reservar.exib.num -> cadeira.liberar.exib.num -> CADEIRA(exib,num)
+CADEIRAS = ||| e:codsExibicoes, n:codsCadeiras @ CADEIRA(e, n)
 
--- controle das exibicoes
-EXIBICAO(num, ocupacao) = if(ocupacao == 0) then exibicao.num -> compraFinalizada.num -> EXIBICAO(num, ocupacao+1)
-     else if(ocupacao < maximoOnline) then exibicao.num -> (compraFinalizada.num -> EXIBICAO(num, ocupacao+1)
+-- processos para controle das exibicoes
+EXIBICAO(num, ocupacao) = exibicao.True.num -> if(ocupacao == 0) then compraFinalizada.num -> EXIBICAO(num, ocupacao+1)
+     else if(ocupacao < maximoOnline) then (compraFinalizada.num -> EXIBICAO(num, ocupacao+1)
             [] cancelamentoFinalizado.num -> EXIBICAO(num, ocupacao-1))
-                else exibicao.num -> cancelamentoFinalizado.num -> EXIBICAO(num, ocupacao-1)
-EXIBICOES = ||| i:{0..4} @ EXIBICAO(i,0)
--- operacao de compra local
-COMPRA_LOCAL = comprarLocal -> exibicao?x -> cadeira.ocupada!x?y -> SISTEMA_ONLINE
+                else cancelamentoFinalizado.num -> EXIBICAO(num, ocupacao-1)
+EXIBICOES = ||| i:codsExibicoes @ EXIBICAO(i,0)
 
--- operacao de compra online
-COMPRA = comprarInternet -> exibicao?x -> cadeira.ocupada!x?y -> compraFinalizada.x -> SISTEMA_ONLINE
+-- processo de compra local
+COMPRA_LOCAL = comprarLocal -> exibicao.False?x -> cadeira.reservar!x?y -> SISTEMA_ONLINE
 
--- operacao de cancelamento
-CANCELAMENTO = cancelar -> exibicao?x -> cadeira.livre!x?y -> SISTEMA_ONLINE
+-- processo de compra online
+COMPRA = comprarInternet -> exibicao.True?x -> cadeira.reservar!x?y -> compraFinalizada.x -> SISTEMA_ONLINE
 
--- operacao de troca de ingresso
-TROCAR = trocar -> exibicao?x -> cadeira.livre!x?y -> exibicao?x -> cadeira.ocupada!x?y -> SISTEMA_ONLINE
+-- processo de cancelamento
+CANCELAMENTO = cancelar -> exibicao.True?x -> cadeira.liberar!x?y -> cancelamentoFinalizado.x -> SISTEMA_ONLINE
 
---CADASTRO = cadastrar -> email -> senha -> SISTEMA_ONLINE
+-- processo de troca de ingresso
+TROCA = trocar -> exibicao.False?x -> cadeira.liberar!x?y -> exibicao.False?x -> cadeira.reservar!x?y -> SISTEMA_ONLINE
 
-SISTEMA_ONLINE = COMPRA
-        [] COMPRA_LOCAL
---       [] CADASTRO
+-- processo de simulacao do sistema de vendas
+SISTEMA_ONLINE = COMPRA_LOCAL
        [] CANCELAMENTO
-       [] TROCAR
+       [] TROCA
+       [] COMPRA
 
+SISTEMA = (SISTEMA_ONLINE [ ESO || EXIB ] EXIBICOES) [ESO || ECA] CADEIRAS
 
-
-SISTEMA = (SISTEMA_ONLINE [ ESO || EXIB ] EXIBICOES) [ESO || CA] CADEIRAS
-
-CLIENTE = ???
-
-UM_NOME = CLIENTE [ ?? || ?? ] SISTEMA
-
--- verifica se o sistema é livre de deadlock
+-- verificacao se o sistema é liberar de deadlock
 assert SISTEMA:[deadlock free]
 
--- Especificação do modelo esperado
--- SPEC = ???
+-- ====================== ESPECIFICACOES ======================
+-- processo RUN
+RUN(A) = [] c:A @ c -> RUN(A)
+
+-- processo CHAOS
+CHAOS(A) = STOP |~| ([] x:A @ x -> CHAOS(A))
+
+TE = {| exibicao, cadeira, comprarInternet, comprarLocal, cancelar, trocar, compraFinalizada, cancelamentoFinalizado |}   -- todos os eventos
+
+-- especificação da ocupação de cadeiras
+-- ECA = {| cadeira |}
+TEMCA = {| exibicao, comprarInternet, comprarLocal, cancelar, trocar, compraFinalizada, cancelamentoFinalizado |}  -- todos os eventos menos os de cadeira
+SPEC_CADEIRA = CADEIRAS [| ECA |] CHAOS(TE)
+
+-- especificacao da compra local
+ECL   = {| comprarLocal, exibicao.False, cadeira |}  -- eventos de compra local
+TEMCL = {| comprarInternet, exibicao.True, cancelar, trocar, compraFinalizada, cancelamentoFinalizado |}   -- todos os eventos menos os de compra local
+SPEC_COMPRA_LOCAL = comprarLocal -> exibicao.False?x -> cadeira.reservar!x?y -> SPEC_COMPRA_LOCAL
+SPEC_COMPRA_LOCAL_C = SPEC_COMPRA_LOCAL [ ECL || TEMCL ] CHAOS(TEMCL)
+
+-- especificacao da compra online
+ECONL = {| comprarInternet, exibicao.True, cadeira, compraFinalizada |}  -- eventos da compra online limitada
+TEMCONL = {| comprarLocal, exibicao.False, cancelar, trocar, cancelamentoFinalizado |}   -- todos os eventos menos os de compra online
+SPEC_COMPRA = comprarInternet -> exibicao.True?x -> cadeira.reservar!x?y -> compraFinalizada.x -> SPEC_COMPRA
+SPEC_COMPRA_C = SPEC_COMPRA [ ECONL || TEMCONL ] CHAOS(TEMCONL)
+
+-- especificacao de cancelar
+ECAN = {| cancelar, exibicao.True, cadeira, cancelamentoFinalizado |}  -- eventos de cancelamento
+TEMCAN = {| comprarInternet, exibicao.False, comprarLocal, cancelar, trocar, compraFinalizada |}   -- todos os eventos menos os de cancelamento
+SPEC_CANCELAMENTO = cancelar -> exibicao.True?x -> cadeira.liberar!x?y -> SPEC_CANCELAMENTO
+SPEC_CANCELAMENTO_C = SPEC_CANCELAMENTO [ ECAN || TEMCAN ] CHAOS(TEMCAN)
+
+-- especificacao de trocar
+ETR = {| trocar, exibicao.False, cadeira |}  -- eventos de troca
+TEMTR = {| comprarInternet, exibicao.True, comprarLocal, cancelar, compraFinalizada, cancelamentoFinalizado |}   -- todos os eventos menos os de troca
+SPEC_TROCA = trocar -> exibicao.False?x -> cadeira.liberar!x?y -> exibicao.False?x -> cadeira.reservar!x?y -> SPEC_TROCA
+SPEC_TROCA_C = SPEC_TROCA [ ETR || TEMTR ] CHAOS(TEMTR)
+
+-- especificacao final
+-- FINAL_SPEC =  (((SPEC_COMPRA_LOCAL_C [||] SPEC_COMPRA_C) [||] SPEC_CANCELAMENTO_C) [||] SPEC_TROCA_C) [| TE |] SPEC_CADEIRA
+FINAL_SPEC =  (((SPEC_COMPRA_LOCAL_C [| ECA |] SPEC_COMPRA_C) [| ECA |] SPEC_CANCELAMENTO_C) [| ECA |] SPEC_TROCA_C) [| ECA |] SPEC_CADEIRA
+-- FINAL_SPEC =  (SPEC_COMPRA_LOCAL [ {| comprarInternet |} || {| comprarInternet |} ] SPEC_COMPRA ||| SPEC_CANCELAMENTO ||| SPEC_TROCA) [| TE |] SPEC_CADEIRA
+
 
 -- Verificações de refinamentos
--- SPEC [T= SISTEMA
--- SPEC [F= SISTEMA
--- SPEC [FD= SISTEMA
+assert SPEC_CADEIRA [T= SISTEMA
+assert SPEC_CADEIRA [F= SISTEMA
+assert SPEC_CADEIRA [FD= SISTEMA
