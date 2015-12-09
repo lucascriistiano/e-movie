@@ -4,7 +4,7 @@ datatype localCompra = local | internet
 codsExibicoes = {1..2}
 codsCadeiras = {1..5}
 
-channel exibicao:Bool.codsExibicoes
+channel exibicao:Bool.codsExibicoes     -- bool indica se a compra será online ou local
 channel compraFinalizada:codsExibicoes
 channel cancelamentoFinalizado:codsExibicoes
 channel cadeira : ocupacao.codsExibicoes.codsCadeiras
@@ -94,8 +94,11 @@ SPEC_TROCA_C = SPEC_TROCA [ ETR || TEMTR ] CHAOS(TEMTR)
 FINAL_SPEC =  (((SPEC_COMPRA_LOCAL_C [| ECA |] SPEC_COMPRA_C) [| ECA |] SPEC_CANCELAMENTO_C) [| ECA |] SPEC_TROCA_C) [| ECA |] SPEC_CADEIRA
 -- FINAL_SPEC =  (SPEC_COMPRA_LOCAL [ {| comprarInternet |} || {| comprarInternet |} ] SPEC_COMPRA ||| SPEC_CANCELAMENTO ||| SPEC_TROCA) [| TE |] SPEC_CADEIRA
 
-
 -- Verificações de refinamentos
 assert SPEC_CADEIRA [T= SISTEMA
 assert SPEC_CADEIRA [F= SISTEMA
 assert SPEC_CADEIRA [FD= SISTEMA
+
+-- assert FINAL_SPEC [T= SISTEMA
+-- assert FINAL_SPEC [F= SISTEMA
+-- assert FINAL_SPEC [FD= SISTEMA
